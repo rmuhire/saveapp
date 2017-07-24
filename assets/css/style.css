@@ -1,0 +1,98 @@
+body {
+    background-color: #1DB3CE;
+}
+.save_logo {
+    /*margin-top: 59px;*/
+
+    padding-bottom: 50px;
+    padding-top: 73px;
+}
+.form-style {
+    margin-top: 50px;
+}
+.form-rounded {
+    border-radius: 100px;
+    border: 1px solid #1DB3CE;
+    padding: 20px;
+    /*width: 200px;
+    height: 150px;  */
+}
+.btn-login {
+    display: block;
+    width: 100%;
+    border-radius: 25px;
+    height: 40px;
+    border: 1px solid #1DB3CE;
+    background-color: #1DB3CE;
+    color: #fff;
+    font-size: 13px;
+}
+.btn-login:hover {
+    opacity: 0.6;
+    color: #fff;
+}
+.btn-login:active {
+    outline: 0;
+    opacity: 0.6;
+    color: #fff;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.btn-login:focus {
+    outline: 0;
+    opacity: 0.6;
+    background: #1DB3CE;
+    color: #fff;
+}
+.btn-login:active:focus,
+button.btn.active:focus {
+    outline: 0;
+    opacity: 0.6;
+    background: #1DB3CE;
+    color: #fff;
+}
+.save-card {
+    border: 2px solid #fff;
+    margin-top: 50px;
+    padding: 50px;
+    background-color: #fff;
+    padding-bottom: 50px;
+    border-radius: 19px;
+}
+.welcome-text {
+    font-size: 36px;
+}
+.forgot-pwd-style {
+    color: #1DB3CE;
+    margin-top: 25px;
+}
+.reset-pwd-style {
+    font-weight: bold;
+}
+a {
+    color: inherit;
+}
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+}
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 42px; // Increase height as required
+    margin-bottom: 30px;
+    padding: 0 20px; // Now only left & right padding
+}
