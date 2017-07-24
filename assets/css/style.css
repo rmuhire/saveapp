@@ -10,13 +10,18 @@ body {
 .form-style {
     margin-top: 50px;
 }
+.form-style2 {
+    margin-top: 30px;
+}
 .form-rounded {
     border-radius: 100px;
     border: 1px solid #1DB3CE;
     padding: 20px;
     /*width: 200px;
     height: 150px;  */
+
 }
+
 .btn-login {
     display: block;
     width: 100%;
@@ -63,6 +68,9 @@ button.btn.active:focus {
 .welcome-text {
     font-size: 36px;
 }
+.organization-text{
+  font-size: 28px;
+}
 .forgot-pwd-style {
     color: #1DB3CE;
     margin-top: 25px;
@@ -88,11 +96,32 @@ a {
 }
 input[type="email"],
 input[type="password"],
-input[type="text"] {
+input[type="text"],select {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     height: 42px; // Increase height as required
     margin-bottom: 30px;
     padding: 0 20px; // Now only left & right padding
+}
+.form-rounded-select{
+  border-radius: 100px;
+  border: 1px solid  #1DB3CE;
+
+}
+
+/*sign-up hide and show*/
+.admin-details{
+  display: none;
+}
+.back-to-organization{
+  color: #1DB3CE;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  top:10px;
+}
+.term-agree-text-style{
+  color: #646464;
+  margin-top: 12px;
 }
