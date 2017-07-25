@@ -145,5 +145,7 @@ input[type="text"],select {
 }
 .confirmation-style{
   margin: 20px;
-
+}
+.changing-pwd-style {
+    margin-top: 22px;
 }

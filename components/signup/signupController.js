@@ -9,6 +9,5 @@ save.controller('SignCtrl', ['$scope', '$http','$location', function($scope,$htt
                event.preventDefault();
                 $(".admin-details").hide();
                 $(".organization-details").show();
-
             });
 }])
