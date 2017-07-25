@@ -12,7 +12,7 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
     .when('/forget-password',{
         templateUrl:'components/forget-password/forgetView.html'
     })
-    .when('/recover-password',{
+    .when('/change-password',{
         templateUrl:'components/changing-password/changingView.html'
     })
     .when('/project',{
@@ -31,6 +31,6 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
         templateUrl:'components/404/404.html'
     })
     .otherwise({
-        redirectTo: '/404'    
+        redirectTo: '/404'
     });
 }]);
