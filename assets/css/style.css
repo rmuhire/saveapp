@@ -73,7 +73,7 @@ button.btn.active:focus {
 }
 .forgot-pwd-style {
     color: #1DB3CE;
-    margin-top: 25px;
+    margin-top: 22px;
 }
 .reset-pwd-style {
     font-weight: bold;
@@ -124,4 +124,26 @@ input[type="text"],select {
 .term-agree-text-style{
   color: #646464;
   margin-top: 12px;
+}
+
+/*recovery password*/
+.recovery-text {
+    font-size: 25px;
+}
+.forgot-pwd-style2 {
+
+    margin-top: 22px;
+}
+.email-sent-confirmation{
+  display: none;
+}
+.img-center{
+  display: block;
+  margin: 0 auto;
+  padding-top: 18px;
+  padding-bottom: 10px;
+}
+.confirmation-style{
+  margin: 20px;
+
 }
