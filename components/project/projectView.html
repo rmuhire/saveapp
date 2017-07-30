@@ -1,69 +1,191 @@
-<div class="navbar navbar-inverse navbar-fixed-left">
-   <a class="navbar-brand" href="#"><img src="assets/img/save-logo.png" class="img-responsive"></a>
-   <ul class="nav navbar-nav">
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">saving-groups</a></li>
-      <li><a href="#">Map</a></li>
-   </ul>
-</div>
-<nav class="navbar navbar-default">
-   <div class="container-fluid">
-      <div class="row">
-         <!-- Brand and toggle get grouped for better mobile display -->
-         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
+<style>
+   body{
+   overflow: hidden;
+   }
+</style>
+<div class="" ng-controller="projectCtrl">
+<div  class="row">
+  <div class="col-md-2">
+    <div class="navbar  navbar-inverse navbar-fixed-left">
+      <a class="navbar-brand" href="#"><img src="assets/img/save-logo.svg" class="img-responsive"></a>
+      <ul class="nav navbar-nav">
+         <li><a href="#">Projects</a></li>
+         <li><a href="#">saving-groups</a></li>
+         <li><a href="#">Map</a></li>
+      </ul>
+   </div>
+ </div>
+  <div class="col-md-10 content">
+    <div class="row">
+   <nav  class="navbar navbar-default">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         <div class="col-md-offset-2 col-sm-offset-2 col-md-5 col-sm-5">
+            <div id="custom-search-input">
+               <div class="input-group col-md-8 col-sm-10 pull-right">
+                  <input type="text" class="  search-query form-control" placeholder="Search your query here" />
+                  <span class="input-group-btn">
+                  <button class="btn btn-danger" type="button">
+                  <span class=" glyphicon glyphicon-search"></span>
+                  </button>
+                  </span>
+               </div>
+            </div>
          </div>
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div class="col-md-offset-2 col-sm-offset-2 col-md-5 col-sm-5 ">
-               <div  id="custom-search-input">
-                  <div class="input-group col-md-8 col-sm-10 pull-right">
-                     <input type="text" class="  search-query form-control" placeholder="Search your query here" />
-                     <span class="input-group-btn">
-                     <button class="btn btn-danger" type="button">
-                     <span class=" glyphicon glyphicon-search"></span>
-                     </button>
-                     </span>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-1 col-sm-2">
-               <div class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/shape.svg" class="notification-icon">
-                  <span class="badge">2</span><span style="color:#fff" class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                     <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                     <li role="separator" class="divider"></li>
-                     <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                     <li role="separator" class="divider"></li>
-                     <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                     <li role="separator" class="divider"></li>
-                     <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col-md-4">
-               <ul class="nav navbar-nav navbar-right">
-                  <li><a><span class="profile-text">CARE INTERNATIONAL RWANDA</span><br>
-                     <span class="profile-text2">Mushimyimana Bertin</span></a>
-                  </li>
-                  <li class="dropdown">
-                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profile-icon.svg"> <span class="caret"></span></a>
-                     <ul class="dropdown-menu">
-                        <li><a href="">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                     </ul>
-                  </li>
+          <div class="col-md-1 col-sm-2">
+            <div class="dropdown">
+               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/shape.svg" class="notification-icon">
+               <span class="badge">2</span><span style="color:#fff" class="caret"></span></a>
+               <ul class="dropdown-menu">
+                  <li><a href="">Lorem ipsum dolor sit amet</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Lorem ipsum dolor sit amet</a></li>
                </ul>
             </div>
          </div>
+         <div  class="col-md-4 col-sm-4 ">
+            <ul class="nav navbar-nav navbar-right">
+               <li><a><span class="profile-text">CARE INTERNATIONAL RWANDA</span><br>
+                  <span class="profile-text2">Mushimyimana Bertin</span></a>
+               </li>
+               <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/img/profile-icon.svg"> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="">Action</a></li>
+                     <li><a href="#">Another action</a></li>
+                     <li><a href="#">Something else here</a></li>
+                     <li role="separator" class="divider"></li>
+                     <li><a href="#">Separated link</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
       </div>
+   </nav>
+ </div>
+  <div class="row">
+   <div class="col-sm-3 col-md-3">
+         <div class="panel panel-primary-left adjust-width  hide-scroll" id="style-1">
+            <div class="panel-body">
+               <div class="tab-content">
+                  <div class="tab-pane-first active" id="test">
+                     <div  id="custom-search-input">
+                        <div class="input-group col-md-12 col-sm-12 text-center">
+                           <input type="text" class="  search-query form-control" placeholder="Search your query here" />
+                           <span class="input-group-btn">
+                           <button class="btn btn-danger" type="button">
+                           <span class=" glyphicon glyphicon-search"></span>
+                           </button>
+                           </span>
+                        </div>
+                     </div>
+                     <dl>
+                        <dt>Project</dt>
+                        <dd class="edit"><a class="anchor-style"  href="">SCALE UP</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></dd>
+                        <dd class="edit"><a class="anchor-style" href="">FIRINKA</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></dd>
+                        <dd class="edit"><a class="anchor-style" href="">ONE GOAT PER CHILD</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></dd>
+                        <dd class="edit"><a class="anchor-style" href="">PROTEIN DONOR</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></dd>
+                        <dd class="edit"><a class="anchor-style" href="">AMABATI</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></dd>
+                     </dl>
+                  </div>
+               </div>
+            </div>
+         </div>
+      <!--/.well -->
    </div>
-</nav>
+   <div class="col-sm-9 col-md-9">
+         <div class="panel panel-primary hide-scroll" id="style-1">
+            <div class="panel-body">
+               <div class="tab-content">
+                  <div class="tab-pane-first active" id="test">
+                     <div class="main-content">
+                        <ul class="nav nav-tabs">
+                           <li class="partner-style active"><a data-toggle="pill" href=".home"><img src="assets/img/link.svg"> Partners</a></li>
+                           <li class="partner-style"><a data-toggle="pill" href=".menu1"><img src="assets/img/group.svg"> cycle</a></li>
+                           <li class="partner-style"><a data-toggle="pill" href=".menu2"><img src="assets/img/group.svg"> Members</a></li>
+                           <li class="partner-style"><a data-toggle="pill" href=".menu3"><img src="assets/img/group.svg"> Loan & saving</a></li>
+                           <li class="partner-style"><a data-toggle="pill" href=".menu4"><img src="assets/img/group.svg"> Assets & liability</a></li>
+                           <li class="partner-style"><a data-toggle="pill" href=".menu5"><img src="assets/img/group.svg"> Dividents</a></li>
+
+                        </ul>
+                        <div class="tab-content">
+                           <div class="home tab-pane fade in active">
+                              <h3>HOME</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu34343fdfsdfsdfsfsdfdfds.</p>
+                           </div>
+                           <div  class="menu1 tab-pane fade">
+                              <h3>Menu 1</h3>
+                              <p>Ut voilaaa ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                           </div>
+                           <div  class="menu2 tab-pane fade">
+                              <h3>Menu 1</h3>
+                              <p>Ut voilaaa ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                           </div>
+                           <div  class="menu3 tab-pane fade">
+                              <h3>Menu 1</h3>
+                              <p>Ut voilaaa ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                           </div>
+                           <div  class="menu4 tab-pane fade">
+                              <h3>Menu 1</h3>
+                              <p>Ut voilaaa ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                           </div>
+                           <div  class="menu5 tab-pane fade">
+                              <h3>Menu 1</h3>
+                              <p>Ut voilaaa ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                           </div>
+                           <div  class="menu6 tab-pane fade">
+                              <h3>Menu 1</h3>
+                              <p>Ut voilaaa ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                           </div>
+                        </div>
+                      </div>
+                     </div>
+                   </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+         <!--/.well -->
