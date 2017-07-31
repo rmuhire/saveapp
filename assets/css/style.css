@@ -27,24 +27,31 @@ dd,
 a:hover {
     text-decoration: none;
 }
-dl,
-dd:hover .pencil-icon {
+.list-group,
+li:hover .pencil-icon {
     visibility: visible;
+    opacity: 1;
+
+}
+.list-group,
+li:hover{
+    color: black;
 }
 .pencil-icon {
     visibility: hidden;
     color: #fff;
 }
 .edit:hover {
-    border: 1.90px solid #4E546C;
-    background-color: #4E546C;
-    opacity: 0.40;
+
+   background: rgb(235, 233, 233);
+    /*opacity: 0.50;*/
     border-radius: 50px;
     cursor: pointer;
     padding: 9px;
-    color: #fff;
-    font-weight: bold;
+    color: black;
+    /*font-weight: bold;*/
 }
+
 .panel-primary {
     border-color: #fff;
     position: relative;
@@ -189,9 +196,7 @@ button.btn.active:focus {
 a {
     color: inherit;
 }
-.anchor-style:hover {
-    color: #fff;
-}
+
 .footer {
     position: absolute;
     right: 0;
@@ -394,4 +399,19 @@ i {
 
 .nav-tabs  {
     padding-top:0;
+}
+
+.list-group li{
+  margin-left: 13px;
+   border-style: none;
+
+}
+.style-project-text{
+  font-size: 16px;
+  margin-top: 12px;
+  color: #181818;
+  font-weight: bold;
+}
+.box-1{
+  display: inline-block;
 }
