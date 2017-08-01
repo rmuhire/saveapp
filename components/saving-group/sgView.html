@@ -1,2 +1,92 @@
-<h1>Saving Group</h1>
-<h4>Assets, credits, cycle, dividentds, loan, members</h4>
+<style>
+   body{
+   overflow: hidden;
+   }
+</style>
+<div class="" ng-controller="projectCtrl">
+   <div  class="row">
+      <!-- col-md-2 ng-include sidebar -->
+      <div ng-include="'shared/sidebar/sidebarView.html'"></div>
+      <!-- / col-md-2 -->
+      <div class="col-md-10">
+         <div class="row">
+            <!-- ng-include navbar -->
+            <div ng-include="'shared/navbar/navbarView.html'"></div>
+            <!-- / ng-include nabar -->
+         </div>
+         <div class="row">
+            <div class="col-sm-3 col-md-3">
+               <div class="panel panel-primary-left adjust-width  hide-scroll" id="style-1">
+                  <div class="panel-body">
+                     <div class="tab-content">
+                        <div class="tab-pane-first active" id="test">
+                           <div  id="custom-search-input">
+                              <div class="input-group col-md-12 col-sm-12 text-center">
+                                 <input type="text" class="  search-query form-control" placeholder="Search your query here" />
+                                 <span class="input-group-btn">
+                                 <button class="btn btn-danger" type="button">
+                                 <span class=" glyphicon glyphicon-search"></span>
+                                 </button>
+                                 </span>
+                              </div>
+                           </div>
+                        </div>
+                        <ul class="list-group">
+                           <li class="style-project-text list-group-item">Projects</li>
+                           <li class="edit list-group-item">SCALE UP<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                           <li class="edit list-group-item">URUMURI PROJECT<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                           <li class="edit list-group-item">FIRINKA<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                           <li class="edit list-group-item">ONE GOAT PER WOMAN<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                           <li class="edit list-group-item">PROTEIN DONOR<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                           <li class="edit list-group-item">AMABATI<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <!--/.well -->
+            </div>
+            <div class="col-sm-9 col-md-9">
+               <div class="panel panel-primary hide-scroll" id="style-1">
+                  <div class="panel-body">
+                     <div class="tab-content">
+                        <div class="tab-pane-first active" id="test">
+                           <div class="main-content">
+                              <ul class="nav nav-tabs">
+                                 <li class="partner-style"><a data-toggle="pill" href=".cycle"><img src="assets/img/recycle.svg"> Cycle</a></li>
+                                 <li class="partner-style"><a data-toggle="pill" href=".members"><img src="assets/img/member.svg"> Members</a></li>
+                                 <li class="partner-style"><a data-toggle="pill" href=".loan-saving"><img src="assets/img/group.svg"> Loans & Savings</a></li>
+                                 <li class="partner-style active"><a data-toggle="pill" href=".asset"><img src="assets/img/asset.svg"> asset-liabilities</a></li>
+                                 <li class="partner-style"><a data-toggle="pill" href=".credit"><img src="assets/img/credit.svg"> Credits</a></li>
+                                 <li class="partner-style"><a data-toggle="pill" href=".dividend"><img src="assets/img/icon.svg"> Dividends</a></li>
+                              </ul>
+                              <div class="tab-content">
+                                 <div  class="cycle tab-pane fade">
+                                    <div ng-include="'components/saving-group/cycle/cycleView.html'"></div>
+                                 </div>
+                                 <div  class="members tab-pane fade">
+                                    <div ng-include="'components/saving-group/member/memberView.html'"></div>
+                                 </div>
+                                 <div  class="loan-saving tab-pane fade">
+                                    <div ng-include="'components/saving-group/loan-saving/lsView.html'"></div>
+                                 </div>
+                                 <div class="asset tab-pane fade in active">
+                                    <div ng-include="'components/saving-group/asset-liabilities/alView.html'"></div>
+                                 </div>
+                                 <div  class="credit tab-pane fade">
+                                    <div ng-include="'components/saving-group/credits/creditView.html'"></div>
+                                 </div>
+                                 <div  class="dividend tab-pane fade">
+                                    <div ng-include="'components/saving-group/dividends/dividendView.html'"></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!--/.well -->

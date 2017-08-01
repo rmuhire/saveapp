@@ -1,2 +1,230 @@
-<h1>Agent</h1>
- 
+<div class="" ng-controller="AgentCtrl">
+   <div class="agent-view">
+      <!--TABLE DISPLAY-->
+      <table class="table mytable">
+         <thead>
+            <tr class="table-header">
+               <th>Agent</th>
+               <th>District</th>
+               <th>Sector</th>
+               <th>Cell</th>
+               <th>SGs</th>
+               <th>Members</th>
+               <th>Projects</th>
+               <th>Status</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr class="table-raw-style" id="agent-details">
+               <td>Uwimana jean claude</td>
+               <td>9</td>
+               <td>9</th>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>Active</td>
+            </tr>
+            <tr>
+               <td>Uwimana jean claude</td>
+               <td>9</td>
+               <td>9</th>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>Pending</td>
+            </tr>
+            <tr>
+               <td>Uwimana jean claude</td>
+               <td>9</td>
+               <td>9</th>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>Active</td>
+            </tr>
+            <tr>
+               <td>Uwimana jean claude</td>
+               <td>9</td>
+               <td>9</th>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>Active</td>
+            </tr>
+            <tr>
+               <td>Uwimana jean claude</td>
+               <td>9</td>
+               <td>9</th>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>Active</td>
+            </tr>
+            <tr>
+               <td>Uwimana jean claude</td>
+               <td>9</td>
+               <td>9</th>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>Active</td>
+            </tr>
+            <tr>
+               <td>Uwimana jean claude</td>
+               <td>9</td>
+               <td>9</th>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>Active</td>
+            </tr>
+            <tr>
+               <td>Uwimana jean claude</td>
+               <td>9</td>
+               <td>9</th>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>9</td>
+               <td>Active</td>
+            </tr>
+         </tbody>
+      </table>
+      <!--Pagination-->
+      <div class="text-center">
+         <div class="pagination">
+            <a class="pagination-style" href="#">&lang; Back</a>
+            <a class="pagination-link" href="#">1</a>
+            <a class="pagination-link" href="#">2</a>
+            <a class="pagination-link" href="#">3</a>
+            <a href="" class="more">&hellip;</a>
+            <a  class="pagination-link" href="#">12</a>
+            <a class="pagination-style" href="#">Next &rang;</a>
+         </div>
+      </div>
+      <!--Add agent-->
+      <div class="fa-icon">
+         <button class="btn btn-lg  btn-circle btn-add-new-agent"><img src="assets/img/add.svg"></button>
+         <span class="btn-floating fab-tip">Add agent</span>
+      </div>
+   </div>
+   <!--ISOLATED AGENT VIEW-->
+   <div class="isolated-agent-view" id="isolated-agent-view">
+      <div class="row">
+         <div class="col-md-8">
+            <p class="agent-name inline">UWIMANA J.CLAUDE</p>
+            <div class="fa-icon inline">
+               <button class="btn btn-lg  btn-circle2 btn-add-new-agent"><img class="pencil-style" src="assets/img/pencil2.svg"></button>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <p class="details-header">Agent details</p>
+            <p class="details-agent">Names: <span>uwimana j.claude</span></p>
+            <p class="details-agent">Email: <span>uwimana@saving.com</span></p>
+            <p class="details-agent">Tel: <span>+250 789 177 515</span></p>
+            <p class="details-agent">ID No: <span>112122878728727987</span></p>
+            <p class="details-agent">Birth Date: <span> 01/01/017</span></p>
+            <p class="details-agent">Level of education: <span> Secondary</span></p>
+         </div>
+         <div class="col-md-6">
+            <p class="details-header">Intervention Area</p>
+            <p class="details-agent">Province</p>
+            <p class="details-agent">District</p>
+            <p class="details-agent">Sector</p>
+            <p class="details-agent">Cell</p>
+            <p class="details-agent">Village</p>
+            <p class="details-agent">Attachments</p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <p class="details-header">Address</p>
+            <p class="details-agent">Province</p>
+            <p class="details-agent">District</p>
+            <p class="details-agent">Sector</p>
+            <p class="details-agent">Cell</p>
+            <p class="details-agent">Village</p>
+            <p class="details-agent">Attachments</p>
+         </div>
+         <div class="col-md-6">
+            <p class="details-header">Financial institution Details</p>
+            <p class="details-agent">Type: <span>MFI</span></p>
+            <p class="details-agent">Name: <span>EQUITY LTD</span></p>
+            <p class="details-agent">Account: <span>018971878574</span></p>
+            <p class="details-agent">Telco walet: <span>112122878728727987</span></p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <p class="back-to-agent-view">Back</p>
+         </div>
+      </div>
+   </div>
+   <!--Adding-New-Agent -->
+   <div class="add-new-agent" id="add-new-agent">
+      <div class="row">
+         <div class="col-md-6">
+            <p class="agent-name inline">Add new agent</p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-4">
+            <form>
+               <p class="details-header">Intervention Area</p>
+               <div class="form-group new-agent">
+                  <input type="text" class=" form-control form-rounded margin-bottom" placeholder="full name">
+               </div>
+               <div class="form-group new-agent">
+                  <input type="email" class="form-control form-rounded margin-bottom" placeholder="email">
+               </div>
+               <div class="form-group  new-agent">
+                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="Phone number">
+               </div>
+               <p class="details-header2">Project Affiliation</p>
+               <div class="form-group new-agent">
+                  <input type="text" class="form-control form-rounded" placeholder="Project Name">
+               </div>
+               <button type="submit" class="btn btn-login2" id="btn-next">NEXT</button>
+            </form>
+         </div>
+         <div class="col-md-4">
+            <form class="new-agent">
+               <p class="details-header">Intervention Area</p>
+               <div class="form-group new-agent">
+                  <input type="text" class=" form-control form-rounded margin-bottom" placeholder="Province">
+               </div>
+               <div class="form-group">
+                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="District">
+               </div>
+               <div class="form-group">
+                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="Sector">
+               </div>
+               <div class="form-group">
+                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="Cell">
+               </div>
+               <div class="form-group">
+                  <input type="text" class="form-control form-rounded " placeholder="Village">
+               </div>
+            </form>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <p class="back-to-agent-detail">Back</p>
+         </div>
+      </div>
+   </div>
+</div>

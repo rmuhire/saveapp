@@ -4,7 +4,7 @@ save.controller('SignCtrl', ['$scope', '$http','$location', function($scope,$htt
                 $(".organization-details").hide();
                 $(".admin-details").show();
 
-            });
+            }); 
             $(".back-to-organization").click(function(event){
                event.preventDefault();
                 $(".admin-details").hide();
