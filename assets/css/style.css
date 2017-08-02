@@ -136,6 +136,7 @@ li:hover{
     border: 1px solid #1DB3CE;
     padding: 20px;
 }
+
 .btn-login {
     display: block;
     width: 100%;
@@ -349,6 +350,37 @@ select {
     color: #777777;
     z-index: 50;
 }
+
+#custom-search-input2 {
+    margin: 0;
+    /*margin-top: 10px;*/
+    padding: 0;
+}
+#custom-search-input2 .search-query {
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 20px;
+}
+#custom-search-input2 button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+
+    padding: 1px 4px;
+    margin-top: 1px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #777777;
+    z-index: 50;
+}
+
 .notification-icon {
     margin-top: 22px;
 }
@@ -686,3 +718,85 @@ i {
 .btn:active {
     outline: none !important;
 }
+
+/*Saving group*/
+.change-bg-color{
+  background-color: #ede7f6 !important;
+  /*opacity: 0.20;*/
+}
+.select-box {
+  display: inline-block;
+}
+.nav-header-padding{
+  padding-top: 8px;
+}
+.multiselect{
+  border-radius: 100px;
+  height: 30px;
+  font-size: 12px;
+  line-height: 18px;
+
+
+}
+.sg-details-title{
+  font: 15px "bold";
+}
+.sg-details{
+  font: 13px "regular";
+}
+.sg-details:hover{
+  color: #1DB3CE;
+  cursor: pointer;
+}
+.text_style{
+  text-align: center;
+  font: 14px "bold";
+  color: #1DB3CE;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+.left-dropdown{
+  left: 80%;
+  right: auto;
+  text-align: left;
+  transform: translate(-80%, 0);
+}
+.footer2 {
+  display: block;
+  margin: 0 auto;
+   bottom: 20px;
+   height: 100px;
+   position: absolute;
+}
+/*.multiselect-container {
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    margin-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    padding: 0;
+}*/
+  /*.dropdown-menu{
+   position: absolute;
+   top: 100%;
+   left: 0;
+   z-index: 1000;
+   display: none;
+   float: left;
+   min-width: 160px;
+   padding: 5px 0;
+   margin: 2px 0 0;
+   font-size: 14px;
+   text-align: left;
+   list-style: none;
+   background-color: #fff;
+   -webkit-background-clip: padding-box;
+   background-clip: padding-box;
+   border: 1px solid #ccc;
+   border: 1px solid rgba(0,0,0,.15);
+   border-radius: 4px;
+   -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+   box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}*/

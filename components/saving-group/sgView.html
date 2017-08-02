@@ -3,7 +3,7 @@
    overflow: hidden;
    }
 </style>
-<div class="" ng-controller="projectCtrl">
+<div class="" ng-controller="sgViewCtrl">
    <div  class="row">
       <!-- col-md-2 ng-include sidebar -->
       <div ng-include="'shared/sidebar/sidebarView.html'"></div>
@@ -17,12 +17,93 @@
          <div class="row">
             <div class="col-sm-3 col-md-3">
                <div class="panel panel-primary-left adjust-width  hide-scroll" id="style-1">
+                  <nav class="navbar navbar-default change-bg-color">
+                     <div class="container-fluid">
+                        <div class="navbar-header nav-header-padding">
+                           <div class="select-box">
+                              <select class="first-select multiselect"  data-placeholder="URUMURI R..."  id="ddlCars01" multiple="multiple">
+                                 <option value="1">Option 1</option>
+                                 <option value="2">Option 2</option>
+                                 <option value="3">Option 3</option>
+                                 <option value="4">Option 4</option>
+                                 <option value="5">Option 5</option>
+                                 <option value="6">Option 6</option>
+                              </select>
+                           </div>
+                           <div class="select-box">
+                              <select  data-placeholder="Select All..." id="ddlCars02" multiple="multiple">
+                                 <option value="1">Option 1</option>
+                                 <option value="2">Option 2</option>
+                                 <option value="3">Option 3</option>
+                                 <option value="4">Option 4</option>
+                                 <option value="5">Option 5</option>
+                                 <option value="6">Option 6</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
                   <div class="panel-body">
                      <div class="tab-content">
-                        <div class="tab-pane-first active" id="test">
-                           <div  id="custom-search-input">
-                              <div class="input-group col-md-12 col-sm-12 text-center">
-                                 <input type="text" class="  search-query form-control" placeholder="Search your query here" />
+                        <p class="text_style">URUMURI RWAJU PROJECT (12)</p>
+                        <div class="table-responsive">
+                           <table class="table">
+                              <tbody>
+                                 <tr>
+                                    <th class="sg-details-title">Saving groups</th>
+                                    <td></td>
+                                    <th class="sg-details-title">District</th>
+                                    <td></td>
+                                 </tr>
+                                 <tr class="sg-details">
+                                    <td>DUFASHANYE</td>
+                                    <td></td>
+                                    <td>Gasabo</td>
+                                    <td></td>
+                                 </tr>
+                                 <tr class="sg-details">
+                                    <td>TERIMBERE</td>
+                                    <td></td>
+                                    <td>Kicukiro</td>
+                                    <td></td>
+                                 </tr>
+                                 <tr class="sg-details">
+                                    <td>DUKUNDANE</td>
+                                    <td></td>
+                                    <td>Kirehe</td>
+                                    <td></td>
+                                 </tr>
+                                 <tr class="sg-details">
+                                    <td>KUNDA UMURIMO</td>
+                                    <td ></td>
+                                    <td>Nyaruguru</td>
+                                    <td></td>
+                                 </tr>
+                                 <tr class="sg-details">
+                                    <td>TERIMBERE</td>
+                                    <td></td>
+                                    <td>Gatsibo</td>
+                                    <td></td>
+                                 </tr>
+                                 <tr class="sg-details">
+                                    <td>TERIMBERE</td>
+                                    <td></td>
+                                    <td>Nyamata</td>
+                                    <td></td>
+                                 </tr>
+                                 <tr class="sg-details">
+                                    <td>TERIMBERE</td>
+                                    <td></td>
+                                    <td>Nyagatare</td>
+                                    <td></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <div class="footer2">
+                           <div  id="custom-search-input2">
+                              <div class="input-group text-center">
+                                 <input type="text" class="search-query form-control" placeholder="Search your query here" />
                                  <span class="input-group-btn">
                                  <button class="btn btn-danger" type="button">
                                  <span class=" glyphicon glyphicon-search"></span>
@@ -31,15 +112,6 @@
                               </div>
                            </div>
                         </div>
-                        <ul class="list-group">
-                           <li class="style-project-text list-group-item">Projects</li>
-                           <li class="edit list-group-item">SCALE UP<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">URUMURI PROJECT<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">FIRINKA<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">ONE GOAT PER WOMAN<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">PROTEIN DONOR<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">AMABATI<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                        </ul>
                      </div>
                   </div>
                </div>
