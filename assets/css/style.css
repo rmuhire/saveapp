@@ -516,6 +516,11 @@ i {
        font-size: 13px;
        line-height: 14px;
     }
+    .setting-password input[type="text"]{
+      height: 20px;
+      font-size: 13px;
+      line-height: 14px;
+    }
 
     .btn-circle{
     height: 50px;
@@ -848,25 +853,32 @@ i {
   text-align: center;
   color: #000000;
   font: 16px "medium";
-  margin-top: 12px;
-
+  
 }
 .table-member>tbody>tr>td, .table-member>tbody>tr>th, .table-member>tfoot>tr>td, .table-member>tfoot>tr>th, .table-member>thead>tr>td, .table-member>thead>tr>th {
     padding: 20px;
+    text-align: left;
 }
 .table-member>thead>tr>th{
-  text-align: center;
+  text-align: left;
   color: #9CAEB1;
 }
 
 .group-member{
-  margin-left: -2em;
-  font: 13px "regular";
+  /*margin-left: -5em;*/
+  font: 14px "regular";
+  color: #000000! important;
 }
+.table-header-first{
+  background-color:#E6ECED;
+
+}
+
 .total-member{
-  margin-left: 5em;
+  /*margin-left: 5em;*/
   color: #2F2F2F;
   font: 14px "regular";
+  color: #000000! important;
 }
 /*.circle-saving
     {
@@ -893,8 +905,8 @@ i {
         display: inline-block;
         }*/
         .circles {
-  display: flex;
-}
+       display: inline-block;
+        }
 .circle-with-text {
   background:#fff;
   justify-content: center;
@@ -902,12 +914,12 @@ i {
   border-radius: 100%;
   border: 3px solid #EBC7DE ;
   text-align: center;
-  margin: 5px 20px;
-  font-size: 15px;
+  margin: 5px 0px;
+  font-size: 13px;
   padding: 15px;
-  display: flex;
-  height: 180px;
-  width: 180px;
+  display: inline-block;
+  height: 125px;
+  width: 125px;
   color:black;
 }
 .circle-with-text2 {
@@ -917,12 +929,12 @@ i {
   border-radius: 100%;
   border: 3px solid #9CCD88;
   text-align: center;
-  margin: 5px 20px;
-  font-size: 15px;
+  margin: 5px 0px;
+  font-size: 13px;
   padding: 15px;
-  display: flex;
-  height: 180px;
-  width: 180px;
+  display: inline-block;
+  height: 125px;
+  width: 125px;
   color:black;
 }
 .multi-line-text {
@@ -930,6 +942,7 @@ i {
 }
 .total-style{
   font: 15px "bold";
+
 }
 .group-style2{
   padding-top: 30px;
@@ -962,4 +975,62 @@ i {
   font: 14px "regular";
   padding: 35px;
   margin-bottom: 30px;
+}
+
+/*setings*/
+.setting-name{
+ color: #383737;
+ font: 24px "light";
+ letter-spacing: -0.39px;
+ padding-top: 30px;
+ padding-bottom: 20px;
+}
+.table-user>tbody>tr>td, .table-user>tbody>tr>th, .table-user>tfoot>tr>td, .table-user>tfoot>tr>th, .table-user>thead>tr>td, .table-user>thead>tr>th {
+    padding: 35px;
+}
+
+.btn-circle3{
+height: 50px;
+width: 50px;
+border-radius: 50% !important;
+background-color:#1DB3CE;
+color: #fff;
+position: fixed;
+/*bottom: 30px;
+right: 30px;*/
+bottom: 2em;
+right: 1em;
+}
+.fab-tip2 {
+  position: fixed;
+  right: 80px;
+  bottom: 50px;
+  text-align: right;
+  font-size: 1.4rem;
+  border-radius: 2px;
+  color: #968F8F;
+  width: auto;
+  font-weight: bold;
+}
+.new-user{
+  color: #383737;
+  font: 24px "regular";
+  padding: 25px;
+}
+.user-new-form{
+  margin-left: 20px;
+  padding-top: 40px;
+  padding-bottom: 55px;
+}
+.set-password{
+  color: #000000;
+  font: 13px "regular";
+  padding-top: 8px;
+  padding-bottom: 12px;
+}
+.set-password2{
+  color:#1DB3CE;
+}
+.panel{
+
 }

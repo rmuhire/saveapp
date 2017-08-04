@@ -22,7 +22,7 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
         templateUrl:'components/saving-group/sgView.html'
     })
     .when('/settings',{
-        templateUrl:'components/setting/settingView.html'
+        templateUrl:'components/setting/settingsView.html'
     })
     .when('/map',{
         templateUrl:'components/map/mapView.html'

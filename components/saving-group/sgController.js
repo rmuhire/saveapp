@@ -1,12 +1,12 @@
 save.controller('sgViewCtrl', ['$scope', '$http','$location', function($scope,$http,$location){
   $(function () {
 
-    $(".panel").css("height", function(index){
+    $(".second-panel").css("height", function(index){
         return $(window).height();
     })
-    $(".well").css("height", function(index){
-      return $(window).height();
-  })
+  //   $(".well").css("height", function(index){
+  //     return $(window).height();
+  // })
 
     $('#ddlCars01').multiselect({
     includeSelectAllOption: true
@@ -14,6 +14,6 @@ save.controller('sgViewCtrl', ['$scope', '$http','$location', function($scope,$h
     });
     $('#ddlCars02').multiselect({
     includeSelectAllOption: true
-   });
+   }); 
  });
 }])

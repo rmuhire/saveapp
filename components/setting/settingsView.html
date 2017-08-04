@@ -1,0 +1,47 @@
+<style>
+   body{
+   overflow: hidden;
+   }
+</style>
+<div class="" ng-controller="settingViewCtrl">
+   <div  class="row">
+      <!-- col-md-2 ng-include sidebar -->
+      <div ng-include="'shared/sidebar/sidebarView.html'"></div>
+      <!-- / col-md-2 -->
+      <div class="col-md-10">
+         <div class="row">
+            <!-- ng-include navbar -->
+            <div ng-include="'shared/navbar/navbarView.html'"></div>
+            <!-- / ng-include nabar -->
+         </div>
+         <div class="row">
+            <div class="col-sm-12 col-md-12">
+               <div class="setting panel panel-primary-left panel-primary hide-scroll" id="style-1">
+                  <div class="panel-body">
+                     <div class="tab-content">
+                        <div class="tab-pane-first active" id="test">
+                           <div class="main-content">
+                              <ul class="nav nav-tabs">
+                                 <li class="partner-style"><a data-toggle="pill" href=".setting"><img src="assets/img/settings.svg"> Settings</a></li>
+                                 <li class="partner-style"><a data-toggle="pill" href=".users"><img src="assets/img/member.svg"> Users</a></li>
+                              </ul>
+                              <div class="tab-content">
+                                 <div  class="setting tab-pane fade in active">
+                                    <div ng-include="'components/setting/setting/settingView.html'"></div>
+                                 </div>
+                                 <div  class="users tab-pane fade">
+                                    <div ng-include="'components/setting/user/userView.html'"></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--/.well -->
+         </div>
+      </div>
+   </div>
+</div>
+<!--/.well -->
