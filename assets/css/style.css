@@ -853,7 +853,7 @@ i {
   text-align: center;
   color: #000000;
   font: 16px "medium";
-  
+
 }
 .table-member>tbody>tr>td, .table-member>tbody>tr>th, .table-member>tfoot>tr>td, .table-member>tfoot>tr>th, .table-member>thead>tr>td, .table-member>thead>tr>th {
     padding: 20px;
@@ -905,7 +905,7 @@ i {
         display: inline-block;
         }*/
         .circles {
-       display: inline-block;
+         display: inline-block;
         }
 .circle-with-text {
   background:#fff;
@@ -914,7 +914,7 @@ i {
   border-radius: 100%;
   border: 3px solid #EBC7DE ;
   text-align: center;
-  margin: 5px 0px;
+  margin: 5px 12px;
   font-size: 13px;
   padding: 15px;
   display: inline-block;
@@ -929,7 +929,7 @@ i {
   border-radius: 100%;
   border: 3px solid #9CCD88;
   text-align: center;
-  margin: 5px 0px;
+  margin: 5px 12px;
   font-size: 13px;
   padding: 15px;
   display: inline-block;
@@ -1030,7 +1030,4 @@ right: 1em;
 }
 .set-password2{
   color:#1DB3CE;
-}
-.panel{
-
 }
