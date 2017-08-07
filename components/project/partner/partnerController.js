@@ -1,4 +1,8 @@
 save.controller('PartnerCtrl', ['$scope', '$http','$location', function($scope,$http,$location){
+              $(document).ready(function(){
+               $('[data-toggle="tooltip"]').tooltip();
+             });
+
             /*Partner hide-and-show*/
             $("#partner-details").click(function(event){
                event.preventDefault();

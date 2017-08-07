@@ -900,7 +900,7 @@ i {
     border-radius: 100%;
     border: 3px solid #EBC7DE;
     text-align: center;
-    margin: 5px 12px;
+    margin: 5px 5px;
     font-size: 13px;
     padding: 15px;
     display: inline-block;
@@ -915,7 +915,7 @@ i {
     border-radius: 100%;
     border: 3px solid #9CCD88;
     text-align: center;
-    margin: 5px 12px;
+    margin: 5px 5px;
     font-size: 13px;
     padding: 15px;
     display: inline-block;
@@ -1027,7 +1027,21 @@ right: 30px;*/
 .inline-form{
   display:inline-block;
   padding-bottom: 12px;
+
 }
+
 .form-inline{
   display: inline-block;
+}
+
+.tooltip-inner {
+  background-color: #00acd6 !important;
+  /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/
+  color: #fff;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #00acd6;
 }

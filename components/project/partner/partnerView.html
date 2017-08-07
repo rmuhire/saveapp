@@ -111,8 +111,8 @@
       </div>
       <!--Add agent-->
       <div class="fa-icon">
-         <button class="btn btn-lg  btn-circle btn-add-new-project"><img src="assets/img/add.svg"></button>
-         <span class="btn-floating fab-tip">Add Project</span>
+         <button class="btn btn-lg  btn-circle btn-add-new-project" data-toggle="tooltip" data-placement="left" title="Add Project"><img src="assets/img/add.svg"></button>
+         <!-- <span class="btn-floating fab-tip">Add Project</span> -->
       </div>
    </div>
    <!--ISOLATED PROJECT VIEW-->
@@ -191,17 +191,17 @@
          <div class="col-md-6">
             <form>
                <p class="details-header">Project details</p>
-               <div class="form-group new-agent">
-                  <input type="text" class=" form-control form-rounded" placeholder="full name">
+               <div class="form-group  new-agent">
+                  <input type="text" class="form-control form-rounded" placeholder="full name">
                </div>
               <div class="form-inline">
                <div class="form-group new-agent inline-form">
                      <input type="text" class="form-control form-rounded" id="" placeholder="Start date">
                </div>
-               <div class="form-group new-agent inline-form">
+               <div class="form-group new-agent inline-form left-margin">
                      <input type="text" class="form-control form-rounded" id="" placeholder="End date">
                </div>
-              </div>
+             </div>
 
              <div class="form-group  new-agent">
                  <input type="text" class="form-control form-rounded" placeholder="Budget">
@@ -227,7 +227,7 @@
               </div>
               </form>
          </div>
-         <div class="col-md-4">
+         <div class="col-md-5">
             <form class="new-agent">
                <p class="details-header">Partner Details</p>
                <div class="form-group new-agent">
