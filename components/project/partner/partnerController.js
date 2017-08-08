@@ -1,4 +1,5 @@
 save.controller('PartnerCtrl', ['$scope', '$http','$location', function($scope,$http,$location){
+              /*bootstrap tooltip function*/
               $(document).ready(function(){
                $('[data-toggle="tooltip"]').tooltip();
              });
@@ -9,24 +10,26 @@ save.controller('PartnerCtrl', ['$scope', '$http','$location', function($scope,$
                 $("#partner-view").hide();
                 $("#isolated-project-view").show();
             });
-            /*back to partner-view*/
-            $(".back-to-partner-view").click(function(event){
+            /*back to partner-view-table*/
+             $(".back-to-partner-view").click(function(event){
                event.preventDefault();
-                $("#isolated-project-view").hide();
-                $("#partner-view").show();
-            });
-
+                 $("#isolated-project-view,#isolated-agent-view").hide();
+                 $("#partner-view").show();
+             });
+             /*floating button add-new-project*/
             $(".btn-add-new-project").click(function(event){
                event.preventDefault();
                 $("#isolated-project-view,#partner-view").hide();
                 $("#add-new-project").show();
             });
-            $(".back-to-agent-detail").click(function(event){
-               event.preventDefault();
-                $("#add-new-project").hide();
-                $("#isolated-project-view").show();
-            });
+            /*back to isolated agent view*/
+             $(".back-to-partner-detail").click(function(event){
+                event.preventDefault();
+                 $("#add-new-project,#add-new-project").hide();
+                 $("#isolated-project-view").show();
+             });
 
+          /*file upload function*/
           $(function() {
             // Create the close button
             var closebtn = $('<button/>', {
