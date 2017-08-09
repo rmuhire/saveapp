@@ -1056,3 +1056,13 @@ right: 30px;*/
 .sidebar-list{
   font: 13px "regular";
 }
+
+.footer-side {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  font: 12px "regular";
+}
