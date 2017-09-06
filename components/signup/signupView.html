@@ -7,13 +7,13 @@
    </div>
    <!--Forms-->
    <div class="row">
-      <div class="col-centered col-lg-5 col-md-6 col-sm-10 col-xs-10 save-card">
+      <div class="col-centered col-lg-5 col-md-6 col-sm-10 col-xs-10 save-card" id="mySignUp">
          <!--Organization form-->
          <div class="organization-details">
             <p class="text-center organization-text">Organization details</p>
             <form class="form-style2">
                <div class="form-group">
-                  <input type="text" class="form-control form-rounded" placeholder="Email address">
+                  <input type="text" class="form-control form-rounded" placeholder="Organization Name">
                </div>
                <div class="form-group">
                   <select style="border-radius:100px;" class="form-control form-rounded-select" id="sel1">
@@ -26,10 +26,10 @@
                   <input type="email" class="form-control form-rounded" placeholder="Email Address">
                </div>
                <div class="form-group">
-                  <input type="email" class="form-control form-rounded" placeholder="Phone Number">
+                  <input type="text" class="form-control form-rounded" placeholder="Phone Number">
                </div>
                <div class="form-group">
-                  <input type="email" class="form-control form-rounded" placeholder="Location Address">
+                  <input type="text" class="form-control form-rounded" placeholder="Location Address">
                </div>
                <button type="submit" class="btn btn-login" id="btn-next">NEXT</button>
             </form>
@@ -42,15 +42,15 @@
                   <input type="text" class="form-control form-rounded" placeholder="Name">
                </div>
                <div class="form-group">
-                  <input type="email" class="form-control form-rounded" placeholder="Position">
+                  <input type="text" class="form-control form-rounded" placeholder="Position">
                </div>
                <div class="form-group">
                   <input type="email" class="form-control form-rounded" placeholder="Email address">
                </div>
                <div class="form-group">
-                  <input type="email" class="form-control form-rounded" placeholder="Phone Number">
+                  <input type="text" class="form-control form-rounded" placeholder="Phone Number">
                </div>
-               <button type="submit" class="btn btn-login">SIGN UP</button>
+               <button type="submit" class="btn btn-login" ng-click="submit()">SIGN UP</button>
                <p class="text-center term-agree-text-style">
                   By signing up,you agree to our Terms and Conditions
                </p>

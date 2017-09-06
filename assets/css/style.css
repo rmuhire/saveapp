@@ -1031,6 +1031,7 @@ right: 30px;*/
 }
 .close{
   font-size: 30px;
+  margin: 5px;
 }
 .inline-form{
   display:inline-block;
