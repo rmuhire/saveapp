@@ -9,6 +9,7 @@ save.factory('AuthService', ['$cookieStore','$base64','$q','$timeout','$http', f
             $http.post(url+'login/', data)
                  .then(function successCallback(response){
                      user = true;
+                     set_user_cookies(response.data.id);
                      console.log(response.data.id);
                      deferred.resolve();
                  }, function errorCallback(response){
@@ -17,7 +18,7 @@ save.factory('AuthService', ['$cookieStore','$base64','$q','$timeout','$http', f
                  });
             return deferred.promise;
         },
-        is_signed_in: function (){
+        is_signed_in: function (){ 
             if (user){
                 return true;
             }else{
@@ -41,6 +42,12 @@ save.factory('AuthService', ['$cookieStore','$base64','$q','$timeout','$http', f
                 deferred.reject();
             }
             return deferred.promise;
+        },
+        getUserInformations : function(){
+            var user_url = url+'users/'+get_user_cookies();
+            return $http.get(user_url).then(function(response){
+                return response.data;
+            });
         }
       
     });
