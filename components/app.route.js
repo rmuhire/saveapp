@@ -8,7 +8,7 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
         data: {
             private: false
         }
-    })
+    }) 
     .when('/signup',{
         templateUrl:'components/signup/signupView.html',
         data: {
