@@ -10,4 +10,4 @@ save.controller('signinCtrl', function($scope, $location, AuthService){
                        console.log("not login"); 
                    });
     }
-})
+}) 
