@@ -8,8 +8,8 @@ save.controller('SignCtrl', ['$scope', '$http','$location', function($scope,$htt
             $(".back-to-organization").click(function(event){
                event.preventDefault();
                 $(".admin-details").hide();
-                $(".organization-details").show();
+                $(".organization-details").show(); 
             });
 
-          
+
 }])
