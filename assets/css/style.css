@@ -264,11 +264,11 @@ select {
 /*Project Css Part*/
 
 .navbar-fixed-left {
-    width: inherit;
-    position: fixed;
-    border-radius: 0;
-    height: 100%;
-    z-index: 200;
+      width: inherit;
+      position: fixed;
+      border-radius: 0;
+      height: 100%;
+      z-index: 200;
 }
 .navbar-fixed-left .navbar-nav > li {
     float: none;
