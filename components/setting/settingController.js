@@ -58,11 +58,46 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
     $scope.newUser = function(){
         console.log($scope.new_user);
         var data = $scope.new_user;
-        console.log(data['name'])
+        data['username'] = null;
+        data['birth_date'] = null;
+        data['education'] = null;
+        data['location'] = null;
+        
+        console.log(data);
     }
     
     $scope.checkMail = function(){
-        alert("remy");
+        if (validateEmail($scope.new_user.email)){
+            SettingService.checkEmail($scope.new_user.email)
+                .then(function(){
+                    $scope.emailState = 'already exist';
+                }).catch(function(){
+                    $scope.emailState = 'Valide';
+                });
+        }
+    }
+    
+    $scope.checkPhone = function(){
+        SettingService.checkPhone($scope.new_user.phone)
+            .then(function(){
+                $scope.phoneState = 'already exist';
+            }).catch(function(){
+                $scope.phoneState = 'Valide';
+            })
+    }
+    
+    $scope.checkIdNumber = function(){
+        SettingService.checkIdNumber($scope.new_user.id_number)
+            .then(function(){
+                $scope.idNumberState = 'already exist'; 
+            }).catch(function(){
+                $scope.idNumberState = 'Valide';
+            });
+    }
+    
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
     
     
