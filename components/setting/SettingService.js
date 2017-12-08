@@ -29,6 +29,43 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
                     deffered.reject();
                 });
             return deffered.promise;
+        },
+        checkEmail: function(data){
+            var deferred = $q.defer();
+            var url = 'http://localhost:5000/v1/users/'+data+'/email/';
+            $http.get(url)
+                .then(function(response){
+                    deferred.resolve();
+                }).catch(function(response){
+                    deferred.reject();
+                });
+            return deferred.promise;
+        },
+        checkPhone: function(data){
+            var deferred = $q.defer();
+            var url = 'http://localhost:5000/v1/users/'+data+'/phone/';
+            $http.get(url).then(function(response){
+                    deferred.resolve();
+                }).catch(function(response){
+                    deferred.reject();
+                });
+            return deferred.promise;
+            
+        }, 
+        checkIdNumber:  function(data){
+            var deferred = $q.defer();
+            var url = 'http://localhost:5000/v1/users/'+data+'/id-number/';
+            $http.get(url).then(function(response){
+                    deferred.resolve();
+                })
+                .catch(function(response){
+                    deferred.reject(); 
+                });
+            return deferred.promise;
+        },
+        newUser: function(data){
+            var deferred = $q.defer();
+            var url = 'http://localhost:5000/v1/users/';
         }
     })
     
