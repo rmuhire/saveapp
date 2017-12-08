@@ -1,11 +1,12 @@
 save.factory('AuthService', ['$cookieStore','$base64','$q','$timeout','$http', function($cookieStore, $base64, $q, $timeout, $http){
     // create user variable
     var user = null;
-    // create new instance for deffered
-    var deferred = $q.defer();
+    
     var url = 'http://localhost:5000/v1/';
     return ({
         sign_in: function (data){
+            // create new instance for deffered
+            var deferred = $q.defer();
             $http.post(url+'login/', data)
                  .then(function successCallback(response){
                      user = true;
@@ -34,6 +35,8 @@ save.factory('AuthService', ['$cookieStore','$base64','$q','$timeout','$http', f
             return user;
         },
         sign_out: function(){
+            // create new instance for deffered
+            var deferred = $q.defer();
             if (remove_user_cookies()){
                 user = false;
                 deferred.resolve();
