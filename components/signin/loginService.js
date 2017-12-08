@@ -12,6 +12,7 @@ save.factory('AuthService', ['$cookieStore','$base64','$q','$timeout','$http', f
                      user = true;
                      set_user_cookies(response.data.id);
                      console.log(response.data.id);
+                    $cookieStore.put('__save_o',response.data.organization.id);
                      deferred.resolve();
                  }, function errorCallback(response){
                      user =  false;
