@@ -79,7 +79,7 @@
                         <input type="text" class=" form-control form-rounded" placeholder="Phone" ng-model="new_user.phone" required>
                      </div>
                      <div class="form-group">
-                        <input type="email" class="form-control form-rounded" placeholder="Email" ng-model="new_user.email" required>
+                        <input type="email" class="form-control form-rounded" placeholder="Email" ng-model="new_user.email" ng-keyup="checkMail()" required>
                      </div>
                      <div class="form-group">
                          <label class="radio-inline"><input type="radio" name="optradio" ng-model="new_user.gender" value="0" >Male</label>
