@@ -59,11 +59,18 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
         console.log($scope.new_user);
         var data = $scope.new_user;
         data['username'] = null;
-        data['birth_date'] = null;
+        data['birth_date'] = '1900-01-01';
         data['education'] = null;
         data['location'] = null;
+        data['type'] = 1;
+        data['password'] = '000000'
         
-        console.log(data);
+        SettingService.newUser(JSON.stringify(data))
+            .then(function(){
+                console.log("added");
+            }).catch(function(){
+                console.log("not added");
+            });
     }
     
     $scope.checkMail = function(){
