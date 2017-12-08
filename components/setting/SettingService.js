@@ -65,7 +65,16 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
         },
         newUser: function(data){
             var deferred = $q.defer();
-            var url = 'http://localhost:5000/v1/users/';
+            var url = 'http://localhost:5000/v1/organizations/'+ $cookieStore.get('__save_o')+'/users/';
+            $http.post(url, data)
+                .then(function(response){
+                    deferred.resolve();
+                    console.log(response);
+                }).catch(function(response){
+                    deferred.reject();
+                    console.log(response);
+                });
+            return deferred.promise;
         }
     })
     
