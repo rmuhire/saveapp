@@ -73,20 +73,20 @@
                   <form class="user-new-form" name="new_User">
                      <p class="details-header">Personal Info</p>
                      <div class="form-group">
-                        <input type="text" class=" form-control form-rounded" placeholder="Names" ng-model="new_user.name" required>
+                        <input type="text" class=" form-control form-rounded" placeholder="Names" ng-model="new_user.name"  required>
                      </div>
                      <div class="form-group">
-                        <input type="text" class=" form-control form-rounded" placeholder="Phone" ng-model="new_user.phone" required>
+                        <input type="text" class=" form-control form-rounded" placeholder="Phone" ng-model="new_user.phone" ng-keyup="checkPhone()" required> <i>{{ phoneState }}</i>
                      </div>
                      <div class="form-group">
-                        <input type="email" class="form-control form-rounded" placeholder="Email" ng-model="new_user.email" ng-keyup="checkMail()" required>
+                         <input type="email" class="form-control form-rounded" placeholder="Email" ng-model="new_user.email" ng-keyup="checkMail()" required> <i>{{ emailState }}</i>
                      </div>
                      <div class="form-group">
                          <label class="radio-inline"><input type="radio" name="optradio" ng-model="new_user.gender" value="0" >Male</label>
                          <label class="radio-inline"><input type="radio" name="optradio" ng-model="new_user.gender" value="1" checked="checked">Female</label>
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control form-rounded" placeholder="ID number" ng-model="new_user.id_number" required>
+                        <input type="text" class="form-control form-rounded" placeholder="ID number" ng-model="new_user.id_number" ng-keyup="checkIdNumber()" required> <i>{{ idNumberState }}</i>
                      </div>
                      <p class="set-password">Temporary password will be set,<span class="set-password2"> set password</span></p>
                      <button type="submit" ng-disabled="!new_User.$valid" class="btn btn-login2" ng-click="newUser()" id="btn-next">SAVE</button>
