@@ -57,6 +57,12 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
     $scope.new_user = {}
     $scope.newUser = function(){
         console.log($scope.new_user);
+        var data = $scope.new_user;
+        console.log(data['name'])
+    }
+    
+    $scope.checkMail = function(){
+        alert("remy");
     }
     
     
