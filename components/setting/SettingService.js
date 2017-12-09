@@ -16,14 +16,14 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
         },
         resetPassword : function(data){
             var deffered = $q.defer();
-            $http.put(url+'/reset-password/', data)
+            $http.put(url+'/change-password/', data)
                 .then(function(response){
                     console.log(response);
                     if (response.status == 200){
                         deffered.resolve();
                     }else{
                        deffered.reject(); 
-                    } 
+                    }  
                 }).catch(function(response){
                     console.log(response);
                     deffered.reject();
@@ -75,6 +75,13 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
                     console.log(response);
                 });
             return deferred.promise;
+        },
+        getOrganizationUsers: function(){
+            var url = 'http://localhost:5000/v1/organizations/'+ $cookieStore.get('__save_o')+'/users/';
+            return $http.get(url)
+                .then(function(response){
+                    return response;
+                });
         }
     })
     
