@@ -13,37 +13,9 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <tr class="table-raw-style">
-                        <td>UWIMANA J.DIEU</td>
-                        <td>jul 3</td>
-                        <td><img src="assets/img/lock.svg"></td>
-                        <td><img src="assets/img/pencil.svg"></td>
-                        <td><img src="assets/img/more.svg"></td>
-                     </tr>
-                     <tr>
-                        <td>Hirwa Dieum</td>
-                        <td>Dec 7</td>
-                        <td><img src="assets/img/lock.svg"></td>
-                        <td><img src="assets/img/pencil.svg"></td>
-                        <td><img src="assets/img/more.svg"></td>
-                     </tr>
-                     <tr>
-                        <td>Hirwa Dieum</td>
-                        <td>Dec 7</td>
-                        <td><img src="assets/img/lock.svg"></td>
-                        <td><img src="assets/img/pencil.svg"></td>
-                        <td><img src="assets/img/more.svg"></td>
-                     </tr>
-                     <tr>
-                        <td>Hirwa Dieum</td>
-                        <td>Dec 7</td>
-                        <td><img src="assets/img/lock.svg"></td>
-                        <td><img src="assets/img/pencil.svg"></td>
-                        <td><img src="assets/img/more.svg"></td>
-                     </tr>
-                     <tr>
-                        <td>Hirwa Dieum</td>
-                        <td>Dec 7</td>
+                     <tr class="table-raw-style" ng-repeat="user in users">
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.date }}</td>
                         <td><img src="assets/img/lock.svg"></td>
                         <td><img src="assets/img/pencil.svg"></td>
                         <td><img src="assets/img/more.svg"></td>
