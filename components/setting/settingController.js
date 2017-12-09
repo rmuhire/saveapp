@@ -107,7 +107,6 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
         var organization_users = SettingService.getOrganizationUsers();
         organization_users.then(function(response){
             $scope.users = response.data.users;
-           //console.log(response.data.users); 
         });
     }
     
