@@ -26,7 +26,7 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
             $scope.user = data;
             console.log($scope.user_names);
         });
-    }
+    } 
     
     $scope.users_info();
     
@@ -101,6 +101,17 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
                 $scope.idNumberState = 'Valide';
             });
     }
+    
+    
+    $scope.organizationUsers = function(){
+        var organization_users = SettingService.getOrganizationUsers();
+        organization_users.then(function(response){
+            $scope.users = response.data.users;
+           //console.log(response.data.users); 
+        });
+    }
+    
+    $scope.organizationUsers();
     
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
