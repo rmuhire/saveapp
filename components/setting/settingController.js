@@ -11,6 +11,9 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
     $('#ddlCars02').multiselect({
     includeSelectAllOption: true
    });
+      $("#province_").multiselect({
+        includeSelectAllOption: true
+    });
  });
     
     
@@ -91,7 +94,7 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
             }).catch(function(){
                 $scope.phoneState = 'Valide';
             })
-    }
+    } 
     
     $scope.checkIdNumber = function(){
         SettingService.checkIdNumber($scope.new_user.id_number)
