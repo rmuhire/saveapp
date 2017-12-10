@@ -7,6 +7,8 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService){
                 })
     
     
+    
+    
     // Project Controller
     
     $scope.getOrganizationProject = function(){
@@ -17,5 +19,16 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService){
         });
     }
     $scope.getOrganizationProject();
+    
+    
+    // Load Province 
+    
+    $scope.loadProvince = function(){
+        PartnerService.getProvince()
+            .then(function(response){
+                console.log(response);
+                provinces = response.data;
+            })
+    }
     
 })

@@ -222,19 +222,31 @@
               </div>
               <p class="details-header2">Project Affiliation</p>
               <div class="form-group new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="Province">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Province" ng-model="province" ng-change="loadDistrict()" id="province_" multiple="multiple">
+                     
+                  </select>
               </div>
               <div class="form-group new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="District">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="District" ng-model="district" ng-change="loadSector()" id="district_" multiple="multiple">
+                     
+                  </select>
               </div>
               <div class="form-group new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="Sector">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Sector" ng-model="sector" ng-change="loadCell()" id="sector_" multiple="multiple">
+                    
+                  </select>
               </div>
               <div class="form-group new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="Cell">
+                 <div class="form-group new-agent">
+                 <select style="border-radius:100px;" data-placeholder="Cell" class="form-control form-rounded-select mutiselect-form" ng-model="cell" ng-change="loadVillage()" id="cell_" multiple="multiple">
+                     
+                  </select>
+              </div>
               </div>
               <div class="form-group new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="Village">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Village" id="village_" multiple="multiple">
+                     
+                  </select>
               </div>
               </form>
          </div>
