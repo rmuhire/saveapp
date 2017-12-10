@@ -21,9 +21,10 @@
                   <div class="panel-body">
                      <div class="tab-content">
                         <div class="tab-pane-first active" id="test">
+                           <h5 class="style-project-text"> Projects</h5>
                            <div  id="custom-search-input">
                               <div class="input-group col-md-12 col-sm-12 text-center">
-                                 <input type="text" class="  search-query form-control" placeholder="Search your query here" />
+                                 <input type="text" class="  search-query form-control" ng-model="search_project" placeholder="Search your query here" />
                                  <span class="input-group-btn">
                                  <button class="btn btn-danger" type="button">
                                  <span class=" glyphicon glyphicon-search"></span>
@@ -33,14 +34,10 @@
                            </div>
                         </div>
                         <!--Project List-->
-                        <ul class="list-group">
-                           <li class="style-project-text list-group-item">Projects</li>
-                           <li class="edit list-group-item">SCALE UP<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">URUMURI PROJECT<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">FIRINKA<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">ONE GOAT PER WOMAN<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">PROTEIN DONOR<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
-                           <li class="edit list-group-item">AMABATI<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                           
+                        <ul class="list-group" ng-repeat="project in projects | filter : search_project">
+                           <li class="edit list-group-item">{{ project.name }}<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                          
                         </ul>
                      </div>
                   </div>
@@ -64,7 +61,7 @@
                                  </div>
                                  <div  class="agent tab-pane fade">
                                     <div ng-include="'components/project/agent/agentView.html'"></div>
-                                 </div>
+                                 </div> 
                               </div>
                            </div>
                         </div>
