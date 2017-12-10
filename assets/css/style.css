@@ -747,6 +747,16 @@ i {
     line-height: 18px;
     width: 92px;
 }
+
+
+.multiselect-form {
+    border-radius: 100px;
+    height: 40px;
+    font-size: 10px;
+    line-height: 18px;
+    width: 392px;
+}
+
 .sg-details-title {
     font: 15px "bold";
 }
