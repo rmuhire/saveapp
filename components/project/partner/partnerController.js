@@ -1,4 +1,4 @@
-save.controller('PartnerCtrl', ['$scope', '$http','$location', function($scope,$http,$location){
+save.controller('PartnerCtrl', function($scope,$http,$location, PartnerService){
               /*bootstrap tooltip function*/
               $(document).ready(function(){
                $('[data-toggle="tooltip"]').tooltip();
@@ -75,6 +75,151 @@ save.controller('PartnerCtrl', ['$scope', '$http','$location', function($scope,$
                 reader.readAsDataURL(file);
             });
         });
+    
+    $("#province_").multiselect({
+        includeSelectAllOption: true,
+        buttonWidth: '300px',
+        dropLeft: true
+    });
+    
+    $("#district_").multiselect({
+        includeSelectAllOption: true,
+        buttonWidth: '300px',
+        dropLeft: true
+    });
+    
+    $("#sector_").multiselect({
+        includeSelectAllOption: true,
+        buttonWidth: '300px',
+        dropLeft: true
+    });
+    
+    $("#cell_").multiselect({
+        includeSelectAllOption: true,
+        buttonWidth: '300px',
+        dropLeft: true
+    });
+    
+    $("#village_").multiselect({
+        includeSelectAllOption: true,
+        buttonWidth: '300px',
+        dropLeft: true
+    });
+    
+    
+    // Load Province 
+    
+    $scope.loadProvince = function(){
+        PartnerService.getProvince()
+            .then(function(response){
+                console.log(response);
+                var options = "";
+                $.each(response.data, function(key, value){
+                    options += "<option value=" + value.id + " >" + value.name + "</option>";
+                    
+                });
+            
+                $("#province_").html(options);
+                
+                $("#province_").multiselect('rebuild');
+                $("#province_").multiselect({
+                    includeSelectAllOption: true,
+                    buttonWidth: '300px',
+                    dropLeft: true
+                });
+                
+            })
+    }
+    
+    $scope.loadDistrict = function(){
+        PartnerService.getDistrict($scope.province)
+            .then(function(response){
+                console.log(response);
+                var options = "";
+                $.each(response.data, function(key, value){
+                    options += "<option value=" + value.id + " >" + value.name + "</option>";
+                    
+                });
+            
+                $("#district_").html(options);
+                
+                $("#district_").multiselect('rebuild');
+                $("#district_").multiselect({
+                    includeSelectAllOption: true,
+                    buttonWidth: '300px',
+                    dropLeft: true
+                });
+            
+            });
+    }
+    
+    
+    $scope.loadSector = function(){
+        PartnerService.getSector($scope.district)
+            .then(function(response){
+                console.log(response);
+                var options = "";
+                $.each(response.data, function(key, value){
+                    options += "<option value=" + value.id + " >" + value.name + "</option>";
+                    
+                });
+            
+                $("#sector_").html(options);
+                
+                $("#sector_").multiselect('rebuild');
+                $("#sector_").multiselect({
+                    includeSelectAllOption: true,
+                    buttonWidth: '300px',
+                    dropLeft: true
+                });
+            
+            });
+    }
+    
+    $scope.loadCell = function(){
+        PartnerService.getCell($scope.sector)
+            .then(function(response){
+                console.log(response);
+                var options = "";
+                $.each(response.data, function(key, value){
+                    options += "<option value=" + value.id + " >" + value.name + "</option>";
+                    
+                });
+            
+                $("#cell_").html(options);
+                
+                $("#cell_").multiselect('rebuild');
+                $("#cell_").multiselect({
+                    includeSelectAllOption: true,
+                    buttonWidth: '300px',
+                    dropLeft: true
+                });
+            
+            });
+    }
+    
+    $scope.loadVillage = function(){
+        PartnerService.getVillage($scope.cell)
+            .then(function(response){
+                console.log(response);
+                var options = "";
+                $.each(response.data, function(key, value){
+                    options += "<option value=" + value.id + " >" + value.name + "</option>";
+                    
+                });
+            
+                $("#village_").html(options);
+                
+                $("#village_").multiselect('rebuild');
+                $("#village_").multiselect({
+                    includeSelectAllOption: true,
+                    buttonWidth: '300px',
+                    dropLeft: true
+                });
+            
+            });
+    }
+    
+    $scope.loadProvince()
 
-
-}])
+})
