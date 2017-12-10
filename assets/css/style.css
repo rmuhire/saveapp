@@ -327,6 +327,8 @@ select {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 20px;
+    height: 40px;
+    width: 100%;
 }
 #custom-search-input button {
     border: 0;
@@ -424,6 +426,17 @@ i {
 .nav-tabs {
     padding-top: 0;
 }
+
+.list-group{
+    padding-top: 20px;
+}
+
+.list-group-item{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+}
+
 .list-group li {
     margin-left: 13px;
     border-style: none;
