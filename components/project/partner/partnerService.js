@@ -29,6 +29,48 @@ save.factory('PartnerService', function($cookieStore, $q, $timeout, $http){
             return $http.get(url).then(function(response){
                 return response;
             }) 
+        },
+        postOrganizations: function(data){
+            var url = 'http://127.0.0.1:5000/v1/organizations/';
+            return $http.post(url, data).then(function(response){
+                    return response;
+                })
+                .catch(function(response){
+                    return response;
+                });
+        },
+        postOrganizationsUsers: function(data, id){
+            var url = 'http://127.0.0.1:5000/v1/organizations/'+id+'/users/';
+            return $http.post(url,data).then(function(response){
+                    return response
+                }).catch(function(response){
+                    return response
+                })
+        },
+        postOrganizationsProject: function(data){
+            var url = 'http://127.0.0.1:5000/v1/organizations/'+$cookieStore.get('__save_o')+'/projects/';
+            return $http.post(url, data)
+                .then(function(response){
+                    return response
+                }).catch(function(response){
+                    return response
+                })
+        },
+        postProjectInterventionArea: function(data, id){
+            var url = 'http://127.0.0.1:5000/v1/projects/'+id+'/intervention/';
+            return $http.post(url, data).then(function(response){
+                return response
+            }).catch(function(response){
+                return response
+            });
+        },
+        postProjectPartner: function(id, partner_id){
+            var url = 'http://127.0.0.1:5000/v1/projects/'+id+'/partners/'+partner_id+'/';
+            return $http.post(url).then(function(response){
+                return response;
+            }).catch(function(response){
+                return response
+            })
         }
     })
 }) 
