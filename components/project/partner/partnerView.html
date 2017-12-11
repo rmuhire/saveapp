@@ -257,6 +257,19 @@
                   <input type="text" class=" form-control form-rounded " placeholder="Name" ng-model="ngo.name" required>
                </div>
                <div class="form-group">
+                   <input type="text" class="form-control form-rounded" placeholder="Email" ng-model="ngo.email" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.phone" required>
+               </div>
+               <div class="form-group">
+                   <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.address" required>
+               </div>
+               <div class="form-group">
+                   <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.country" required>
+               </div>
+               
+               <div class="form-group">
                   <select style="border-radius:100px;" class="form-control form-rounded-select" id="sel1" ng-model="ngo.type" required>
                      <option hidden>Type...</option>
                      <option value="1">International NGO</option>
