@@ -1,4 +1,4 @@
-save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService) {
+save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService, $cookieStore) {
 
   
 
@@ -232,11 +232,76 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
 
     $scope.loadProvince()
     
+        
     
     // add Project
     
     $scope.addProject = function(){
+        // $scope.user
+        $scope.ngo['address'] = null;
+        $scope.ngo['country'] = null;
+        
+        // $scope.user
+        $scope.user['username'] = null;
+        $scope.user['birth_date'] = '1900-01-01';
+        $scope.user['education'] = null;
+        $scope.user['location'] = null;
+        $scope.user['type'] = 1;
+        $scope.user['password'] = '000000'
+        $scope.user['gender'] = null;
+        
+        // $scope.project
+        $scope.project['user_id'] = $cookieStore.get('__save'); 
+        
         console.log($scope.project, $scope.location, $scope.user, $scope.ngo);
+        var village = Array();
+        for (var i=0; i < $scope.location.village.length; i++){
+            var dict = new Object();
+            dict['village_id'] = parseInt($scope.location.village[i]);
+            village.push(dict);
+        }
+        
+        console.log(village);
+        
+        PartnerService.postOrganizations($scope.ngo)
+            .then(function(response){
+                console.log(response);
+                // post organization users
+                PartnerService.postOrganizationsUsers($scope.user, response.data.id)
+                    .then(function(response){
+                        console.log(response);
+                    })
+                    .catch(function(response){
+                        console.log(response);
+                    })
+            
+                // post Organization project
+                PartnerService.postOrganizationsProject($scope.project)
+                    .then(function(data){
+                        console.log(data)
+                        // post project intervention area
+                        PartnerService.postProjectInterventionArea(JSON.stringify(village), data.data.id)
+                            .then(function(response){
+                                console.log(response);
+                            }).catch(function(reponse){
+                                console.log(response);
+                            })
+                    
+                        // post organization partnership
+                        PartnerService.postProjectPartner(data.data.id, response.data.id).then(function(response){
+                            console.log(response);
+                        }).catch(function(response){
+                            console.log(response);
+                        })
+                    
+                    }).catch(function(data){
+                        console.log(data);
+                    })
+                
+            })
+            .catch(function(response){
+                console.log(response);    
+            })
     }
 
 })
