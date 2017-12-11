@@ -1,225 +1,242 @@
-save.controller('PartnerCtrl', function($scope,$http,$location, PartnerService){
-              /*bootstrap tooltip function*/
-              $(document).ready(function(){
-               $('[data-toggle="tooltip"]').tooltip();
-             });
+save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService) {
 
-            /*Partner hide-and-show*/
-            $("#partner-details").click(function(event){
-               event.preventDefault();
-                $("#partner-view").hide();
-                $("#isolated-project-view").show();
-            });
-            /*back to partner-view-table*/
-             $(".back-to-partner-view").click(function(event){
-               event.preventDefault();
-                 $("#isolated-project-view,#isolated-agent-view").hide();
-                 $("#partner-view").show();
-             });
-             /*floating button add-new-project*/
-            $(".btn-add-new-project").click(function(event){
-               event.preventDefault();
-                $("#isolated-project-view,#partner-view").hide();
-                $("#add-new-project").show();
-            });
-            /*back to isolated agent view*/
-             $(".back-to-partner-detail").click(function(event){
-                event.preventDefault();
-                 $("#add-new-project,#add-new-project").hide();
-                 $("#isolated-project-view").show();
-             });
+  
 
-          /*file upload function*/
-          $(function() {
-            // Create the close button
-            var closebtn = $('<button/>', {
-                type:"button",
-                text: 'x',
-                id: 'close-preview',
-                style: 'font-size: initial;',
-            });
-            closebtn.attr("class","close pull-right");
-            // Set the popover default content
-            $('.image-preview').popover({
-                trigger:'manual',
-                html:true,
-                title: "<strong>Preview</strong>"+$(closebtn)[0].outerHTML,
-                content: "There's no image",
-                placement:'bottom'
-            });
-            // Clear event
-            $('.image-preview-clear').click(function(){
-                $('.image-preview').attr("data-content","").popover('hide');
-                $('.image-preview-filename').val("");
-                $('.image-preview-clear').hide();
-                $('.image-preview-input input:file').val("");
-                $(".image-preview-input-title").text("");
-            });
-            // Create the preview image
-            $(".image-preview-input input:file").change(function (){
-                var img = $('<img/>', {
-                    id: 'dynamic',
-                    width:250,
-                    height:200
-                });
-                var file = this.files[0];
-                var reader = new FileReader();
-                // Set preview image into the popover data-content
-                reader.onload = function (e) {
-                    $(".image-preview-input-title").text("");
-                    $(".image-preview-clear").show();
-                    $(".image-preview-filename").val(file.name);
-                    img.attr('src', e.target.result);
-                    $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
-                }
-                reader.readAsDataURL(file);
-            });
+
+    /*bootstrap tooltip function*/
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    /*Partner hide-and-show*/
+    $("#partner-details").click(function(event) {
+        event.preventDefault();
+        $("#partner-view").hide();
+        $("#isolated-project-view").show();
+    });
+    /*back to partner-view-table*/
+    $(".back-to-partner-view").click(function(event) {
+        event.preventDefault();
+        $("#isolated-project-view,#isolated-agent-view").hide();
+        $("#partner-view").show();
+    });
+    /*floating button add-new-project*/
+    $(".btn-add-new-project").click(function(event) {
+        event.preventDefault();
+        $("#isolated-project-view,#partner-view").hide();
+        $("#add-new-project").show();
+    });
+    /*back to isolated agent view*/
+    $(".back-to-partner-detail").click(function(event) {
+        event.preventDefault();
+        $("#add-new-project,#add-new-project").hide();
+        $("#isolated-project-view").show();
+    });
+
+    /*file upload function*/
+    $(function() {
+
+
+
+        // Create the close button
+        var closebtn = $('<button/>', {
+            type: "button",
+            text: 'x',
+            id: 'close-preview',
+            style: 'font-size: initial;',
         });
-    
+        closebtn.attr("class", "close pull-right");
+        // Set the popover default content
+        $('.image-preview').popover({
+            trigger: 'manual',
+            html: true,
+            title: "<strong>Preview</strong>" + $(closebtn)[0].outerHTML,
+            content: "There's no image",
+            placement: 'bottom'
+        });
+        // Clear event
+        $('.image-preview-clear').click(function() {
+            $('.image-preview').attr("data-content", "").popover('hide');
+            $('.image-preview-filename').val("");
+            $('.image-preview-clear').hide();
+            $('.image-preview-input input:file').val("");
+            $(".image-preview-input-title").text("");
+        });
+        // Create the preview image
+        $(".image-preview-input input:file").change(function() {
+            var img = $('<img/>', {
+                id: 'dynamic',
+                width: 250,
+                height: 200
+            });
+            var file = this.files[0];
+            var reader = new FileReader();
+            // Set preview image into the popover data-content
+            reader.onload = function(e) {
+                $(".image-preview-input-title").text("");
+                $(".image-preview-clear").show();
+                $(".image-preview-filename").val(file.name);
+                img.attr('src', e.target.result);
+                $(".image-preview").attr("data-content", $(img)[0].outerHTML).popover("show");
+            }
+            reader.readAsDataURL(file);
+        });
+    });
+
+
+
+
     $("#province_").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
         dropLeft: true
     });
-    
+
     $("#district_").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
         dropLeft: true
     });
-    
+
     $("#sector_").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
         dropLeft: true
     });
-    
+
     $("#cell_").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
         dropLeft: true
     });
-    
+
     $("#village_").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
         dropLeft: true
     });
-    
-    
+
+
     // Load Province 
-    
-    $scope.loadProvince = function(){
+
+    $scope.loadProvince = function() {
         PartnerService.getProvince()
-            .then(function(response){
+            .then(function(response) {
                 console.log(response);
                 var options = "";
-                $.each(response.data, function(key, value){
+                $.each(response.data, function(key, value) {
                     options += "<option value=" + value.id + " >" + value.name + "</option>";
-                    
+
                 });
-            
+
                 $("#province_").html(options);
-                
+
                 $("#province_").multiselect('rebuild');
                 $("#province_").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
                     dropLeft: true
                 });
-                
+
             })
     }
-    
-    $scope.loadDistrict = function(){
-        PartnerService.getDistrict($scope.province)
-            .then(function(response){
+
+    $scope.loadDistrict = function() {
+        PartnerService.getDistrict($scope.location.province)
+            .then(function(response) {
                 console.log(response);
                 var options = "";
-                $.each(response.data, function(key, value){
+                $.each(response.data, function(key, value) {
                     options += "<option value=" + value.id + " >" + value.name + "</option>";
-                    
+
                 });
-            
+
                 $("#district_").html(options);
-                
+
                 $("#district_").multiselect('rebuild');
                 $("#district_").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
                     dropLeft: true
                 });
-            
+
             });
     }
-    
-    
-    $scope.loadSector = function(){
-        PartnerService.getSector($scope.district)
-            .then(function(response){
+
+
+    $scope.loadSector = function() {
+        PartnerService.getSector($scope.location.district)
+            .then(function(response) {
                 console.log(response);
                 var options = "";
-                $.each(response.data, function(key, value){
+                $.each(response.data, function(key, value) {
                     options += "<option value=" + value.id + " >" + value.name + "</option>";
-                    
+
                 });
-            
+
                 $("#sector_").html(options);
-                
+
                 $("#sector_").multiselect('rebuild');
                 $("#sector_").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
                     dropLeft: true
                 });
-            
+
             });
     }
-    
-    $scope.loadCell = function(){
-        PartnerService.getCell($scope.sector)
-            .then(function(response){
+
+    $scope.loadCell = function() {
+        PartnerService.getCell($scope.location.sector)
+            .then(function(response) {
                 console.log(response);
                 var options = "";
-                $.each(response.data, function(key, value){
+                $.each(response.data, function(key, value) {
                     options += "<option value=" + value.id + " >" + value.name + "</option>";
-                    
+
                 });
-            
+
                 $("#cell_").html(options);
-                
+
                 $("#cell_").multiselect('rebuild');
                 $("#cell_").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
                     dropLeft: true
                 });
-            
+
             });
     }
-    
-    $scope.loadVillage = function(){
-        PartnerService.getVillage($scope.cell)
-            .then(function(response){
+
+    $scope.loadVillage = function() {
+        PartnerService.getVillage($scope.location.cell)
+            .then(function(response) {
                 console.log(response);
                 var options = "";
-                $.each(response.data, function(key, value){
+                $.each(response.data, function(key, value) {
                     options += "<option value=" + value.id + " >" + value.name + "</option>";
-                    
+
                 });
-            
+
                 $("#village_").html(options);
-                
+
                 $("#village_").multiselect('rebuild');
                 $("#village_").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
                     dropLeft: true
                 });
-            
+
             });
     }
-    
+
     $scope.loadProvince()
+    
+    
+    // add Project
+    
+    $scope.addProject = function(){
+        console.log($scope.project, $scope.location, $scope.user, $scope.ngo);
+    }
 
 })
