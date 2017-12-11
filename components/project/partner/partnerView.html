@@ -24,7 +24,7 @@
                <td>9</td>
                <td>9</td>
                <td>Active</td>
-            </tr>
+            </tr> 
             <tr>
                <td>Uwimana jean claude</td>
                <td>9</td>
@@ -200,99 +200,99 @@
       </div> 
       <div class="row">
          <div class="col-md-6">
-            <form>
+            <form name="new_project">
                <p class="details-header">Project details</p>
                <div class="form-group  new-agent">
-                  <input type="text" class="form-control form-rounded" placeholder="full name">
+                  <input type="text" class="form-control form-rounded" placeholder="full name" ng-model="project.name" required>
                </div>
               <div class="form-inline">
                <div class="form-group new-agent inline-form">
-                     <input type="text" class="col-xs-12 col-sm-12 form-control form-rounded" id="" placeholder="Start date">
+                     <input type="text" class="col-xs-12 col-sm-12 form-control form-rounded" id="" ng-model="project.start" placeholder="Start date" required>
                </div>
                <div class="form-group new-agent inline-form left-margin">
-                     <input type="text" class="col-xs-12 col-sm-12 form-control form-rounded" id="" placeholder="End date">
+                     <input type="text" class="col-xs-12 col-sm-12 form-control form-rounded" id="" ng-model="project.end"  placeholder="End date" required>
                </div>
              </div>
 
              <div class="form-group  new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="Budget">
+                 <input type="text" class="form-control form-rounded" placeholder="Budget" ng-model="project.budget" required>
               </div>
               <div class="form-group  new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="Donor">
+                 <input type="text" class="form-control form-rounded" placeholder="Donor" ng-model="project.donor" required>
               </div>
               <p class="details-header2">Project Affiliation</p>
               <div class="form-group new-agent">
-                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Province" ng-model="province" ng-change="loadDistrict()" id="province_" multiple="multiple">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Province" ng-model="location.province" ng-change="loadDistrict()" id="province_" multiple="multiple" required>
                      
                   </select>
               </div>
               <div class="form-group new-agent">
-                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="District" ng-model="district" ng-change="loadSector()" id="district_" multiple="multiple">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="District" ng-model="location.district" ng-change="loadSector()" id="district_" multiple="multiple" required>
                      
                   </select>
               </div>
               <div class="form-group new-agent">
-                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Sector" ng-model="sector" ng-change="loadCell()" id="sector_" multiple="multiple">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Sector" ng-model="location.sector" ng-change="loadCell()" id="sector_" multiple="multiple" required>
                     
                   </select>
               </div>
               <div class="form-group new-agent">
                  <div class="form-group new-agent">
-                 <select style="border-radius:100px;" data-placeholder="Cell" class="form-control form-rounded-select mutiselect-form" ng-model="cell" ng-change="loadVillage()" id="cell_" multiple="multiple">
+                 <select style="border-radius:100px;" data-placeholder="Cell" class="form-control form-rounded-select mutiselect-form" ng-model="location.cell" ng-change="loadVillage()" id="cell_" multiple="multiple" required>
                      
                   </select>
               </div>
               </div>
               <div class="form-group new-agent">
-                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Village" id="village_" multiple="multiple">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Village" id="village_" ng-model="location.village" multiple="multiple" required>
                      
                   </select>
               </div>
-              </form>
+              
          </div>
          <div class="col-md-5">
-            <form class="new-agent">
+            
                <p class="details-header">Partner Details</p>
                <div class="form-group new-agent">
-                  <input type="text" class=" form-control form-rounded " placeholder="Province">
+                  <input type="text" class=" form-control form-rounded " placeholder="Name" ng-model="ngo.name" required>
                </div>
                <div class="form-group">
-                  <select style="border-radius:100px;" class="form-control form-rounded-select" id="sel1">
+                  <select style="border-radius:100px;" class="form-control form-rounded-select" id="sel1" ng-model="ngo.type" required>
                      <option hidden>Type...</option>
-                     <option value="">Lorem ipsum</option>
-                     <option value="">Lorem ipsum</option>
+                     <option value="1">International NGO</option>
+                     <option value="2">Local NGO</option>
                   </select>
                </div>
                <p class="details-header2">Partner Contact Person</p>
                <div class="form-group">
-                  <input type="text" class="form-control form-rounded " placeholder="District">
+                  <input type="text" class="form-control form-rounded " placeholder="Name" ng-model="user.name" required>
                </div>
                <div class="form-group">
-                  <input type="text" class="form-control form-rounded " placeholder="District">
+                  <input type="email" class="form-control form-rounded " placeholder="Email" ng-model="user.email" required>
                </div>
                <div class="form-group">
-                  <input type="text" class="form-control form-rounded " placeholder="District">
+                  <input type="text" class="form-control form-rounded " placeholder="Phone" ng-model="user.phone" required>
                </div>
                <div class="form-group">
-                  <input type="text" class="form-control form-rounded " placeholder="District">
+                  <input type="text" class="form-control form-rounded " placeholder="Id number" ng-model="user.id_number" required>
                </div>
-               <div class="input-group image-preview">
+               <!--<div class="input-group image-preview">
                   <input type="text" class="form-control image-preview-filename form-rounded" placeholder="Attachment" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                  <span class="input-group-btn">
+                  <!--<span class="input-group-btn">
                      <!-- image-preview-clear button -->
-                     <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                     <!--<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
                      <span class="glyphicon glyphicon-remove"></span> Clear
-                     </button>
+                     </button>-->
                      <!-- image-preview-input -->
-                     <div class="btn btn-default image-preview-input form-rounded2">
+                     <!--<div class="btn btn-default image-preview-input form-rounded2">
                         <img src="assets/img/attachment.svg">
                         <span class="image-preview-input-title"></span>
-                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it 
                      </div>
                   </span>
-               </div>
+               </div>-->
                <br>
-               <button type="submit" class="btn btn-login2" id="btn-next">NEXT</button>
+               <button type="submit" class="btn btn-login2" id="btn-next" ng-click="addProject()" ng-disabled="!new_project.$valid">NEXT</button>
             </form>
          </div>
       </div>
