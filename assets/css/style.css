@@ -50,6 +50,30 @@ li:hover {
     color: black;
     /*font-weight: bold;*/
 }
+
+.edit:focus {
+    background: rgb(235, 233, 233);
+    /*opacity: 0.50;*/
+
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 9px;
+    color: black;
+    /*font-weight: bold;*/
+}
+
+.edit-active {
+    background: rgb(235, 233, 233);
+    /*opacity: 0.50;*/
+
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 9px;
+    color: black;
+    font-size: 16px;
+    /*font-weight: bold;*/
+}
+
 .panel-primary {
     border-color: #fff;
     position: relative;
