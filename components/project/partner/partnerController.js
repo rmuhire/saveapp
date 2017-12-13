@@ -1,7 +1,7 @@
 save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService, $cookieStore) {
 
   
-
+ 
 
     /*bootstrap tooltip function*/
     $(document).ready(function() {
@@ -19,7 +19,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
         event.preventDefault();
         $("#isolated-project-view,#isolated-agent-view").hide();
         $("#partner-view").show();
-    });
+    }); 
     /*floating button add-new-project*/
     $(".btn-add-new-project").click(function(event) {
         event.preventDefault();

@@ -28,7 +28,7 @@ save.factory('PartnerService', function($cookieStore, $q, $timeout, $http){
             var url = 'http://127.0.0.1:5000/v1/kenessa/'+data+'/villages/';
             return $http.get(url).then(function(response){
                 return response;
-            }) 
+            })  
         },
         postOrganizations: function(data){
             var url = 'http://127.0.0.1:5000/v1/organizations/';
