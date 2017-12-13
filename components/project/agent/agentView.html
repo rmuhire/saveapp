@@ -5,99 +5,24 @@
          <thead>
             <tr class="table-header">
                <th>Agent</th>
-               <th>District</th>
-               <th>Sector</th>
-               <th>Cell</th>
                <th>SGs</th>
                <th>Members</th>
                <th>Projects</th>
-               <th>Status</th>
+               <th>More</th>
             </tr>
          </thead>
          <tbody>
             <tr class="table-raw-style" id="agent-details">
                <td>Uwimana jean claude</td>
                <td>9</td>
-               <td>9</th>
                <td>9</td>
                <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>Active</td>
-            </tr>
-            <tr>
-               <td>Uwimana jean claude</td>
-               <td>9</td>
-               <td>9</th>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>Pending</td>
-            </tr>
-            <tr>
-               <td>Uwimana jean claude</td>
-               <td>9</td>
-               <td>9</th>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>Active</td>
-            </tr>
-            <tr>
-               <td>Uwimana jean claude</td>
-               <td>9</td>
-               <td>9</th>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>Active</td>
-            </tr>
-            <tr>
-               <td>Uwimana jean claude</td>
-               <td>9</td>
-               <td>9</th>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>Active</td>
-            </tr>
-            <tr>
-               <td>Uwimana jean claude</td>
-               <td>9</td>
-               <td>9</th>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>Active</td>
-            </tr>
-            <tr>
-               <td>Uwimana jean claude</td>
-               <td>9</td>
-               <td>9</th>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>Active</td>
-            </tr>
-            <tr>
-               <td>Uwimana jean claude</td>
-               <td>9</td>
-               <td>9</th>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>9</td>
-               <td>Active</td>
+               <td>9</td> 
             </tr>
          </tbody>
       </table>
       <!--Pagination-->
+<!--
       <div class="text-center">
          <div class="pagination">
             <a class="pagination-style" href="#">&lang; Back</a>
@@ -109,6 +34,7 @@
             <a class="pagination-style" href="#">Next &rang;</a>
          </div>
       </div>
+-->
       <!--FLoating-button Add agent-->
       <div class="fa-icon">
          <button class="btn btn-lg  btn-circle btn-add-new-agent" data-toggle="tooltip" data-placement="left" title="Add Agent"><img src="assets/img/add.svg"></button>
@@ -176,45 +102,66 @@
          </div>
       </div>
       <div class="row">
+        <form name="agent">
          <div class="col-md-4">
-            <form>
+            
                <p class="details-header">Agent Details</p>
                <div class="form-group new-agent">
-                  <input type="text" class=" form-control form-rounded margin-bottom" placeholder="full name">
+                  <input type="text" class=" form-control form-rounded margin-bottom" placeholder="full name" ng-model="user.name" required>
                </div>
                <div class="form-group new-agent">
-                  <input type="email" class="form-control form-rounded margin-bottom" placeholder="email">
+                  <input type="email" class="form-control form-rounded margin-bottom" placeholder="email" ng-model="user.email" required>
                </div>
                <div class="form-group  new-agent">
-                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="Phone number">
+                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="Phone number" ng-model="user.phone" required>
+               </div>
+               <div class="form-group  new-agent">
+                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="Id number" ng-model="user.id_number" required>
                </div>
                <p class="details-header2">Project Affiliation</p>
                <div class="form-group new-agent">
-                  <input type="text" class="form-control form-rounded" placeholder="Project Name">
+                  <select class="form-control form-rounded-select" id="project_"  ng-model="project.id" required>
+                      <option hidden>Projects</option>
+                      <option ng-repeat="pro in projects" value="{{ pro.id }}">{{ pro.name }}</option>
+                   </select>
                </div>
-               <button type="submit" class="btn btn-login2" id="btn-next">NEXT</button>
-            </form>
+               <button type="submit"  class="btn btn-login2" id="btn-next" ng-click="addAgent()">NEXT</button>
+            
          </div>
-         <div class="col-md-4">
-            <form class="new-agent">
+<!--
+         <div class="col-md-offset-1 col-md-4">
                <p class="details-header">Intervention Area</p>
                <div class="form-group new-agent">
-                  <input type="text" class=" form-control form-rounded margin-bottom" placeholder="Province">
-               </div>
-               <div class="form-group">
-                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="District">
-               </div>
-               <div class="form-group">
-                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="Sector">
-               </div>
-               <div class="form-group">
-                  <input type="text" class="form-control form-rounded margin-bottom" placeholder="Cell">
-               </div>
-               <div class="form-group">
-                  <input type="text" class="form-control form-rounded " placeholder="Village">
-               </div>
-            </form>
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Province" ng-model="Alocation.province" ng-change="loadDistrict_()" id="province__" multiple="multiple" required>
+                      
+                  </select>
+              </div>
+              <div class="form-group new-agent">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="District" ng-model="Alocation.district" ng-change="loadSector_()" id="district__" multiple="multiple" required>
+                     
+                  </select>
+              </div>
+              <div class="form-group new-agent">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Sector" ng-model="Alocation.sector" ng-change="loadCell_()" id="sector__" multiple="multiple" required>
+                    
+                  </select>
+              </div>
+              <div class="form-group new-agent">
+                 <div class="form-group new-agent">
+                 <select style="border-radius:100px;" data-placeholder="Cell" class="form-control form-rounded-select mutiselect-form" ng-model="Alocation.cell" ng-change="loadVillage_()" id="cell__" multiple="multiple" required>
+                     
+                  </select>
+              </div>
+              </div>
+              <div class="form-group new-agent">
+                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Village" id="village__" ng-model="Alocation.village" multiple="multiple" required>
+                     
+                  </select>
+              </div>
+            
          </div>
+-->
+         </form>
       </div>
       <div class="row">
          <div class="col-md-6">
