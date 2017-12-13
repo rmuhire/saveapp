@@ -36,7 +36,7 @@
                         <!--Project List-->
                            
                         <ul class="list-group" ng-repeat="project in projects | filter : search_project">
-                           <li class="edit list-group-item">{{ project.name }}<img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                            <li class="edit list-group-item" id="project{{project.id}}"><a ng-click="currentProject(project.id)">{{ project.name }}</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
                           
                         </ul>
                      </div>
