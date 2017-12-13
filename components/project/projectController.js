@@ -1,4 +1,4 @@
-save.controller('projectCtrl', function($scope,$http,$location, ProjectService){
+save.controller('projectCtrl', function($scope,$http,$location, ProjectService,){
   $(".panel").css("height", function(index){
                     return $(window).height();
                 })
@@ -31,4 +31,10 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService){
             })
     }
     
+    
+    $scope.currentProject = function(project){
+        //alert("clciked");
+        console.log(project);
+        $scope.$broadcast('LoadPorjectAgent', {project_id: project});
+    }
 })
