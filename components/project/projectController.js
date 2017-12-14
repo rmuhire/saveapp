@@ -32,9 +32,7 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
     }
     
     
-    $scope.currentProject = function(project){
-        //alert("clciked");
-        console.log(project);
-        $scope.$broadcast('LoadPorjectAgent', {project_id: project});
+    $scope.currentProject = function(id, name){
+        $scope.$broadcast('LoadPorjectAgent', {id: id, name:name});
     }
 })
