@@ -30,7 +30,7 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
 
     });
      
-    
+     
     // Load Province 
     
 //    $("#province__").multiselect({
