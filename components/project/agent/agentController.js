@@ -14,7 +14,7 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
         event.preventDefault();
         $(".isolated-agent-view").hide();
         $(".agent-view").show();
-    });
+    }); 
 
     /*back to isolated agent view*/
     $(".back-to-agent-detail").click(function(event) {
@@ -29,7 +29,7 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
         $("#add-new-agent").show();
 
     });
-    
+     
     
     // Load Province 
     
@@ -238,25 +238,77 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
         
     }
     
+    
+    
     $scope.$on('LoadPorjectAgent', function(event, opt){
-        alert(opt.project_id);
-        AgentService.getProjectAgent(opt.project_id)
+        alert(opt.id);
+        $scope.pmessage = false;
+        AgentService.getProjectAgent(opt.id)
             .then(function(response){
                 var agent = response.data.project_agents;
+                var data = Array();
+                
                 agent.forEach(function(element){
+                    var json = new Object();
+                    json['name'] = element.users['name'];
+                    json['project_name'] = opt.name;
                     AgentService.getAgentSavingGroup(element.users['sg_url'])
                         .then(function(response){
                             console.log(response);
+                            
+                            json['sg_count'] = response.data.pages['total'];
+                            console.log(response.data.pages['total']);
+                            
+                            // count sg members
+                            var sg = response.data.saving_group;
+                            var members = [];
+                            sg.forEach(function(element){
+                                var url = element.members_url;
+                                AgentService.getSavingGroupMember(url)
+                                    .then(function(response){
+                                        members.push(response.data.pages.total)
+                                    }).catch(function(response){
+                                    
+                                    });
+                            })
+                            
+                            json['members'] = members;
+                            
                         }).catch(function(response){
                             console.log(response);
                         })
-                    
+                    data.push(json);
                 });
+                
+                if (data.length > 0 ){
+                    $scope.items = data;
+                }else{
+                    $scope.pmessage = true;
+                }
+                
+                
             }).catch(function(reponse){
                 console.log(reponse);
             });
+        
+        
     })
+    
+    $scope.sum = function(getMembers){
+        if (typeof getMembers !== 'undefined' && getMembers.length > 0){
+            console.log(getMembers);
+            return getMembers.reduce(getSum);
+        }else{
+            return 0;
+        }
+        
+    }
+    
+    function getSum(a, b){
+        return a + b;
+    }
     
     
 
 })
+
