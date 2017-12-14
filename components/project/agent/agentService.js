@@ -26,6 +26,14 @@ save.factory('AgentService', function($cookieStore, $q, $timeout, $http){
             }).catch(function(response){
                 return response;
             })  
+        },
+        getSavingGroupMember: function(url){
+            return $http.get(url)
+                .then(function(response){
+                   return response; 
+                }).catch(function(response){
+                    return response;
+                });
         }
     })
-});
+});  
