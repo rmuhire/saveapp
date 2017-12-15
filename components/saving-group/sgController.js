@@ -18,7 +18,7 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
         includeSelectAllOption: true,
         buttonWidth: '110%'
     }); 
- });
+ }); 
     
     
     $scope.organizationProject = function(){
@@ -53,7 +53,7 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
         var selection = $("#sg_project").val();
         $scope.loadProjectSG(selection);
     });
-    
+     
     $scope.loadProjectSG = function(selection){
         if (selection == 'all'){
             console.log(selection);
@@ -68,5 +68,16 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
     
     var selection = 'all';
     $scope.loadProjectSG(selection);
+    
+    
+    $scope.loadSG = function(sg){
+        console.log(sg);
+        $scope.$broadcast('LoadSgCycle', { sg:sg })
+        $scope.$broadcast('LoadSgMember', { sg:sg })
+        $scope.$broadcast('LoadSgLoansSavings', { sg:sg })
+        $scope.$broadcast('LoadSgDividends', { sg:sg })
+        
+    }
+    
 })
  
