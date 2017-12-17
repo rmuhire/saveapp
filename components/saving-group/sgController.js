@@ -63,6 +63,13 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
             }).catch(function(response){
                 console.log(response);
             })
+        }else{
+            SavingGroupService.getProjectSG(selection).then(function(response){
+                $scope.sgs = response.data.saving_group;
+                console.log(response.data.saving_group);
+            }).catch(function(response){
+                console.log(response);
+            })
         }
     }
     
