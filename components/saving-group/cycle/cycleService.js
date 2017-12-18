@@ -13,6 +13,13 @@ save.factory('SGCycleService', function($cookieStore, $q, $timeout, $http){
           }).catch(function(response){
               return response
           })
+      },
+      getCyclesShareOut: function(url){
+          return $http.get(url).then(function(response){
+              return response
+          }).catch(function(response){
+              return response
+          })
       }
   })  
 }) 
