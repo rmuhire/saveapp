@@ -8,17 +8,17 @@
                <div class="panel-body">
                  <div class="circles">
                  <div class="circle-with-text">
-                   <span>Cummulative savings<br>
+                   <span>Cumulative savings<br>
                    --------<br>
-                   <span class="total-style">1,980.190</span></span>
+                   <span class="total-style">{{ cumulative_saving }}</span></span>
                  </div>
                  <div class="circle-with-text2">
                    <span>Current savings<br>
                    --------<br>
-                   <span class="total-style">1,980.190</span></span>
+                   <span class="total-style">{{ current_saving }}</span></span>
                  </div>
                </div>
-               </div>
+               </div> 
             </div>
          </div>
          <div class="row">
@@ -51,7 +51,7 @@
                         <thead>
                           <tr class="table-header-first">
                              <th class="group-member">Group Members</th>
-                             <th class="total-member">Total Members:<span class="graduate-style2">236,978</span></th>
+                             <th class="total-member">Total Members:  <span class="graduate-style2">{{ total_members }}</span></th>
                              <Th></th>
                           </tr>
                            <tr>
@@ -61,31 +61,12 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <tr class="table-raw-style">
-                              <td>UWIMANA J.DIEU</td>
-                              <td>10.000 RWF</td>
-                              <td>12%</td>
+                           <tr class="table-raw-style" ng-repeat="member in members">
+                              <td>{{ member.names }}</td>
+                              <td>{{ member.contributions }}</td>
+                              <td>{{ member.shares }} %</td>
                            </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
+                           
                         </tbody>
                      </table>
                 </div>
