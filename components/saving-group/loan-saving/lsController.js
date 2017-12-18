@@ -1,4 +1,4 @@
-save.controller('lsViewCtrl', function($scope,$http,$location){
+save.controller('lsViewCtrl', function($scope,$http,$location, AgentService, MemberService){
   $(function(){
               $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart');
               $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart');
@@ -7,6 +7,39 @@ save.controller('lsViewCtrl', function($scope,$http,$location){
     
     
     $scope.$on('LoadSgLoansSavings', function(event, opt){
+        $scope.total_members = opt.sg.male + opt.sg.female
+        console.log(opt.sg, 'SG')
+        $scope.cumulative_saving = numeral(opt.sg.cumulative_saving).format('0,0')
+        $scope.current_saving = numeral(opt.sg.current_saving).format('0,0')
+        
+        
+        AgentService.getSavingGroupMember(opt.sg.members_url)
+            .then(function(response){
+                var members = response.data.members
+                var data = new Array()
+               
+                members.forEach(function(element, index){
+                    console.log(element, 'Member')
+                    var json = new Object()
+                    MemberService.getMemberShares(element.member_shares)
+                        .then(function(response){
+                            json['names'] = element.user.name
+                            json['contributions'] = numeral(response.data.contributions).format('0,0')
+                            json['shares'] = response.data.shares
+                            
+                        }).catch(function(response){
+                            console.log(response)
+                        })
+                    data.push(json)
+                    $scope.members = data
+                })
+            }).catch(function(response){
+                console.log(response)
+            })
+        
+        
+        
+        
         var trace1 = {
               x: ['giraffes', 'orangutans', 'monkeys','giraf'],
               y: [20, 14, 23, 21],
@@ -25,7 +58,7 @@ save.controller('lsViewCtrl', function($scope,$http,$location){
 
             var layout = {
                 barmode: 'group',
-                width: 320,
+                width: 320, 
             height: 400,
           legend:{
             orientation	: 'h',
