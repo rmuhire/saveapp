@@ -3,7 +3,7 @@ save.controller('cycleViewCtrl', function($scope, $http, $location, SGCycleServi
 
     $scope.$on('LoadSgCycle', function(event, opt) {
         // get Cycles
-        console.log(opt.sg)
+        //console.log(opt.sg)
         $scope.status = opt.sg.status ? "Graduated" : "Supervised";
         SGCycleService.getSgCycles(opt.sg.cycle_url).then(function(response) {
             console.log(response.data.cycles)
@@ -15,23 +15,33 @@ save.controller('cycleViewCtrl', function($scope, $http, $location, SGCycleServi
                 var cycles = response.data.cycles
                 var values = new Array()
                 var labels = new Array()
+                var x = new Array()
+                var y = new Array()
                 var suggestions = new Array('First', 'Second', 'Third', 'Fourth', 'Fifth')
                 cycles.forEach(function(element, index) {
-                    console.log(element.members_url)
+                    console.log(element)
                     SGCycleService.getCyclesMembers(element.members_url)
                         .then(function(response) {
-                            console.log(response.data.members.length)
                             values.push(response.data.members.length)
                             labels.push(suggestions[index])
                             $scope.pieChart(values, labels)
-                            
+
                         })
                         .catch(function(response) {
                             console.log(response)
                         })
+                    SGCycleService.getCyclesShareOut(element.cycle_share_out_url)
+                        .then(function(response) {
+                            x.push(suggestions[index])
+                            y.push(response.data.reinvested_amount)
+                            $scope.BarChart(x, y)
+                        })
+                        .catch(function(reponse) {
+                            console.log(response)
+                        })
                 })
 
-                
+
 
             }
 
@@ -42,7 +52,6 @@ save.controller('cycleViewCtrl', function($scope, $http, $location, SGCycleServi
 
 
         $scope.pieChart = function(values, labels) {
-            console.log(values, labels)
             var data = [{
                 values: values,
                 labels: labels,
@@ -88,43 +97,37 @@ save.controller('cycleViewCtrl', function($scope, $http, $location, SGCycleServi
         }
 
 
+        $scope.BarChart = function(x, y) {
+            var trace1 = {
+                x: x,
+                y: y,
+                name: 'Money Reinvested after cycle',
+                type: 'bar'
+            };
 
-        var trace1 = {
-            x: ['giraffes', 'orangutans', 'monkeys'],
-            y: [20, 14, 23],
-            name: 'SF Zoo',
-            type: 'bar'
-        };
+            var data = [trace1];
 
-        var trace2 = {
-            x: ['giraffes', 'orangutans', 'monkeys'],
-            y: [12, 18, 29],
-            name: 'LA Zoo',
-            type: 'bar'
-        };
+            var layout = {
+                barmode: 'group',
+                width: 480,
+                height: 400,
+                legend: {
+                    orientation: 'h',
+                    x: 0,
+                    y: -0.2
+                },
+                margin: {
+                    l: 40,
+                    r: 0,
+                    t: 0,
+                    b: 40
+                }
+            };
 
-        var data = [trace1];
-
-        var layout = {
-            barmode: 'group',
-            width: 480,
-            height: 400,
-            legend: {
-                orientation: 'h',
-                x: 0,
-                y: -0.2
-            },
-            margin: {
-                l: 20,
-                r: 0,
-                t: 0,
-                b: 40
-            }
-        };
-
-        Plotly.newPlot('sg_cycle_money', data, layout, {
-            displayModeBar: false
-        });
+            Plotly.newPlot('sg_cycle_money', data, layout, {
+                displayModeBar: false
+            });
+        }
 
 
 
