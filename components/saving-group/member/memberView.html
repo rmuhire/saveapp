@@ -8,13 +8,13 @@
                <div class="panel-body" style="padding:30px;">
                   <div class="circle-margin">
                      <div class="chart circle-detail">
-                        <div id="women" class="donut-chart" data-percent="0.67" data-title="Women %"></div>
-                        <p class="circle-chart-number">1.903.420</p>
+                        <div id="women" class="donut-chart" data-percent="0" data-title="Women %"></div>
+                        <p class="circle-chart-number">{{ female }}</p>
                      </div>
                      <div class="second-circle">
                         <div class="chart circle-detail">
-                           <div id="men" class="donut-chart2" data-percent="0.24" data-title="men %"></div>
-                           <p class="circle-chart-number">1.903.420</p>
+                           <div id="men" class="donut-chart2" data-percent="0" data-title="men %"></div>
+                           <p class="circle-chart-number">{{ male }}</p>
                         </div>
                      </div>
                   </div>
@@ -44,7 +44,7 @@
                         <thead>
                           <tr class="table-header-first">
                              <th class="group-member">Group Members</th>
-                             <th class="total-member">Total Members:<span class="graduate-style2">236,978</span></th>
+                             <th class="total-member">Total Members:  <span class="graduate-style2">{{ total_members }}</span></th>
                              <Th></th>
                           </tr>
                            <tr>
@@ -54,31 +54,12 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <tr class="table-raw-style">
-                              <td>UWIMANA J.DIEU</td>
-                              <td>10.000 RWF</td>
-                              <td>12%</td>
+                           <tr class="table-raw-style" ng-repeat="member in members">
+                              <td>{{ member.names }}</td>
+                              <td>{{ member.contributions }}</td>
+                              <td>{{ member.shares }} %</td>
                            </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
+                           
                         </tbody>
                      </table>
                 </div>
