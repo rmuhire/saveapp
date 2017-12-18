@@ -1,4 +1,4 @@
-save.controller('memberViewCtrl', function($scope,$http,$location){
+save.controller('memberViewCtrl', function($scope,$http,$location, AgentService, MemberService){
   $(function(){
               $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart');
               $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart');
@@ -7,9 +7,72 @@ save.controller('memberViewCtrl', function($scope,$http,$location){
     
     
     $scope.$on('LoadSgMember', function(event, opt){
+        $scope.total_members = opt.sg.male + opt.sg.female
+        var male_per = opt.sg.male / $scope.total_members
+        var female_per = opt.sg.female / $scope.total_members
+        $scope.male = opt.sg.male
+        $scope.female = opt.sg.female
+        
+        
+        
+        $("#men").attr("data-percent", male_per)
+        $("#women").attr("data-percent", female_per)
+        $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart');
+        $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart');
+        
+        AgentService.getSavingGroupMember(opt.sg.members_url)
+            .then(function(response){
+                console.log(response, 'Members')
+                var members = response.data.members
+                var data = new Array()
+                var i
+                var a = 0, b = 0, c = 0 , d= 0
+                var range = new Array(a, b, c, d)
+                members.forEach(function(element, index){
+                    console.log(element, 'Member')
+                    var json = new Object()
+                    i = $scope.ageRange(element.user.age)
+                    range[i] = range[i] + 1
+                    MemberService.getMemberShares(element.member_shares)
+                        .then(function(response){
+                            json['names'] = element.user.name
+                            json['contributions'] = numeral(response.data.contributions).format('0,0')
+                            json['shares'] = response.data.shares
+                            
+                        }).catch(function(response){
+                            console.log(response)
+                        })
+                    data.push(json)
+                    $scope.members = data
+                    $scope.pieChart(range)
+                })
+            }).catch(function(response){
+                console.log(response)
+            })
+        
+        
+        
+        
+    })
+    
+    
+    $scope.ageRange = function(x){
+        switch (true) {
+            case (x >= 18 && x <= 25):
+                return 0
+            case (x >= 26 && x <= 35):
+                 return 1
+            case (x >=36 && x <= 45):
+                return 2
+            default:
+                return 3
+        }
+    }
+    
+    $scope.pieChart = function(values){
         var data = [{
-          values: [19, 26, 55],
-          labels: ['Residential', 'Non-Residential', 'Utility'],
+          values: values,
+          labels: ['18-25', '26-35', '36-45', '46-Above'],
           type: 'pie'
         }];
 
@@ -30,6 +93,6 @@ save.controller('memberViewCtrl', function($scope,$http,$location){
         };
 
         Plotly.newPlot('member_group_age', data, layout, {displayModeBar: false});
-    })
+    }
     
 })
