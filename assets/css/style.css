@@ -1,5 +1,5 @@
 body {
-    background-color: #1DB3CE;
+    background-color: #F9F9F9;
 }
 /*Tab-Scrolling*/
 
@@ -195,12 +195,12 @@ button.btn.active:focus {
     color: #fff;
 }
 .save-card {
-    border: 2px solid #fff;
-    margin-top: 50px;
+    border: 1px solid #E3E3E3;
+    margin-top: 80px;
     padding: 50px;
     background-color: #fff;
-    padding-bottom: 50px;
-    border-radius: 19px;
+    padding-bottom: 120px;
+    border-radius: 8px;
 }
 .welcome-text {
     font-size: 36px;
@@ -316,13 +316,13 @@ select {
     margin-left: 140px;
 }
 .navbar-inverse {
-    background-color: #4E546B;
-    border-color: #4E546B;
+    background-color: #3A3C5A;
+    border-color: #3A3C5A;
     color: #fff;
 }
 .navbar-inverse .navbar-brand {
     color: #9d9d9d;
-    background-color: #545c78;
+    background-color: #47496A;
     height: 73.25px;
     width: 100%;
 }
@@ -946,7 +946,8 @@ i {
         }*/
 
 .circles {
-    display: inline-block;
+    margin: 0 auto;
+    display: table;
 }
 .circle-with-text {
     background: #fff;
@@ -955,7 +956,6 @@ i {
     border-radius: 100%;
     border: 3px solid #EBC7DE;
     text-align: center;
-    margin: 5px 5px;
     font-size: 13px;
     padding: 15px;
     display: inline-block;
@@ -970,7 +970,6 @@ i {
     border-radius: 100%;
     border: 3px solid #9CCD88;
     text-align: center;
-    margin: 5px 5px;
     font-size: 13px;
     padding: 15px;
     display: inline-block;
