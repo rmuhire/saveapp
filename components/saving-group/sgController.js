@@ -76,6 +76,7 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
     var selection = 'all';
     $scope.loadProjectSG(selection);
     
+    $scope.sg_tabs = false;
     
     $scope.loadSG = function(sg){
         console.log(sg);
@@ -83,6 +84,9 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
         $scope.$broadcast('LoadSgMember', { sg:sg })
         $scope.$broadcast('LoadSgLoansSavings', { sg:sg })
         $scope.$broadcast('LoadSgDividends', { sg:sg })
+        $scope.$broadcast('LoadAL', { sg:sg })
+        
+        $scope.sg_tabs = true;
         
     }
     

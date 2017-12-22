@@ -22,4 +22,4 @@ save.factory('SGCycleService', function($cookieStore, $q, $timeout, $http){
           })
       }
   })  
-}) 
+})  

@@ -32,10 +32,11 @@
                      <div class="panel-body">
                          <div id="sg_loan_savings"></div>
                      </div>
-                     <p class="group-style2">Number of outstanding loans : <span class="graduate-style">29</span></p>
+                     <p class="group-style2">Number of outstanding loans : <span class="graduate-style">{{count_outstanding_loan}}</span></p>
                      <div class="panel-footer style-footer-first">
-                        <p class="nber-cycle">Total write-offs: <span>12</span> </p>
-                        <p class="nber-cycle">This Cycle: <span>3</span> </p>
+                        <p class="nber-cycle">Total write-offs: <span>{{ count_write_off }}</span> </p>
+                        <p class="nber-cycle">This Cycle: <span>{{ current_cycle }}</span> </p>
+                        <p class="nber-cycle">Wallet Balance: <span>{{ wallet_balance }}</span> </p>
                      </div>
                   </div>
                </div>
@@ -64,7 +65,7 @@
                            <tr class="table-raw-style" ng-repeat="member in members">
                               <td>{{ member.names }}</td>
                               <td>{{ member.contributions }}</td>
-                              <td>{{ member.shares }} %</td>
+                              <td>{{ member.shares }}</td>
                            </tr>
                            
                         </tbody>

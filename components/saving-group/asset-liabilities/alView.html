@@ -1,21 +1,21 @@
-<div class="" ng-controller="lsViewCtrl">
+<div class="" ng-controller="alViewCtrl">
    <div class="row panel-padding">
      <!--Balance-->
       <div class="col-sm-5">
         <div class="panel-footer style-footer-first-1">
-           <p class="nber-cycle">Bank balance: <span>789,099</span> </p>
+           <p class="nber-cycle">Bank balance: <span>0 Rwf</span> </p>
         </div>
          <div class="row">
             <div class="col-sm-12">
               <div class="panel-footer style-footer-first-2">
-                 <p class="nber-cycle">Social Fund Balance: <span>12,000 Rwf</span> </p>
+                 <p class="nber-cycle">Social Fund Balance: <span>{{ social_fund_balance }} Rwf</span> </p>
               </div>
             </div>
          </div>
          <div class="row">
             <div class="col-sm-12">
               <div class="panel-footer style-footer-first-3">
-                 <p class="nber-cycle">Total write-offs: <span>12</span> </p>
+                 <p class="nber-cycle">Total write-offs: <span>{{count_write_off}}</span> </p>
               </div>
             </div>
          </div>
@@ -28,7 +28,7 @@
                  <p class="cycle-text">- dormed and divived by arches into stiff</p>
                  <p></p>
               </div>
-            </div>
+            </div> 
          </div>
       </div>
       <!--Table-members-->
@@ -40,7 +40,7 @@
                         <thead>
                           <tr class="table-header-first">
                              <th class="group-member">Group Members</th>
-                             <th class="total-member">Total Members:<span class="graduate-style2">236,978</span></th>
+                             <th class="total-member">Total Members:  <span class="graduate-style2">{{ total_members }}</span></th>
                              <Th></th>
                           </tr>
                            <tr>
@@ -50,31 +50,12 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <tr class="table-raw-style">
-                              <td>UWIMANA J.DIEU</td>
-                              <td>10.000 RWF</td>
-                              <td>12%</td>
+                           <tr class="table-raw-style" ng-repeat="member in members">
+                              <td>{{ member.names }}</td>
+                              <td>{{ member.contributions }}</td>
+                              <td>{{ member.shares }}</td>
                            </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
-                           <tr>
-                              <td>35</td>
-                              <td>New York</td>
-                              <td>USA</td>
-                           </tr>
+                           
                         </tbody>
                      </table>
                 </div>

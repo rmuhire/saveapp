@@ -16,6 +16,14 @@
              }).catch(function(response){
                 return response;  
              });
-         }
+         },
+         getWalletSG: function(url){
+            return $http.get(url).then(function(response){
+                return response
+            }).catch(function(response){
+                return response
+            })
+        }
      })
  })  
+

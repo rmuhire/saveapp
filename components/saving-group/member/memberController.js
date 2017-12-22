@@ -1,9 +1,8 @@
 save.controller('memberViewCtrl', function($scope,$http,$location, AgentService, MemberService){
-  $(function(){
-              $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart');
-              $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart');
-
-          });
+ 
+     $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart')
+     $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart')
+       
     
     
     $scope.$on('LoadSgMember', function(event, opt){
@@ -14,11 +13,14 @@ save.controller('memberViewCtrl', function($scope,$http,$location, AgentService,
         $scope.female = opt.sg.female
         
         
+      
         
-        $("#men").attr("data-percent", male_per)
-        $("#women").attr("data-percent", female_per)
-        $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart');
-        $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart');
+        
+        $("#men").attr("data-percent", male_per.toFixed(2))
+        $("#women").attr("data-percent", female_per.toFixed(2))
+        
+        $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart')
+        $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart')
         
         AgentService.getSavingGroupMember(opt.sg.members_url)
             .then(function(response){
@@ -85,7 +87,7 @@ save.controller('memberViewCtrl', function($scope,$http,$location, AgentService,
             y:-0.2
           },
             margin: {
-                    l: 0,
+                    l: 40,
                     r: 0,
                     t: 0,
                     b: 0
@@ -94,5 +96,7 @@ save.controller('memberViewCtrl', function($scope,$http,$location, AgentService,
 
         Plotly.newPlot('member_group_age', data, layout, {displayModeBar: false});
     }
+    
+        
     
 })
