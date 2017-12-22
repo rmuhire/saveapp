@@ -305,5 +305,29 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                 console.log(response);    
             })
     }
+    
+    
+    $scope.$on('LoadProjectPartner', function(event, opt){
+        console.log(opt.project)
+        PartnerService.getProjectPartner(opt.project.project_partners)
+            .then(function(response){
+                var partners = response.data.partners
+                var data = new Array()
+                partners.forEach(function(element, index){
+                    var json = new Object()
+                    console.log(element)
+                    json['partner'] = element.partner.name
+                    json['intervention'] = '12'
+                    json['donor'] = opt.project.donor
+                    json['duration'] = '6'
+                    json['budget'] = opt.project.budget
+                    data.push(json)
+                    $scope.projects = data
+                })
+                
+            }).catch(function(response){
+                console.log(response)
+            })
+    })
 
 })
