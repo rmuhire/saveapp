@@ -12,12 +12,12 @@
             </tr>
          </thead>
          <tbody>
-            <tr class="table-raw-style" id="partner-details">
-               <td>Uwimana jean claude</td>
-               <td>9</td>
-               <td>9</th>
-               <td>9</td>
-               <td>9</td>
+            <tr class="table-raw-style" id="partner-details" ng-repeat="project in projects">
+               <td>{{ project.partner }}</td>
+               <td>{{ project.intervention }}</td>
+               <td>{{ project.donor }}</th>
+               <td>{{ project.duration }}</td>
+               <td>{{ project.budget }}</td>
             </tr> 
             
 
