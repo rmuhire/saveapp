@@ -241,9 +241,9 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
     
     
     $scope.$on('LoadPorjectAgent', function(event, opt){
-        alert(opt.id);
+        alert(opt.project.id);
         $scope.pmessage = false;
-        AgentService.getProjectAgent(opt.id)
+        AgentService.getProjectAgent(opt.project.id)
             .then(function(response){
                 var agent = response.data.project_agents;
                 var data = Array();
@@ -251,7 +251,7 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
                 agent.forEach(function(element){
                     var json = new Object();
                     json['name'] = element.users['name'];
-                    json['project_name'] = opt.name;
+                    json['project_name'] = opt.project.name;
                     AgentService.getAgentSavingGroup(element.users['sg_url'])
                         .then(function(response){
                             console.log(response);
