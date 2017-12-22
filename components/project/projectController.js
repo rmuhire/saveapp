@@ -31,8 +31,10 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
             })
     }
     
-    
-    $scope.currentProject = function(id, name){
-        $scope.$broadcast('LoadPorjectAgent', {id: id, name:name});
+    $scope.project_sg = false;
+    $scope.currentProject = function(project){
+        $scope.$broadcast('LoadPorjectAgent', {project: project });
+        $scope.$broadcast('LoadProjectPartner', { project: project });
+        $scope.project_sg = true;
     }
 })
