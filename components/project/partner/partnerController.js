@@ -205,11 +205,13 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                     dropLeft: true
                 });
 
-            });
+            }); 
     }
 
     $scope.loadVillage = function() {
-        PartnerService.getVillage($scope.location.cell)
+        var json = new Object()
+        json['cell'] = $scope.location.cell
+        PartnerService.postVillage(JSON.stringify(json))
             .then(function(response) {
                 console.log(response);
                 var options = "";
