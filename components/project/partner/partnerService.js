@@ -77,6 +77,13 @@ save.factory('PartnerService', function($cookieStore, $q, $timeout, $http){
             }).catch(function(response){
                 return response
             })
+        },
+        getProjectPartner: function(url){
+            return $http.get(url).then(function(response){
+                return response
+            }).catch(function(response){
+                return response
+            })
         }
     })
 }) 
