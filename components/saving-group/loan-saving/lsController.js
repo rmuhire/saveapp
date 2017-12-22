@@ -97,8 +97,8 @@ save.controller('lsViewCtrl', function($scope, $http, $location, AgentService, M
 
         var layout = {
             barmode: 'group',
-            width: 350,
-            height: 400,
+            width: 370,
+            height: 450,
             legend: {
                 orientation: 'h',
                 x: 0,
@@ -107,7 +107,7 @@ save.controller('lsViewCtrl', function($scope, $http, $location, AgentService, M
             margin: {
                 l: 40,
                 r: 0,
-                t: 0,
+                t: 20,
                 b: 0
             }
         };
