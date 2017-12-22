@@ -36,7 +36,7 @@
                         <!--Project List-->
                            
                         <ul class="list-group" ng-repeat="project in projects | filter : search_project">
-                            <li class="edit list-group-item" id="project{{project.id}}"><a ng-click="currentProject(project.id, project.name)">{{ project.name }}</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                            <li class="edit list-group-item" id="project{{project.id}}"><a ng-click="currentProject(project)">{{ project.name }}</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
                           
                         </ul>
                      </div>
@@ -46,7 +46,7 @@
             </div>
             <!--Project tabs-->
             <div class="col-sm-9 col-md-9">
-               <div class="panel panel-primary hide-scroll" id="style-1">
+               <div class="panel panel-primary hide-scroll" ng-show="project_sg" id="style-1">
                   <div class="panel-body">
                      <div class="tab-content">
                         <div class="tab-pane-first active" id="test">
@@ -68,6 +68,9 @@
                      </div>
                   </div>
                </div>
+               <div class="second-panel panel panel-primary hide-scroll">
+                    <h1 class="sg_first_title" class='text-center'>Select A Project</h1>
+                </div>
             </div>
          </div>
       </div>
