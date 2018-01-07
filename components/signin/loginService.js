@@ -2,7 +2,7 @@ save.factory('AuthService', ['$cookieStore','$base64','$q','$timeout','$http', f
     // create user variable
     var user = null;
     
-    var url = 'http://localhost:5000/v1/';
+    var url = 'http://197.243.18.25:5000/v1/';
     return ({
         sign_in: function (data){
             // create new instance for deffered
