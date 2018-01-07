@@ -23,8 +23,11 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
     /*floating button add-new-project*/
     $(".btn-add-new-project").click(function(event) {
         event.preventDefault();
-        $("#isolated-project-view,#partner-view").hide();
+        
+        $("#isolated-project-view").hide();
+        
         $("#add-new-project").show();
+        $("#partner-view").hide();
     });
     /*back to isolated agent view*/
     $(".back-to-partner-detail").click(function(event) {
