@@ -1,7 +1,14 @@
 save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService, $cookieStore) {
 
   
- 
+    function datePickerPlugin(){
+        $('[data-toggle="start"]').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+        $('[data-toggle="end"]').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    }
 
     /*bootstrap tooltip function*/
     $(document).ready(function() {
@@ -27,6 +34,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
         $("#isolated-project-view").hide();
         
         $("#add-new-project").show();
+        datePickerPlugin();
         $("#partner-view").hide();
     });
     /*back to isolated agent view*/
@@ -266,47 +274,47 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
             village.push(dict);
         }
         
-        console.log(village);
         
-        PartnerService.postOrganizations($scope.ngo)
-            .then(function(response){
-                console.log(response);
-                // post organization users
-                PartnerService.postOrganizationsUsers($scope.user, response.data.id)
-                    .then(function(response){
-                        console.log(response);
-                    })
-                    .catch(function(response){
-                        console.log(response);
-                    })
-            
-                // post Organization project
-                PartnerService.postOrganizationsProject($scope.project)
-                    .then(function(data){
-                        console.log(data)
-                        // post project intervention area
-                        PartnerService.postProjectInterventionArea(JSON.stringify(village), data.data.id)
-                            .then(function(response){
-                                console.log(response);
-                            }).catch(function(reponse){
-                                console.log(response);
-                            })
-                    
-                        // post organization partnership
-                        PartnerService.postProjectPartner(data.data.id, response.data.id).then(function(response){
-                            console.log(response);
-                        }).catch(function(response){
-                            console.log(response);
-                        })
-                    
-                    }).catch(function(data){
-                        console.log(data);
-                    })
-                
-            })
-            .catch(function(response){
-                console.log(response);    
-            })
+        
+//        PartnerService.postOrganizations($scope.ngo)
+//            .then(function(response){
+//                console.log(response);
+//                // post organization users
+//                PartnerService.postOrganizationsUsers($scope.user, response.data.id)
+//                    .then(function(response){
+//                        console.log(response);
+//                    })
+//                    .catch(function(response){
+//                        console.log(response);
+//                    })
+//            
+//                // post Organization project
+//                PartnerService.postOrganizationsProject($scope.project)
+//                    .then(function(data){
+//                        console.log(data)
+//                        // post project intervention area
+//                        PartnerService.postProjectInterventionArea(JSON.stringify(village), data.data.id)
+//                            .then(function(response){
+//                                console.log(response);
+//                            }).catch(function(reponse){
+//                                console.log(response);
+//                            })
+//                    
+//                        // post organization partnership
+//                        PartnerService.postProjectPartner(data.data.id, response.data.id).then(function(response){
+//                            console.log(response);
+//                        }).catch(function(response){
+//                            console.log(response);
+//                        })
+//                    
+//                    }).catch(function(data){
+//                        console.log(data);
+//                    })
+//                
+//            })
+//            .catch(function(response){
+//                console.log(response);    
+//            })
     }
     
     
