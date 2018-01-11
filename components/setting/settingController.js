@@ -17,7 +17,15 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
  });
     
     
+    function birthdatePlugin(){
+        $('[data-toggle="birthdate"]').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    }
+    
+    
     $scope.users_info = function(){
+        
         var user_profile = AuthService.getUserInformations();
         user_profile.then(function(data){
             console.log(data);
@@ -32,7 +40,7 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
     } 
     
     $scope.users_info();
-    
+    birthdatePlugin();
     $scope.user = {};
     $scope.save_user_details = function(){
         console.log($scope.user);
