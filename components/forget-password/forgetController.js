@@ -1,7 +1,18 @@
-save.controller('forgetCtrl', ['$scope', '$http','$location', function($scope,$http,$location){
-            $("#send-email").click(function(event){
-               event.preventDefault();
-                 $(".pwd-recovery").hide();
-                 $(".email-sent-confirmation").show();
-            });
-}])
+save.controller('forgetCtrl', function($scope, $http, $location, AuthService) {
+
+    $scope.pwd_recovery = true;
+    $scope.confirmation = false;
+    
+    
+    $scope.pwdRecovery = function(email){
+        var url = "http://127.0.0.1:5000/v1/users/"+email+"/recover/";
+        AuthService.recoverUserEmail(url)
+            .then(function(response){
+                console.log(response);
+            })
+            .catch(function(response){
+            
+            })
+    }
+    
+})
