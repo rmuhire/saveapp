@@ -1,4 +1,5 @@
 save.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+    $locationProvider.hashPrefix('');
     $routeProvider
     .when('/',{
         redirectTo: '/signin'
@@ -21,7 +22,7 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
             private: false
         }
     })
-    .when('/change-password',{
+    .when('/change-password/:email',{
         templateUrl:'components/changing-password/changingView.html',
         data: {
             private: false
@@ -53,6 +54,13 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
     })
     .when('/404',{
         templateUrl:'components/404/404.html',
+        data: {
+            private: false
+        }
+    })
+    .when('/recover/:email/:keyu',{
+        template: '',
+        controller: 'keyController',
         data: {
             private: false
         }
