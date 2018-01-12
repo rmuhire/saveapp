@@ -52,6 +52,21 @@ save.factory('AuthService', ['$cookieStore','$base64','$q','$timeout','$http', f
             return $http.get(user_url).then(function(response){
                 return response.data;
             });
+        },
+        recoverUserEmail: function(url){
+            return $http.put(url).then(function(response){
+                return response
+            }).catch(function(reponse){
+                return reponse
+            })
+        },
+        Key: function(url){
+            return $http.get(url).then(function(response){
+                return response;  
+            })
+            .catch(function(response){
+                return response
+            })
         }
       
     });
