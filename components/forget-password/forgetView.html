@@ -9,28 +9,28 @@
     <div class="row">
         <div class="col-centered col-lg-4 col-md-5 col-sm-10 col-xs-10 save-card">
             <!--Password recovery-->
-            <div class="pwd-recovery">
+            <div class="pwd-recovery" ng-show="pwd_recovery">
                 <p class="text-center recovery-text">Password Recovery</p>
-                <form class="form-style">
+                <form class="form-style" name="pwd_recovery">
                     <div class="form-group">
-                        <input type="email" class="form-control form-rounded" placeholder="Email address">
+                        <input type="email" class="form-control form-rounded" ng-model="email" placeholder="Email address" required>
                     </div>
-                    <button type="submit" class="btn btn-login" id="send-email">SEND EMAIL</button>
+                    <button type="submit" ng-click="pwdRecovery(email)" class="btn btn-login" ng-disabled="!pwd_recovery.$valid" id="send-email">SEND EMAIL</button>
                     <p class="text-center forgot-pwd-style">
-                        Change your mind ? <strong><a href="#!/signin">Sign In</a></strong>
+                        Change your mind ? <strong><a href="#/signin">Sign In</a></strong>
                     </p>
                 </form>
             </div>
             
             <!--Email confirmation-->
-            <div class="email-sent-confirmation confirmation-style">
+            <div class="email-sent-confirmation confirmation-style" ng-show="confirmation">
                 <p class="text-center recovery-text">Email Sent</p>
                 <img src="assets/img/check.svg" class="img-responsive img-center">
                 <p class="text-center forgot-pwd-style">
-                    Change your mind ? <strong><a href="#!/signin">Sign In</a></strong>
+                    Change your mind ? <strong><a href="#/signin">Sign In</a></strong>
                 </p>
             </div>
         </div>
-        <div class="footer">Change your mind ? <strong><a href="#!/signup">Sign Up</a></strong></div>
+        <div class="footer">Change your mind ? <strong><a href="#/signup">Sign Up</a></strong></div>
     </div>
 </div>
