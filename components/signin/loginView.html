@@ -7,19 +7,19 @@
     <div class="row" ng-controller="signinCtrl">
         <div class="col-centered col-lg-4 col-md-5 col-sm-10 col-xs-10 save-card">
             <p class="text-center welcome-text">Welcome!</p>
-            <form class="form-style" ng-submit="signin()">
+            <form class="form-style" name="signin_">
                 <div class="form-group">
-                    <input type="text" ng-model="user.username" class="form-control form-rounded" placeholder="Email address">
+                    <input type="text" ng-model="user.username" class="form-control form-rounded" placeholder="Email address" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" ng-model="user.password" class="form-control form-rounded" placeholder="Password">
+                    <input type="password" ng-model="user.password" class="form-control form-rounded" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-login">SIGN IN</button>
+                <button type="submit" ng-click="signin()" ng-disabled="!signin_.$valid" class="btn btn-login">SIGN IN</button>
                 <p class="text-center forgot-pwd-style">
-                    Forgot password ? Reset it <strong><a href="#!/forget-password">here</a></strong>
+                    Forgot password ? Reset it <strong><a href="#/forget-password">here</a></strong>
                 </p>
             </form>
         </div>
-        <div class="footer">Don't have an account ? <a href="#!/signup"><strong>Sign Up</strong></a></div>
+        <div class="footer">Don't have an account ? <a href="#/signup"><strong>Sign Up</strong></a></div>
     </div>
 </div>
