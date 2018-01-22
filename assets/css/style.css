@@ -270,9 +270,7 @@ select {
 .forgot-pwd-style2 {
     margin-top: 22px;
 }
-.email-sent-confirmation {
-    display: none;
-}
+
 .img-center {
     display: block;
     margin: 0 auto;
