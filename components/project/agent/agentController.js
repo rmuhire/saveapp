@@ -217,16 +217,17 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
         $scope.user['username'] = null;
         $scope.user['birth_date'] = '1900-01-01';
         $scope.user['education'] = null;
-        $scope.user['location'] = null;
-        $scope.user['type'] = 1;
-        $scope.user['password'] = '000000'
+        $scope.user['location'] = '11010106';
+        $scope.user['type'] = 2;
+        $scope.user['password'] = '000000';
         $scope.user['gender'] = null;
+        var project_id = $("#project_").val();
         console.log($scope.user, $scope.project)
         PartnerService.postOrganizationsUsers($scope.user, $cookieStore.get('__save_o'))
             .then(function(response){
                 var user_id = new Object();
                 user_id['user_id'] = response.data.id;
-                AgentService.postAgentProject($scope.project.id, JSON.stringify(user_id))
+                AgentService.postAgentProject(project_id, JSON.stringify(user_id))
                     .then(function(){
                         console.log("added");
                     }).catch(function(){
