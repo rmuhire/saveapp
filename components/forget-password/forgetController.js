@@ -9,6 +9,12 @@ save.controller('forgetCtrl', function($scope, $http, $location, AuthService) {
         AuthService.recoverUserEmail(url)
             .then(function(response){
                 console.log(response);
+                if (response.status == 200){
+                    $scope.pwd_recovery = false;
+                    $scope.confirmation = true;
+                }else{
+                    
+                }
             })
             .catch(function(response){
             
