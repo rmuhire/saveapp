@@ -6,21 +6,21 @@
         </div>
     </div>
     <!--Forms-->
-    <div class="row">
+    <div class="row" ng-controller="ChangePasswordCtrl">
         <div class="col-centered col-lg-4 col-md-5 col-sm-10 col-xs-10 save-card">
             <p class="text-center recovery-text">Change Password</p>
-            <form class="form-style">
+            <form class="form-style" name="changeP">
                 <div class="form-group">
-                    <input type="password" class="form-control form-rounded" placeholder="Password">
+                    <input type="password" class="form-control form-rounded" placeholder="Password" ng-model="user.password" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control form-rounded" placeholder="New Password">
+                    <input type="password" class="form-control form-rounded" placeholder="New Password" ng-model="user.c_password" required>
                 </div>
-                <button type="submit" class="btn btn-login">CHANGE PASSWORD</button>
+                <button type="submit" class="btn btn-login" ng-disabled="!changeP.$valid" ng-click="changePassword()">CHANGE PASSWORD</button>
                 <p class="text-center forgot-pwd-style">
                     Change your mind ? <strong><a href="#/signin">Sign In</a></strong>
                 </p>
-            </form>
+            </form> 
         </div>
         <div class="footer">Already have an account ? <a href="#/signup"><strong>Sign In</strong></a></div>
     </div>
