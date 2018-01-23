@@ -1,5 +1,5 @@
 save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
-    var url = 'http://197.243.18.25:5000/v1/users/'+ $cookieStore.get('__save');
+    var url = 'http://127.0.0.1:5000/v1/users/'+ $cookieStore.get('__save');
     
     return ({
         updateUser: function(data){
@@ -32,7 +32,7 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
         },
         checkEmail: function(data){
             var deferred = $q.defer();
-            var url = 'http://197.243.18.25:5000/v1/users/'+data+'/email/';
+            var url = 'http://127.0.0.1:5000/v1/users/'+data+'/email/';
             $http.get(url)
                 .then(function(response){
                     deferred.resolve();
@@ -43,7 +43,7 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
         },
         checkPhone: function(data){
             var deferred = $q.defer();
-            var url = 'http://197.243.18.25:5000/v1/users/'+data+'/phone/';
+            var url = 'http://127.0.0.1:5000/v1/users/'+data+'/phone/';
             $http.get(url).then(function(response){
                     deferred.resolve();
                 }).catch(function(response){
@@ -54,7 +54,7 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
         }, 
         checkIdNumber:  function(data){
             var deferred = $q.defer();
-            var url = 'http://197.243.18.25:5000/v1/users/'+data+'/id-number/';
+            var url = 'http://127.0.0.1:5000/v1/users/'+data+'/id-number/';
             $http.get(url).then(function(response){
                     deferred.resolve();
                 })
@@ -65,7 +65,7 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
         },
         newUser: function(data){
             var deferred = $q.defer();
-            var url = 'http://197.243.18.25:5000/v1/organizations/'+ $cookieStore.get('__save_o')+'/users/';
+            var url = 'http://127.0.0.1:5000/v1/organizations/'+ $cookieStore.get('__save_o')+'/users/';
             $http.post(url, data)
                 .then(function(response){
                     deferred.resolve();
@@ -77,11 +77,18 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
             return deferred.promise;
         },
         getOrganizationUsers: function(){
-            var url = 'http://197.243.18.25:5000/v1/organizations/'+ $cookieStore.get('__save_o')+'/users/';
+            var url = 'http://127.0.0.1:5000/v1/organizations/'+ $cookieStore.get('__save_o')+'/users/';
             return $http.get(url)
                 .then(function(response){
                     return response;
                 });
+        },
+        UserInformationEmail: function(url){
+            return $http.get(url).then(function(response){
+                return response;
+            }).catch(function(response){
+                return response;
+            })
         }
     })
     

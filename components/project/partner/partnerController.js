@@ -148,7 +148,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                     buttonWidth: '300px',
                     dropLeft: true
                 });
-
+ 
             })
     }
 
