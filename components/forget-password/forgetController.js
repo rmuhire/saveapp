@@ -12,12 +12,10 @@ save.controller('forgetCtrl', function($scope, $http, $location, AuthService) {
                 if (response.status == 200){
                     $scope.pwd_recovery = false;
                     $scope.confirmation = true;
-                }else{
-                    
                 }
             })
             .catch(function(response){
-            
+                
             })
     }
     
