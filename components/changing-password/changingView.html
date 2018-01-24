@@ -8,10 +8,11 @@
     <!--Forms-->
     <div class="row" ng-controller="ChangePasswordCtrl">
         <div class="col-centered col-lg-4 col-md-5 col-sm-10 col-xs-10 save-card">
+           <div ng-show="change_password"> 
             <p class="text-center recovery-text">Change Password</p>
             <form class="form-style" name="changeP">
                 <div class="form-group">
-                    <input type="password" class="form-control form-rounded" placeholder="Password" ng-model="user.password" required>
+                    <input type="password" class="form-control form-rounded" placeholder="Password" ng-model="user.new_password" required>
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control form-rounded" placeholder="New Password" ng-model="user.c_password" required>
@@ -20,8 +21,19 @@
                 <p class="text-center forgot-pwd-style">
                     Change your mind ? <strong><a href="#/signin">Sign In</a></strong>
                 </p>
-            </form> 
-        </div>
+            </form>
+            </div>
+            
+            <!--Confirmation-->
+            <div class="email-sent-confirmation confirmation-style" ng-show="confirmation">
+                <p class="text-center recovery-text">Password changed.</p>
+                <img src="assets/img/check.svg" class="img-responsive img-center">
+                <p class="text-center forgot-pwd-style">
+                    Proceed by <strong><a href="#/signin">Sign In</a></strong>
+                </p>
+            </div>
+            
+        </div> 
         <div class="footer">Already have an account ? <a href="#/signup"><strong>Sign In</strong></a></div>
     </div>
 </div>
