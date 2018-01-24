@@ -1,236 +1,219 @@
 <div class="" ng-controller="PartnerCtrl">
-   <div class="partner-view" id="partner-view">
-      <table class="table mytable">
-         <thead>
-            <tr class="table-header">
-               <th>Partner</th>
-               <th>Intervention Area</th>
-               <th>Donor</th>
-               <th>Duration(Months)</th>
-               <th>Budget (USD)</th>
-               
-            </tr>
-         </thead>
-         <tbody>
-            <tr class="table-raw-style" id="partner-details" ng-repeat="project in projects">
-               <td>{{ project.partner }}</td>
-               <td>{{ project.intervention }}</td>
-               <td>{{ project.donor }}</th>
-               <td>{{ project.duration }}</td>
-               <td>{{ project.budget }}</td>
-            </tr> 
-            
-
-    </tbody>
-    </table>
-      <!--Pagination-->
-<!--
-      <div class="text-center">
-         <div class="pagination">
-            <a class="pagination-style" href="#">&lang; Back</a>
-            <a class="pagination-link" href="#">1</a>
-            <a class="pagination-link" href="#">2</a>
-            <a class="pagination-link" href="#">3</a>
-            <a href="" class="more">&hellip;</a>
-            <a  class="pagination-link" href="#">12</a>
-            <a class="pagination-style" href="#">Next &rang;</a>
-         </div>
-      </div>
--->
-      <!--Add agent-->
-      <div class="fa-icon">
-         <button class="btn btn-lg  btn-circle btn-add-new-project" data-toggle="tooltip" data-placement="left" title="Add Project"><img src="assets/img/add.svg"></button>
-         <!-- <span class="btn-floating fab-tip">Add Project</span> -->
-      </div>
-   </div>
-   <!--ISOLATED PROJECT VIEW-->
-   <div class="isolated-project-view" id="isolated-project-view">
-      <div class="row">
-         <div class="col-md-8">
-            <p class="agent-name inline">One laptop per child</p>
-            <div class="fa-icon inline">
-               <button class="btn btn-lg  btn-circle2 btn-add-new-project"><img class="pencil-style" src="assets/img/pencil2.svg"></button>
+    <div class="partner-view" id="partner-view">
+        <table class="table mytable">
+            <thead>
+                <tr class="table-header">
+                    <th>Partner</th>
+                    <th>Intervention Area</th>
+                    <th>Donor</th>
+                    <th>Duration(Months)</th>
+                    <th>Budget (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-raw-style" id="partner-details" ng-repeat="project in projects">
+                    <td>{{ project.partner }}</td>
+                    <td>{{ project.intervention }}</td>
+                    <td>{{ project.donor }}</th>
+                    <td>{{ project.duration }}</td>
+                    <td>{{ project.budget }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <!--Pagination-->
+        <!--
+            <div class="text-center">
+               <div class="pagination">
+                  <a class="pagination-style" href="#">&lang; Back</a>
+                  <a class="pagination-link" href="#">1</a>
+                  <a class="pagination-link" href="#">2</a>
+                  <a class="pagination-link" href="#">3</a>
+                  <a href="" class="more">&hellip;</a>
+                  <a  class="pagination-link" href="#">12</a>
+                  <a class="pagination-style" href="#">Next &rang;</a>
+               </div>
             </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-md-6">
-            <p class="details-header">Duration</p>
-            <p class="details-agent"><span>01/01/017</span> - <span>01/08/017</span></p>
-         </div>
-         <div class="col-md-6">
-            <p class="details-header">Partner</p>
-            <p class="details-agent">Africa Evangelist Enterprise</p>
-         </div>
-      </div>
-      <div class="row padding">
-         <div class="col-md-6">
-            <p class="details-header">Budget</p>
-            <p class="details-agent">$250,000</p>
-         </div>
-         <div class="col-md-6">
-            <p class="details-header">Type</p>
-            <p class="details-agent">Local NGO</p>
-         </div>
-      </div>
-      <div class="row padding">
-         <div class="col-md-6">
-            <p class="details-header">Donor</p>
-            <p class="details-agent">USAID - Rwanda</p>
-         </div>
-         <div class="col-md-6">
-            <p class="details-header">Contact Person</p>
-            <p class="details-agent">Uwimana Adeline</p>
-            <p class="details-agent">M&E Officer</p>
-            <p class="details-agent">Uwimana@NGO.com</p>
-            <p class="details-agent">+250 789 177 515</p>
-         </div>
-      </div>
-      <div class="row padding">
-         <div class="col-md-6">
-            <p class="details-header">Intervention Area</p>
-            <p class="details-agent">Province</p>
-            <p class="details-agent">District</p>
-            <p class="details-agent">Sector</p>
-            <p class="details-agent">Cell</p>
-            <p class="details-agent">Village</p>
-            <p class="details-agent">Attachments</p>
-         </div>
-         <div class="col-md-6">
-            <p class="details-header">Attachments</p>
-            <p class="details-partner">Infographics-update.dxs</p>
-            <p class="details-partner">Infographics-update.dxs</p>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-md-6">
-            <p class="back-to-partner-view">Back</p>
-         </div>
-      </div>
-   </div>
-   <!--Ading New Project-->
-   <div class="add-new-project" id="add-new-project">
-      <div class="row">
-         <div class="col-md-6">
-            <p class="agent-name inline">Add new project</p>
-         </div>
-      </div> 
-      <div class="row">
-         <div class="col-md-6">
-            <form name="new_project">
-               <p class="details-header">Project details</p>
-               <div class="form-group  new-agent">
-                  <input type="text" class="form-control form-rounded" placeholder="full name" ng-model="project.name" required>
-               </div>
-              <div class="form-inline">
-               <div class="form-group new-agent inline-form">
-                     <input type="text" data-toggle="start" class="col-xs-12 col-sm-12 form-control form-rounded" id="" ng-model="project.start" placeholder="Start date" required>
-               </div>
-               <div class="form-group new-agent inline-form left-margin">
-                     <input type="text" data-toggle="end" class="col-xs-12 col-sm-12 form-control form-rounded" id="" ng-model="project.end"  placeholder="End date" required>
-               </div>
-             </div>
-
-             <div class="form-group  new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="Budget" ng-model="project.budget" required>
-              </div>
-              <div class="form-group  new-agent">
-                 <input type="text" class="form-control form-rounded" placeholder="Donor" ng-model="project.donor" required>
-              </div>
-              <p class="details-header2">Project Affiliation</p>
-              <div class="form-group new-agent">
-                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Province" ng-model="location.province" ng-change="loadDistrict()" id="province_" multiple="multiple" required>
-                      
-                  </select>
-              </div>
-              <div class="form-group new-agent">
-                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="District" ng-model="location.district" ng-change="loadSector()" id="district_" multiple="multiple" required>
-                     
-                  </select>
-              </div>
-              <div class="form-group new-agent">
-                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Sector" ng-model="location.sector" ng-change="loadCell()" id="sector_" multiple="multiple" required>
-                    
-                  </select>
-              </div>
-              <div class="form-group new-agent">
-                 <div class="form-group new-agent">
-                 <select style="border-radius:100px;" data-placeholder="Cell" class="form-control form-rounded-select mutiselect-form" ng-model="location.cell" ng-change="loadVillage()" id="cell_" multiple="multiple" required>
-                     
-                  </select>
-              </div>
-              </div>
-              <div class="form-group new-agent">
-                 <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Village" id="village_" ng-model="location.village" multiple="multiple" required>
-                     
-                  </select>
-              </div>
-              
-         </div>
-         <div class="col-md-5">
-            
-               <p class="details-header">Partner Details</p>
-               <div class="form-group new-agent">
-                  <input type="text" class=" form-control form-rounded " placeholder="Name" ng-model="ngo.name" required>
-               </div>
-               <div class="form-group">
-                   <input type="text" class="form-control form-rounded" placeholder="Email" ng-model="ngo.email" required>
-               </div>
-               <div class="form-group">
-                   <input type="text" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.phone" required>
-               </div>
-               <div class="form-group">
-                   <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.address" required>
-               </div>
-               <div class="form-group">
-                   <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.country" required>
-               </div>
-               
-               <div class="form-group">
-                  <select style="border-radius:100px;" class="form-control form-rounded-select" id="sel1" ng-model="ngo.type" required>
-                     <option hidden>Type...</option>
-                     <option value="1">International NGO</option>
-                     <option value="2">Local NGO</option>
-                  </select>
-               </div>
-               <p class="details-header2">Partner Contact Person</p>
-               <div class="form-group">
-                  <input type="text" class="form-control form-rounded " placeholder="Name" ng-model="user.name" required>
-               </div>
-               <div class="form-group">
-                  <input type="email" class="form-control form-rounded " placeholder="Email" ng-model="user.email" required>
-               </div>
-               <div class="form-group">
-                  <input type="text" class="form-control form-rounded " placeholder="Phone" ng-model="user.phone" required>
-               </div>
-               <div class="form-group">
-                  <input type="text" class="form-control form-rounded " placeholder="Id number" ng-model="user.id_number" required>
-               </div>
-               <!--<div class="input-group image-preview">
-                  <input type="text" class="form-control image-preview-filename form-rounded" placeholder="Attachment" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                  <!--<span class="input-group-btn">
-                     <!-- image-preview-clear button -->
-                     <!--<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                     <span class="glyphicon glyphicon-remove"></span> Clear
-                     </button>-->
-                     <!-- image-preview-input -->
-                     <!--<div class="btn btn-default image-preview-input form-rounded2">
-                        <img src="assets/img/attachment.svg">
-                        <span class="image-preview-input-title"></span>
-                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it 
-                     </div>
-                  </span>
-               </div>-->
-               <br>
-               <button type="submit" class="btn btn-login2" id="btn-next" ng-click="addProject()" ng-disabled="!new_project.$valid">NEXT</button>
-            </form>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-md-6">
-            <p class="back-to-partner-detail">Back</p>
-         </div>
-      </div>
-   </div>
+            -->
+        <!--Add agent-->
+        <div class="fa-icon">
+            <button class="btn btn-lg  btn-circle btn-add-new-project" data-toggle="tooltip" data-placement="left" title="Add Project"><img src="assets/img/add.svg"></button>
+            <!-- <span class="btn-floating fab-tip">Add Project</span> -->
+        </div>
+    </div>
+    <!--ISOLATED PROJECT VIEW-->
+    <div class="isolated-project-view" id="isolated-project-view">
+        <div class="row">
+            <div class="col-md-8">
+                <p class="agent-name inline">One laptop per child</p>
+                <div class="fa-icon inline">
+                    <button class="btn btn-lg  btn-circle2 btn-add-new-project"><img class="pencil-style" src="assets/img/pencil2.svg"></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="details-header">Duration</p>
+                <p class="details-agent"><span>01/01/017</span> - <span>01/08/017</span></p>
+            </div>
+            <div class="col-md-6">
+                <p class="details-header">Partner</p>
+                <p class="details-agent">Africa Evangelist Enterprise</p>
+            </div>
+        </div>
+        <div class="row padding">
+            <div class="col-md-6">
+                <p class="details-header">Budget</p>
+                <p class="details-agent">$250,000</p>
+            </div>
+            <div class="col-md-6">
+                <p class="details-header">Type</p>
+                <p class="details-agent">Local NGO</p>
+            </div>
+        </div>
+        <div class="row padding">
+            <div class="col-md-6">
+                <p class="details-header">Donor</p>
+                <p class="details-agent">USAID - Rwanda</p>
+            </div>
+            <div class="col-md-6">
+                <p class="details-header">Contact Person</p>
+                <p class="details-agent">Uwimana Adeline</p>
+                <p class="details-agent">M&E Officer</p>
+                <p class="details-agent">Uwimana@NGO.com</p>
+                <p class="details-agent">+250 789 177 515</p>
+            </div>
+        </div>
+        <div class="row padding">
+            <div class="col-md-6">
+                <p class="details-header">Intervention Area</p>
+                <p class="details-agent">Province</p>
+                <p class="details-agent">District</p>
+                <p class="details-agent">Sector</p>
+                <p class="details-agent">Cell</p>
+                <p class="details-agent">Village</p>
+                <p class="details-agent">Attachments</p>
+            </div>
+            <div class="col-md-6">
+                <p class="details-header">Attachments</p>
+                <p class="details-partner">Infographics-update.dxs</p>
+                <p class="details-partner">Infographics-update.dxs</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="back-to-partner-view">Back</p>
+            </div>
+        </div>
+    </div>
+    <!--Ading New Project-->
+    <div class="add-new-project" id="add-new-project">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="agent-name inline">Add new project</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form name="new_project">
+                    <p class="details-header">Project details</p>
+                    <div class="form-group  new-agent">
+                        <input type="text" class="form-control form-rounded" placeholder="full name" ng-model="project.name" required>
+                    </div>
+                    <div class="form-inline">
+                        <div class="form-group new-agent inline-form">
+                            <input type="text" data-toggle="start" class="col-xs-12 col-sm-12 form-control form-rounded" id="" ng-model="project.start" placeholder="Start date" required>
+                        </div>
+                        <div class="form-group new-agent inline-form left-margin">
+                            <input type="text" data-toggle="end" class="col-xs-12 col-sm-12 form-control form-rounded" id="" ng-model="project.end"  placeholder="End date" required>
+                        </div>
+                    </div>
+                    <div class="form-group  new-agent">
+                        <input type="text" class="form-control form-rounded" placeholder="Budget" ng-model="project.budget" required>
+                    </div>
+                    <div class="form-group  new-agent">
+                        <input type="text" class="form-control form-rounded" placeholder="Donor" ng-model="project.donor" required>
+                    </div>
+                    <p class="details-header2">Project Affiliation</p>
+                    <div class="form-group new-agent">
+                        <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Province" ng-model="location.province" ng-change="loadDistrict()" id="province_" multiple="multiple" required>
+                        </select>
+                    </div>
+                    <div class="form-group new-agent">
+                        <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="District" ng-model="location.district" ng-change="loadSector()" id="district_" multiple="multiple" required>
+                        </select>
+                    </div>
+                    <div class="form-group new-agent">
+                        <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Sector" ng-model="location.sector" ng-change="loadCell()" id="sector_" multiple="multiple" required>
+                        </select>
+                    </div>
+                    <div class="form-group new-agent">
+                        <div class="form-group new-agent">
+                            <select style="border-radius:100px;" data-placeholder="Cell" class="form-control form-rounded-select mutiselect-form" ng-model="location.cell" ng-change="loadVillage()" id="cell_" multiple="multiple" required>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group new-agent">
+                        <select style="border-radius:100px;" class="form-control form-rounded-select mutiselect-form" data-placeholder="Village" id="village_" ng-model="location.village" multiple="multiple" required>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-login2" id="btn-next" ng-click="addProject()" ng-disabled="!new_project.$valid">Add Project </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5">
+                <form name="new_partner">
+                    <p class="details-header">Partner Details</p>
+                    <div class="form-group">
+                        <select style="border-radius:100px;" class="form-control form-rounded-select" id="org_project" ng-model="ngo.project" required>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group new-agent">
+                        <input type="text" class=" form-control form-rounded " placeholder="Name" ng-model="ngo.name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-rounded" placeholder="Email" ng-model="ngo.email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.phone" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.country" required>
+                    </div>
+                    <div class="form-group">
+                        <select style="border-radius:100px;" class="form-control form-rounded-select" id="sel1" ng-model="ngo.type" required>
+                            <option hidden>Type...</option>
+                            <option value="1">International NGO</option>
+                            <option value="2">Local NGO</option>
+                        </select>
+                    </div>
+                    <p class="details-header2">Partner Contact Person</p>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-rounded " placeholder="Name" ng-model="user.name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control form-rounded " placeholder="Email" ng-model="user.email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-rounded " placeholder="Phone" ng-model="user.phone" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-rounded " placeholder="Id number" ng-model="user.id_number" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-login2" id="btn-next" ng-click="addProjectPartner()" ng-disabled="!new_partner.$valid">Add Project Partner</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="back-to-partner-detail">Back</p>
+            </div>
+        </div>
+    </div>
 </div>
- 
