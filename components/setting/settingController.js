@@ -72,7 +72,7 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
         data['username'] = null;
         data['birth_date'] = '1900-01-01';
         data['education'] = null;
-        data['location'] = null;
+        data['location'] = '12090208';
         data['type'] = 1;
         data['password'] = '000000'
         
