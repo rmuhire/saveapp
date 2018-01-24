@@ -89,6 +89,16 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
             }).catch(function(response){
                 return response;
             })
+        },
+        userResetPassword: function(url, data){
+            var deferred = $q.defer();
+            $http.post(url, data).then(function(response){
+                deferred.resolve();
+            }).catch(function(response){
+                deferred.reject();
+            });
+            
+            return deferred.promise;
         }
     })
     
