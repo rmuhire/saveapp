@@ -1,4 +1,4 @@
-save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService, $cookieStore) {
+save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService, $cookieStore, ProjectService) {
 
   
     function datePickerPlugin(){
@@ -245,11 +245,31 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
 
     $scope.loadProvince()
     
-        
     
-    // add Project
+    // Get Organization Project
     
-    $scope.addProject = function(){
+    $scope.loadOrganizationProject = function(){
+        ProjectService.getOrganizationProject()
+            .then(function(response){
+                console.log(response);
+                var options = "";
+                $.each(response.data.projects, function(key, value){
+                    options += "<option value=" + value.id + " >" + value.name + "</option>";
+                })
+                $("#org_project").html(options)
+            }).catch(function(response){
+                console.log(response);
+            })
+    }
+    
+    
+    $scope.loadOrganizationProject();
+    
+    
+    
+    // add Project Partner 
+    
+    $scope.addProjectPartner = function(){
         // $scope.user
         $scope.ngo['address'] = null;
         $scope.ngo['country'] = null;
@@ -258,20 +278,48 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
         $scope.user['username'] = null;
         $scope.user['birth_date'] = '1900-01-01';
         $scope.user['education'] = null;
-        $scope.user['location'] = null;
+        $scope.user['location'] = '12090208';
         $scope.user['type'] = 1;
         $scope.user['password'] = '000000'
         $scope.user['gender'] = null;
         
+        console.log($scope.ngo, $scope.user);
+    }
+    
+    
+    
+    // add Project
+    
+    $scope.addProject = function(){
+        
         // $scope.project
         $scope.project['user_id'] = $cookieStore.get('__save'); 
         
-        console.log($scope.project, $scope.location, $scope.user, $scope.ngo);
+        //$scope.user, $scope.ngo
+        console.log($scope.project, $scope.location);
         var village = Array();
         for (var i=0; i < $scope.location.village.length; i++){
             var dict = new Object();
             dict['village_id'] = parseInt($scope.location.village[i]);
             village.push(dict);
+        }
+         
+        
+        
+        PartnerService.postOrganizationsProject($scope.project)
+            .then(function(response){
+                $scope.postProjectArea(response.data.id, village)
+            }).catch(function(response){
+                
+            });
+        
+        $scope.postProjectArea = function(project_id, village){
+            PartnerService.postProjectInterventionArea(JSON.stringify(village), project_id)
+            .then(function(response){
+                console.log(response);
+            }).catch(function(reponse){
+                console.log(response);
+            })  
         }
         
         
