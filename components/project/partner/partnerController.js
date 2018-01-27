@@ -283,7 +283,37 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
         $scope.user['password'] = '000000'
         $scope.user['gender'] = null;
         
-        console.log($scope.ngo, $scope.user);
+        // project_id
+        var project_id = $("#org_project").val();
+        
+        console.log($scope.ngo, $scope.user, project_id);
+        
+        
+        PartnerService.postOrganizations($scope.ngo)
+            .then(function(response){
+                console.log(response);
+                // post organization users
+                PartnerService.postOrganizationsUsers($scope.user, response.data.id)
+                    .then(function(response){
+                        console.log(response);
+                    })
+                    .catch(function(response){
+                        console.log(response);
+                    })
+            
+                 // post organization partnership
+                        PartnerService.postProjectPartner(project_id, response.data.id).then(function(response){
+                            console.log(response);
+                        }).catch(function(response){
+                            console.log(response);
+                        })
+                
+            })
+            .catch(function(response){
+                console.log(response);    
+            })
+        
+        
     }
     
     
@@ -324,45 +354,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
         
         
         
-//        PartnerService.postOrganizations($scope.ngo)
-//            .then(function(response){
-//                console.log(response);
-//                // post organization users
-//                PartnerService.postOrganizationsUsers($scope.user, response.data.id)
-//                    .then(function(response){
-//                        console.log(response);
-//                    })
-//                    .catch(function(response){
-//                        console.log(response);
-//                    })
-//            
-//                // post Organization project
-//                PartnerService.postOrganizationsProject($scope.project)
-//                    .then(function(data){
-//                        console.log(data)
-//                        // post project intervention area
-//                        PartnerService.postProjectInterventionArea(JSON.stringify(village), data.data.id)
-//                            .then(function(response){
-//                                console.log(response);
-//                            }).catch(function(reponse){
-//                                console.log(response);
-//                            })
-//                    
-//                        // post organization partnership
-//                        PartnerService.postProjectPartner(data.data.id, response.data.id).then(function(response){
-//                            console.log(response);
-//                        }).catch(function(response){
-//                            console.log(response);
-//                        })
-//                    
-//                    }).catch(function(data){
-//                        console.log(data);
-//                    })
-//                
-//            })
-//            .catch(function(response){
-//                console.log(response);    
-//            })
+
     }
     
     
