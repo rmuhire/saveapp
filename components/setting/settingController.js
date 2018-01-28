@@ -34,6 +34,8 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
             $scope.email = data.email;
             $scope.phone = data.phone;
             $scope.username = data.username;
+            data['location'] = 
+            data.location.village.id;
             $scope.user = data;
             console.log($scope.user_names);
         });
