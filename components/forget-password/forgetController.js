@@ -5,7 +5,7 @@ save.controller('forgetCtrl', function($scope, $http, $location, AuthService) {
     
     
     $scope.pwdRecovery = function(email){
-        var url = "http://127.0.0.1:5000/v1/users/"+email+"/recover/";
+        var url = "http://197.243.18.25:5000/v1/users/"+email+"/recover/";
         AuthService.recoverUserEmail(url)
             .then(function(response){
                 console.log(response);

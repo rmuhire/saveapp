@@ -41,7 +41,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
     $(".back-to-partner-detail").click(function(event) {
         event.preventDefault();
         $("#add-new-project,#add-new-project").hide();
-        $("#isolated-project-view").show();
+        $("#partner-view").show();
     });
 
     /*file upload function*/
@@ -170,7 +170,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                     buttonWidth: '300px',
                     dropLeft: true
                 });
-
+ 
             });
     }
 

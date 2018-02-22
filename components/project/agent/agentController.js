@@ -20,7 +20,7 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
     $(".back-to-agent-detail").click(function(event) {
         event.preventDefault();
         $("#add-new-agent").hide();
-        $("#isolated-agent-view").show();
+        $(".agent-view").show();
     });
     /*floating button add new agent*/
     $(".btn-add-new-agent").click(function(event) {

@@ -33,7 +33,7 @@
                   <a class="pagination-style" href="#">Next &rang;</a>
                </div>
             </div>
-            -->
+            --> 
         <!--Add agent-->
         <div class="fa-icon">
             <button class="btn btn-lg  btn-circle btn-add-new-project" data-toggle="tooltip" data-placement="left" title="Add Project"><img src="assets/img/add.svg"></button>
@@ -205,7 +205,7 @@
                         <input type="text" class="form-control form-rounded " placeholder="Id number" ng-model="user.id_number" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-login2" id="btn-next" ng-click="addProjectPartner()" >Add Project Partner</button>
+                        <button type="submit" class="btn btn-login2" id="btn-next" ng-disabled="!new_partner.$valid" ng-click="addProjectPartner()" >Add Project Partner</button>
                     </div>
                 </form>
             </div>
