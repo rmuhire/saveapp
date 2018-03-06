@@ -1,37 +1,32 @@
 save.controller('memberViewCtrl', function($scope,$http,$location, AgentService, MemberService){
- 
-     $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart')
-     $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart')
-       
-    
-    
+     
     $scope.$on('LoadSgMember', function(event, opt){
-        $scope.total_members = opt.sg.male + opt.sg.female
-        var male_per = opt.sg.male / $scope.total_members
-        var female_per = opt.sg.female / $scope.total_members
-        $scope.male = opt.sg.male
-        $scope.female = opt.sg.female
-        
-        
-      
-        
-        
-        $("#men").attr("data-percent", male_per.toFixed(2))
-        $("#women").attr("data-percent", female_per.toFixed(2))
-        
-        $('#women').cssCharts({type:"donut"}).trigger('show-donut-chart')
-        $('#men').cssCharts({type:"donut"}).trigger('show-donut-chart')
-        
         AgentService.getSavingGroupMember(opt.sg.members_url)
             .then(function(response){
-                console.log(response, 'Members')
+                console.log(response, 'Members');
+                $scope.total_members = response.data.pages.total;
+            
+                // render chart 
+                var male_per = opt.sg.male / $scope.total_members;
+                var female_per = opt.sg.female / $scope.total_members;
+                $scope.male = opt.sg.male;
+                $scope.female = opt.sg.female;
+
+                $("#men").attr("data-percent", male_per.toFixed(2));
+                $("#men").attr("data-title", "men %");
+                $("#women").attr("data-percent", female_per.toFixed(2));
+                $("#women").attr("data-title", "Women %");
+            
+
+                $('#women').empty().cssCharts({type:"donut"}).trigger('show-donut-chart');
+                $('#men').empty().cssCharts({type:"donut"}).trigger('show-donut-chart');
+            
                 var members = response.data.members
                 var data = new Array()
                 var i
                 var a = 0, b = 0, c = 0 , d= 0
                 var range = new Array(a, b, c, d)
                 members.forEach(function(element, index){
-                    console.log(element, 'Member')
                     var json = new Object()
                     i = $scope.ageRange(element.user.age)
                     range[i] = range[i] + 1
