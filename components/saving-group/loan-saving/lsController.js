@@ -33,7 +33,7 @@ save.controller('lsViewCtrl', function($scope, $http, $location, AgentService, M
                 var data = new Array()
 
                 members.forEach(function(element, index) {
-                    console.log(element, 'Member')
+                    
                     var json = new Object()
                     MemberService.getMemberShares(element.member_shares)
                         .then(function(response) {
