@@ -13,7 +13,6 @@ save.controller('dividendsViewCtrl', function($scope, $http, $location, AgentSer
                 var data = new Array()
 
                 members.forEach(function(element, index) {
-                    console.log(element, 'Member')
                     var json = new Object()
                     MemberService.getMemberShares(element.member_shares)
                         .then(function(response) {
