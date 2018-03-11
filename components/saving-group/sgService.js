@@ -23,6 +23,14 @@
             }).catch(function(response){
                 return response
             })
+        },
+        getDistricts: function(){
+            var url = 'http://197.243.18.25:5000/v1/kenessa/1,2,3,4,5/districts/'
+            return $http.get(url).then(function(response){
+                return response;
+            }).catch(function(response){
+                return response;
+            })
         }
      })
  })  
