@@ -37,4 +37,11 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
         $scope.$broadcast('LoadProjectPartner', { project: project });
         $scope.project_sg = true;
     }
+    
+    $scope.fireModalProject = function(project){
+        console.log("project modal", project)
+        $("#editProjectModel").modal('show');
+        $scope.project = project;
+    }
+    
 })
