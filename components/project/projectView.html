@@ -36,7 +36,7 @@
                         <!--Project List-->
                            
                         <ul class="list-group" ng-repeat="project in projects | filter : search_project">
-                            <li class="edit list-group-item" id="project{{project.id}}"><a ng-click="currentProject(project)">{{ project.name }}</a><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></li>
+                            <li class="edit list-group-item" id="project{{project.id}}"><a ng-click="currentProject(project)">{{ project.name }}</a><a ng-click="fireModalProject(project)"><img class="pull-right pencil-icon" src="assets/img/pencil.svg"></a></li>
                           
                         </ul>
                      </div>
@@ -75,5 +75,44 @@
          </div>
       </div>
    </div>
+   
+   <!-- Modal -->
+   <div class="modal fade" id="editProjectModel" role="dialog">
+      <div class="modal-dialog">
+         <!-- Modal content-->
+         <div class="modal-content">
+            <div class="">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title new-user">{{project.name}}</h4>
+            </div> 
+            <div class="">
+               <div class="col-md-10">
+                  <form class="user-new-form" name="new_User">
+                     <div class="form-group">
+                        <label>Project name</label>
+                        <input type="text" class=" form-control form-rounded" placeholder="Project name" ng-model="project.name" required>
+                     </div>
+                     <div class="form-group">
+                        <label>Project Donor</label>
+                        <input type="text" class=" form-control form-rounded" placeholder="Donor" ng-model="project.donor" ng-keyup="checkPhone()" required> 
+                     </div>
+                     <div class="form-group">
+                         <label>Project Budget</label>
+                         <input type="text" class="form-control form-rounded" placeholder="Budget" ng-model="project.budget" required> 
+                     </div>
+                     <button type="submit" ng-disabled="!new_User.$valid" class="btn btn-login2" ng-click="newUser()" id="btn-next">SAVE</button>
+                  </form>
+               </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+         </div>
+      </div>
+   </div>
+
+   
 </div>
 <!--/.well -->
+
+
+   
