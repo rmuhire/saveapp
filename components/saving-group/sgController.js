@@ -55,6 +55,7 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
     });
      
     $scope.loadProjectSG = function(selection){
+        alert(selection);
         if (selection == 'all'){
             console.log(selection);
             SavingGroupService.getOrganizationSG().then(function(response){
@@ -90,5 +91,30 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
         
     }
     
+    
+    $scope.getDistricts = function(){
+        SavingGroupService.getDistricts()
+            .then(function(response){
+                console.log(response);
+                var options = "";
+                $.each(response.data, function(key, value) {
+                    options += "<option value=" + value.id + " >" + value.name + "</option>";
+
+                });
+
+                $("#sg_location").append(options);
+
+                $("#sg_location").multiselect('rebuild');
+                $("#sg_location").multiselect({
+                    includeSelectAllOption: true,
+                    buttonWidth: '140%'
+                });
+            
+            }).catch(function(response){
+                console.log(response);
+            })
+    }
+    
+    $scope.getDistricts();
 })
  
