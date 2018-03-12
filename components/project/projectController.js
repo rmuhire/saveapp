@@ -40,8 +40,21 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
     
     $scope.fireModalProject = function(project){
         console.log("project modal", project)
+        console.log();
         $("#editProjectModel").modal('show');
+        project.start = moment(project.start).format('YYYY-MM-DD');
+        project.end = moment(project.end).format('YYYY-MM-DD');
         $scope.project = project;
+    }
+    
+    $scope.editProject = function(){
+        console.log($scope.project);
+        ProjectService.updateProject($scope.project).then(function(response){
+            console.log(response);
+        }).catch(function(response){
+            console.log(response);
+        })
+        
     }
     
 })
