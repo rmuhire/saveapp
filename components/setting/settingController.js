@@ -131,4 +131,30 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
     }
     
     
+    // reset user password 
+    
+    $scope.resetPassword = function(user){
+        $("#resetPasswordModal").modal('show');
+        $scope.user = user;
+        console.log(user);
+    }
+    
+    $scope.editUser = function(user){
+        $scope.user = user;
+        user.birth_date = moment(user.birth_date).format('YYYY-MM-DD');
+        user.location = user.village_id;
+        console.log(user);
+        $("#editUserModal").modal('show');
+    }
+    
+    $scope.updateUserInfoData = function(){
+        SettingService.userUpdateInfo($scope.user).then(function(response){
+            console.log(response);
+            $("#editUserModal").modal('hide');
+        }).catch(function(response){
+            console.log(response);
+        })
+    }
+    
+    
 })
