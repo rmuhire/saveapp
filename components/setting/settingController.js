@@ -139,6 +139,17 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
         console.log(user);
     }
     
+    $scope.resetUserPassword = function(){
+        SettingService.resetPasswordInfo($scope.user)
+            .then(function(response){
+                console.log(response);
+            }).catch(function(response){
+                console.log(response);
+            })
+    }
+    
+    
+    
     $scope.editUser = function(user){
         $scope.user = user;
         user.birth_date = moment(user.birth_date).format('YYYY-MM-DD');
