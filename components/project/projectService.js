@@ -7,6 +7,15 @@ save.factory('ProjectService', function($cookieStore, $q, $timeout, $http){
                .then(function(response){
                     return response;
                 });
+       },
+       updateProject: function(data){
+           var url = 'http://197.243.18.25:5000/v1/projects/'+data.id;
+           return $http.put(url, data)
+               .then(function(response){
+                    return response;   
+                }).catch(function(response){
+                    return response;
+                })
        }
    }) 
 });
