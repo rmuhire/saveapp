@@ -3,10 +3,10 @@ save.controller('cycleViewCtrl', function($scope, $http, $location, SGCycleServi
 
     $scope.$on('LoadSgCycle', function(event, opt) {
         // get Cycles
-        //console.log(opt.sg)
+        
         $scope.status = opt.sg.status ? "Graduated" : "Supervised";
         SGCycleService.getSgCycles(opt.sg.cycle_url).then(function(response) {
-            console.log(response.data.cycles)
+            
             if (response.data.cycles.length !== 0) {
                 $scope.cycle_length = response.data.cycles.length
                 $scope.first_cycle = response.data.cycles[0].start
@@ -19,7 +19,7 @@ save.controller('cycleViewCtrl', function($scope, $http, $location, SGCycleServi
                 var y = new Array()
                 var suggestions = new Array('First', 'Second', 'Third', 'Fourth', 'Fifth')
                 cycles.forEach(function(element, index) {
-                    console.log(element)
+                    
                     SGCycleService.getCyclesMembers(element.members_url)
                         .then(function(response) {
                             values.push(response.data.members.length)

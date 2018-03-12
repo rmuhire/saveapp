@@ -11,8 +11,6 @@ save.controller('lsViewCtrl', function($scope, $http, $location, AgentService, M
 
 
     $scope.$on('LoadSgLoansSavings', function(event, opt) {
-        $scope.total_members = opt.sg.male + opt.sg.female
-        console.log(opt.sg, 'SG')
         $scope.count_write_off = opt.sg.count_write_off
         $scope.count_outstanding_loan = opt.sg.count_outstanding_loan
         $scope.cumulative_saving = numeral(opt.sg.cumulative_saving).format('0,0')
@@ -21,14 +19,14 @@ save.controller('lsViewCtrl', function($scope, $http, $location, AgentService, M
         
         SavingGroupService.getWalletSG(opt.sg.wallet)
             .then(function(response){
-            $scope.wallet_balance = response.data.wallet[0].amount
-                console.log(response, "Wallet");
+                $scope.wallet_balance = response.data.wallet[0].amount
             }).catch(function(response){
                 console.log(response);
             })
         
         AgentService.getSavingGroupMember(opt.sg.members_url)
             .then(function(response) {
+                $scope.total_members = response.data.pages.total;
                 var members = response.data.members
                 var data = new Array()
 
@@ -54,7 +52,6 @@ save.controller('lsViewCtrl', function($scope, $http, $location, AgentService, M
 
         SGCycleService.getSgCycles(opt.sg.cycle_url)
             .then(function(response) {
-                console.log(response, 'CYCLE_URL')
                 var cycles = response.data.cycles
                 var labels = new Array()
                 var saving = new Array()

@@ -242,7 +242,7 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
     
     
     $scope.$on('LoadPorjectAgent', function(event, opt){
-        alert(opt.project.id);
+        
         $scope.pmessage = false;
         AgentService.getProjectAgent(opt.project.id)
             .then(function(response){

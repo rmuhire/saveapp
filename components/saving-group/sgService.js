@@ -3,7 +3,6 @@
          getOrganizationSG: function(){
              var url = 'http://197.243.18.25:5000/v1/organizations/'+$cookieStore.get('__save_o')+'/sg/';
              return $http.get(url).then(function(response){
-                 //console.log(response);
                  return response;
              }).catch(function(response){
                  return response;

@@ -3,7 +3,6 @@ save.controller('memberViewCtrl', function($scope,$http,$location, AgentService,
     $scope.$on('LoadSgMember', function(event, opt){
         AgentService.getSavingGroupMember(opt.sg.members_url)
             .then(function(response){
-                console.log(response, 'Members');
                 $scope.total_members = response.data.pages.total;
             
                 // render chart 

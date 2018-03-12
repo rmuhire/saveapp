@@ -1,14 +1,13 @@
 save.controller('dividendsViewCtrl', function($scope, $http, $location, AgentService, MemberService, SGCycleService) {
     $scope.$on('LoadSgDividends', function(event, opt) {
-        
-        console.log(opt.sg, 'SG Dividends')
-         $scope.total_members = opt.sg.male + opt.sg.female
-         $scope.social_fund_balance = opt.sg.social_fund_balance
-         $scope.count_write_off = opt.sg.count_write_off
+ 
+        $scope.social_fund_balance = opt.sg.social_fund_balance
+        $scope.count_write_off = opt.sg.count_write_off
         $scope.cumulative_dividend = opt.sg.cumulative_dividend
         $scope.current_dividend = opt.sg.current_saving
          AgentService.getSavingGroupMember(opt.sg.members_url)
             .then(function(response) {
+                $scope.total_members = response.data.pages.total;
                 var members = response.data.members
                 var data = new Array()
 
@@ -33,7 +32,6 @@ save.controller('dividendsViewCtrl', function($scope, $http, $location, AgentSer
         
         
         SGCycleService.getSgCycles(opt.sg.cycle_url).then(function(response) {
-            console.log(response.data.cycles)
             if (response.data.cycles.length !== 0) {
                 $scope.cycle_length = response.data.cycles.length
                 $scope.first_cycle = response.data.cycles[0].start
@@ -44,7 +42,6 @@ save.controller('dividendsViewCtrl', function($scope, $http, $location, AgentSer
                 var y = new Array()
                 var suggestions = new Array('First', 'Second', 'Third', 'Fourth', 'Fifth')
                 cycles.forEach(function(element, index) {
-                    console.log(element)
                     SGCycleService.getCyclesShareOut(element.cycle_share_out_url)
                         .then(function(response) {
                             x.push(suggestions[index])

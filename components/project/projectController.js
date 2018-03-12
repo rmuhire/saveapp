@@ -14,7 +14,6 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
     $scope.getOrganizationProject = function(){
         var organization_project = ProjectService.getOrganizationProject();
         organization_project.then(function(response){
-            console.log(response.data.projects);
             $scope.projects = response.data.projects;
         });
     }
@@ -26,7 +25,6 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
     $scope.loadProvince = function(){
         PartnerService.getProvince()
             .then(function(response){
-                console.log(response);
                 provinces = response.data;
             })
     }
@@ -39,8 +37,6 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
     }
     
     $scope.fireModalProject = function(project){
-        console.log("project modal", project)
-        console.log();
         $("#editProjectModel").modal('show');
         project.start = moment(project.start).format('YYYY-MM-DD');
         project.end = moment(project.end).format('YYYY-MM-DD');
@@ -48,9 +44,9 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
     }
     
     $scope.editProject = function(){
-        console.log($scope.project);
+        
         ProjectService.updateProject($scope.project).then(function(response){
-            console.log(response);
+            
         }).catch(function(response){
             console.log(response);
         })

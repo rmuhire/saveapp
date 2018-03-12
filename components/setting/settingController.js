@@ -80,7 +80,8 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
         
         SettingService.newUser(JSON.stringify(data))
             .then(function(){
-                console.log("added");
+                alert("added");
+            
             }).catch(function(){
                 console.log("not added");
             });

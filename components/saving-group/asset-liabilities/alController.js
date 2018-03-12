@@ -1,11 +1,10 @@
  save.controller('alViewCtrl', function($scope, $http, $location, AgentService, MemberService, SGCycleService){
      $scope.$on('LoadAL', function(event, opt){
-         console.log(opt.sg, 'SG AL')
-         $scope.total_members = opt.sg.male + opt.sg.female
          $scope.social_fund_balance = opt.sg.social_fund_balance
          $scope.count_write_off = opt.sg.count_write_off
          AgentService.getSavingGroupMember(opt.sg.members_url)
             .then(function(response) {
+                $scope.total_members = response.data.pages.total;
                 var members = response.data.members
                 var data = new Array()
 
