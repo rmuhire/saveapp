@@ -14,7 +14,7 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
                 });
             return deffered.promise;
         },
-        resetPassword : function(data){
+        resetPassword: function(data){
             var deffered = $q.defer();
             $http.put(url+'/change-password/', data)
                 .then(function(response){
@@ -107,6 +107,16 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
             }).catch(function(response){
                 return response;
             });
+        },
+        resetPasswordInfo: function(data){
+            var url = 'http://197.243.18.25:5000/v1/users/'+data.email+'/recover/';
+            return $http.put(url, data)
+                .then(function(response){
+                   return response;
+                }).catch(function(response){
+                    return response;
+                });
+            
         }
     })
     
