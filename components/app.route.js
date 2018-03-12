@@ -70,14 +70,14 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
     });
 }]);
 
-//save.run(function($rootScope, $location, $route, AuthService){
-//    $rootScope.$on('$routeChangeStart', function(event, next, current){
-//        if(!AuthService.get_user_status()){
-//            console.log(next.data.private);
-//            if(next.data.private && !AuthService.is_signed_in()){
-//                $location.path('/');
-//                $route.reload();
-//            }
-//        }
-//    })
-//})
+save.run(function($rootScope, $location, $route, AuthService){
+    $rootScope.$on('$routeChangeStart', function(event, next, current){
+        if(!AuthService.get_user_status()){
+            console.log(next.data.private);
+            if(next.data.private && !AuthService.is_signed_in()){
+                $location.path('/');
+                $route.reload();
+            }
+        }
+    })
+})
