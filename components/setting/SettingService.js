@@ -99,6 +99,14 @@ save.factory('SettingService', function($cookieStore, $q, $timeout, $http){
             });
             
             return deferred.promise;
+        },
+        userUpdateInfo: function(data){
+            var url = 'http://197.243.18.25:5000/v1/users/'+data.id;
+            return $http.put(url, data).then(function(response){
+                return response;
+            }).catch(function(response){
+                return response;
+            });
         }
     })
     
