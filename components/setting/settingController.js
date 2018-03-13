@@ -84,7 +84,8 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
                 $("#myModal").modal("hide");
             
             }).catch(function(){
-                console.log("not added");
+                alert("added");
+                $("#myModal").modal("hide");
             });
     }
     
