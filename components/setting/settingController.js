@@ -81,6 +81,7 @@ save.controller('settingViewCtrl', function($scope,$http,$location, $rootScope, 
         SettingService.newUser(JSON.stringify(data))
             .then(function(){
                 alert("added");
+                $("#myModal").modal("hide");
             
             }).catch(function(){
                 console.log("not added");
