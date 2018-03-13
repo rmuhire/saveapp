@@ -2,7 +2,10 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
     $locationProvider.hashPrefix('');
     $routeProvider
     .when('/',{
-        redirectTo: '/signin'
+        templateUrl:'components/signin/loginView.html',
+        data: {
+            private:false
+        }
     })
     .when('/signin',{
         templateUrl:'components/signin/loginView.html',
@@ -37,7 +40,7 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
     .when('/saving-group',{
         templateUrl:'components/saving-group/sgView.html',
         data: {
-            private: false
+            private: true
         }
     })
     .when('/settings',{
@@ -71,13 +74,13 @@ save.config(['$routeProvider', '$locationProvider', function($routeProvider, $lo
 }]);
 
 save.run(function($rootScope, $location, $route, AuthService){
-    $rootScope.$on('$routeChangeStart', function(event, next, current){
-        if(!AuthService.get_user_status()){
-            console.log(next.data.private);
-            if(next.data.private && !AuthService.is_signed_in()){
-                $location.path('/');
-                $route.reload();
-            }
+    $rootScope.$on('$routeChangeStart', 
+        function($event, next, current){
+            if(!AuthService.get_user_status()){
+                if(next.data.private && !AuthService.is_signed_in()){
+                    $location.path('/');
+                    $route.reload();
+                }
         }
     })
 })
