@@ -10,8 +10,7 @@ save.controller('sgViewCtrl', function($scope,$http,$location, ProjectService, S
 
     $('#sg_project').multiselect({
         includeSelectAllOption: true,
-        buttonWidth: '110%'
-
+        buttonWidth: '200%'
     });
     
       $('#sg_location').multiselect({
