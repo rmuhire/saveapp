@@ -1,13 +1,12 @@
 save.controller('signinCtrl', function($scope, $location, AuthService){
     $scope.signin = function(){
-        console.log($scope.user);
+        $scope.wPassword = false;
         AuthService.sign_in(JSON.stringify($scope.user))
                    .then(function(){
                        $location.path("/project");
-                       console.log("login");
                    })
                    .catch(function(){
-                       console.log("not login"); 
+                       $scope.wPassword = true;
                    });
     }
 }) 
