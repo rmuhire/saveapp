@@ -1118,3 +1118,7 @@ right: 30px;*/
     margin-top: 25%;
     margin-left: 25%;
 }
+
+.sg_selection{
+    cursor: pointer;
+}
