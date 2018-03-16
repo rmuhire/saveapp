@@ -1,43 +1,43 @@
 save.factory('PartnerService', function($cookieStore, $q, $timeout, $http){
     return ({
         getProvince: function(){
-            var url = 'http://197.243.18.25:5000/v1/kenessa/provinces/';
+            var url = 'https://api.getsave.io/v1/kenessa/provinces/';
             return $http.get(url).then(function(response){
                 return response;
             })
         },
         getDistrict: function(data){
-            var url = 'http://197.243.18.25:5000/v1/kenessa/'+data+'/districts/';
+            var url = 'https://api.getsave.io/v1/kenessa/'+data+'/districts/';
             return $http.get(url).then(function(response){
                 return response;
             })
         },
         getSector: function(data){
-            var url = 'http://197.243.18.25:5000/v1/kenessa/'+data+'/sectors/';
+            var url = 'https://api.getsave.io/v1/kenessa/'+data+'/sectors/';
             return $http.get(url).then(function(response){
                 return response;
             })
         },
         getCell: function(data){
-            var url = 'http://197.243.18.25:5000/v1/kenessa/'+data+'/cells/';
+            var url = 'https://api.getsave.io/v1/kenessa/'+data+'/cells/';
             return $http.get(url).then(function(response){
                 return response;
             })
         },
         getVillage: function(data){
-            var url = 'http://197.243.18.25:5000/v1/kenessa/'+data+'/villages/';
+            var url = 'https://api.getsave.io/v1/kenessa/'+data+'/villages/';
             return $http.get(url).then(function(response){
                 return response;
             })  
         },
         postVillage: function(data){
-            var url = 'http://197.243.18.25:5000/v1/kenessa/villages/';
+            var url = 'https://api.getsave.io/v1/kenessa/villages/';
             return $http.post(url, data).then(function(response){
                 return response;
             })  
         },
         postOrganizations: function(data){
-            var url = 'http://197.243.18.25:5000/v1/organizations/';
+            var url = 'https://api.getsave.io/v1/organizations/';
             return $http.post(url, data).then(function(response){
                     return response;
                 })
@@ -46,7 +46,7 @@ save.factory('PartnerService', function($cookieStore, $q, $timeout, $http){
                 });
         },
         postOrganizationsUsers: function(data, id){
-            var url = 'http://197.243.18.25:5000/v1/organizations/'+id+'/users/';
+            var url = 'https://api.getsave.io/v1/organizations/'+id+'/users/';
             return $http.post(url,data).then(function(response){
                     return response
                 }).catch(function(response){
@@ -54,7 +54,7 @@ save.factory('PartnerService', function($cookieStore, $q, $timeout, $http){
                 })
         },
         postOrganizationsProject: function(data){
-            var url = 'http://197.243.18.25:5000/v1/organizations/'+$cookieStore.get('__save_o')+'/projects/';
+            var url = 'https://api.getsave.io/v1/organizations/'+$cookieStore.get('__save_o')+'/projects/';
             return $http.post(url, data)
                 .then(function(response){
                     return response
@@ -63,7 +63,7 @@ save.factory('PartnerService', function($cookieStore, $q, $timeout, $http){
                 })
         },
         postProjectInterventionArea: function(data, id){
-            var url = 'http://197.243.18.25:5000/v1/projects/'+id+'/intervention/';
+            var url = 'https://api.getsave.io/v1/projects/'+id+'/intervention/';
             return $http.post(url, data).then(function(response){
                 return response
             }).catch(function(response){
@@ -71,7 +71,7 @@ save.factory('PartnerService', function($cookieStore, $q, $timeout, $http){
             });
         },
         postProjectPartner: function(id, partner_id){
-            var url = 'http://197.243.18.25:5000/v1/projects/'+id+'/partners/'+partner_id+'/';
+            var url = 'https://api.getsave.io/v1/projects/'+id+'/partners/'+partner_id+'/';
             return $http.post(url).then(function(response){
                 return response;
             }).catch(function(response){

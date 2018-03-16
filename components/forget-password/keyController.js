@@ -1,6 +1,6 @@
 save.controller('keyController', function($scope, $location, $routeParams, AuthService, $window){
     console.log($routeParams.keyu, $routeParams.email);
-    var url='http://197.243.18.25:5000/v1/users/'+$routeParams.keyu+'/reset/';
+    var url='https://api.getsave.io/v1/users/'+$routeParams.keyu+'/reset/';
     AuthService.Key(url)
         .then(function(response){
             console.log(response)

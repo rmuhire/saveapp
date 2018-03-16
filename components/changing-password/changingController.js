@@ -6,7 +6,7 @@ save.controller('ChangePasswordCtrl', function($scope, $http, $location, $routeP
         console.log($scope.user, $routeParams.email);
         
         if ($scope.user['new_password'] == $scope.user['c_password']){
-            var url = "http://197.243.18.25:5000/v1/users/"+$routeParams.email+"/email/";
+            var url = "https://api.getsave.io/v1/users/"+$routeParams.email+"/email/";
             SettingService.UserInformationEmail(url).then(function(response){
                 $scope.modifyPassword(response.data.id, $scope.user);
             }).catch(function(response){
@@ -17,7 +17,7 @@ save.controller('ChangePasswordCtrl', function($scope, $http, $location, $routeP
     
     
     $scope.modifyPassword = function(user_id, user){
-        var url = "http://197.243.18.25:5000/v1/users/"+user_id+"/reset-password/";
+        var url = "https://api.getsave.io/v1/users/"+user_id+"/reset-password/";
         SettingService.userResetPassword(url, user)
             .then(function(){
                 console.log("Reset Successfull");
