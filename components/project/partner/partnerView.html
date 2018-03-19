@@ -35,10 +35,7 @@
             </div>
             --> 
         <!--Add agent-->
-        <div class="fa-icon">
-            <button class="btn btn-lg  btn-circle btn-add-new-project" data-toggle="tooltip" data-placement="left" title="Add Project"><img src="assets/img/add.svg"></button>
-            <!-- <span class="btn-floating fab-tip">Add Project</span> -->
-        </div>
+        
     </div>
     <!--ISOLATED PROJECT VIEW-->
     <div class="isolated-project-view" id="isolated-project-view">
@@ -182,10 +179,10 @@
                         <input type="text" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.phone" required>
                     </div>
                     <div class="form-group">
-                        <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.address" required>
+                        <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.address" >
                     </div>
                     <div class="form-group">
-                        <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.country" required>
+                        <input type="hidden" class="form-control form-rounded" placeholder="Phone" ng-model="ngo.country" >
                     </div>
                     <div class="form-group">
                         <select style="border-radius:100px;" class="form-control form-rounded-select" id="sel1" ng-model="ngo.type" required>
@@ -211,7 +208,7 @@
                         <button type="submit" class="btn btn-login2" id="btn-next" ng-disabled="!new_partner.$valid" ng-click="addProjectPartner()" >Add Project Partner</button>
                     </div>
                     <div class="form-group">
-                        <p ng-show="partnerResponse">Project successfully added</p>
+                        <p ng-show="partnerResponse">Partner successfully added</p>
                     </div>
                 </form>
             </div>
