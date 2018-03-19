@@ -52,8 +52,8 @@
                         <div class="tab-pane-first active" id="test">
                            <div class="main-content">
                               <ul class="nav nav-tabs">
-                                 <li class="partner-style active"><a data-toggle="pill" href=".partner"><img src="assets/img/link.svg"> Partners</a></li>
-                                 <li class="partner-style"><a data-toggle="pill" href=".agent"><img src="assets/img/group.svg"> Agents</a></li>
+                                 <li class="partner-style active"><a data-toggle="pill" href=".partner" ng-click="showProjectButton()"><img src="assets/img/link.svg"> Partners</a></li>
+                                 <li class="partner-style"><a data-toggle="pill" href=".agent" ng-click="hideProjectButton()"><img src="assets/img/group.svg"> Agents</a></li>
                               </ul>
                               <div class="tab-content">
                                  <div class="partner tab-pane fade in active">
@@ -72,8 +72,8 @@
                     <h1 class="sg_first_title" class='text-center'>Select A Project</h1>
                 </div>
                  <div class="fa-icon">
-                    <button class="btn btn-lg  btn-circle" data-toggle="tooltip" ng-click="showProject()" data-placement="left" title="Add Project"><img src="assets/img/add.svg"></button>
-                    <!-- <span class="btn-floating fab-tip">Add Project</span> -->
+                    <button class="btn btn-lg  btn-circle" data-toggle="tooltip" ng-show="hideCreateProjectBtn"  ng-click="showProject()" data-placement="left" title="Add Project"><img src="assets/img/add.svg"></button>
+                    
                 </div>
             </div>
          </div>
