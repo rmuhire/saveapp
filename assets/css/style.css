@@ -1122,3 +1122,7 @@ right: 30px;*/
 .sg_selection{
     cursor: pointer;
 }
+
+.list-group{
+    margin-bottom: 0px;
+}
