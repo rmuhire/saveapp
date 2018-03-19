@@ -282,7 +282,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
     // add Project Partner 
     
     $scope.addProjectPartner = function(){
-        $scope.new_partner = true;
+        $scope.partnerResponse = false;
         // $scope.user
         $scope.ngo['address'] = null;
         $scope.ngo['country'] = null;
@@ -316,6 +316,9 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
             
                  // post organization partnership
                         PartnerService.postProjectPartner(project_id, response.data.id).then(function(response){
+                            $scope.partnerResponse = true;
+                            $scope.ngo = {};
+                            $scope.user = {};
                             console.log(response);
                         }).catch(function(response){
                             console.log(response);
