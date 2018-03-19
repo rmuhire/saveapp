@@ -1,5 +1,6 @@
 save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService, $cookieStore, ProjectService) {
 
+    
   
     function datePickerPlugin(){
         $('[data-toggle="start"]').datepicker({
@@ -9,6 +10,17 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
             format: 'yyyy-mm-dd'
         });
     }
+    
+    
+    $scope.$on('addNewProject', function(event, opt){
+        event.preventDefault();
+        
+        $("#isolated-project-view").hide();
+        
+        $("#add-new-project").show();
+        datePickerPlugin();
+        $("#partner-view").hide();
+    });
 
     /*bootstrap tooltip function*/
     $(document).ready(function() {
@@ -270,6 +282,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
     // add Project Partner 
     
     $scope.addProjectPartner = function(){
+        $scope.new_partner = true;
         // $scope.user
         $scope.ngo['address'] = null;
         $scope.ngo['country'] = null;
@@ -321,6 +334,8 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
     // add Project
     
     $scope.addProject = function(){
+        $scope.projectResponse = false;
+        $scope.new_project = false;
         
         // $scope.project
         $scope.project['user_id'] = $cookieStore.get('__save'); 
@@ -346,8 +361,11 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
         $scope.postProjectArea = function(project_id, village){
             PartnerService.postProjectInterventionArea(JSON.stringify(village), project_id)
             .then(function(response){
-                console.log(response);
-            }).catch(function(reponse){
+                $scope.project = {};
+                $scope.projectResponse = true;
+                $scope.new_project = false;
+                
+            }).catch(function(response){
                 console.log(response);
             })  
         }
