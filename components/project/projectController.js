@@ -6,7 +6,13 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
                     return $(window).height();
                 })
     
-
+    
+    
+    
+    $scope.showProject = function(){
+        $scope.$broadcast('addNewProject');
+        $scope.project_sg = true;
+    }
     
     
     // Project Controller
