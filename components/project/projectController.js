@@ -12,6 +12,7 @@ save.controller('projectCtrl', function($scope,$http,$location, ProjectService,)
     $scope.showProject = function(){
         $scope.$broadcast('addNewProject');
         $scope.project_sg = true;
+        $scope.hideCreateProjectBtn = false;
     }
     
     $scope.hideProjectButton = function(){
