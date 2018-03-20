@@ -338,7 +338,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
     
     $scope.addProject = function(){
         $scope.projectResponse = false;
-        $scope.new_project = false;
+        $(".btn-project").attr('disabled', 'disabled');
         
         // $scope.project
         $scope.project['user_id'] = $cookieStore.get('__save'); 
@@ -366,7 +366,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
             .then(function(response){
                 $scope.project = {};
                 $scope.projectResponse = true;
-                $scope.new_project = false;
+                $(".btn-project").removeAttr('disabled');
                 
             }).catch(function(response){
                 console.log(response);
