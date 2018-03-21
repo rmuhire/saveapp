@@ -111,32 +111,41 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
 
     $("#province_").multiselect({
         includeSelectAllOption: true,
-        buttonWidth: '300px',
-        dropLeft: true
+        buttonWidth: '400px',
+        dropLeft: true,
+        maxHeight: 200
     });
 
     $("#district_").multiselect({
         includeSelectAllOption: true,
-        buttonWidth: '300px',
-        dropLeft: true
+        buttonWidth: '400px',
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     $("#sector_").multiselect({
         includeSelectAllOption: true,
-        buttonWidth: '300px',
-        dropLeft: true
+        buttonWidth: '400px',
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     $("#cell_").multiselect({
         includeSelectAllOption: true,
-        buttonWidth: '300px',
-        dropLeft: true
+        buttonWidth: '400px',
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     $("#village_").multiselect({
         includeSelectAllOption: true,
-        buttonWidth: '300px',
-        dropLeft: true
+        buttonWidth: '400px',
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
 
@@ -157,7 +166,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                 $("#province_").multiselect('rebuild');
                 $("#province_").multiselect({
                     includeSelectAllOption: true,
-                    buttonWidth: '300px',
+                    buttonWidth: '400px',
                     dropLeft: true
                 });
  
@@ -179,8 +188,9 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                 $("#district_").multiselect('rebuild');
                 $("#district_").multiselect({
                     includeSelectAllOption: true,
-                    buttonWidth: '300px',
-                    dropLeft: true
+                    buttonWidth: '400px',
+                    dropLeft: true,
+                    maxHeight: 200
                 });
  
             });
@@ -202,8 +212,9 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                 $("#sector_").multiselect('rebuild');
                 $("#sector_").multiselect({
                     includeSelectAllOption: true,
-                    buttonWidth: '300px',
-                    dropLeft: true
+                    buttonWidth: '400px',
+                    dropLeft: true,
+                    maxHeight: 200
                 });
 
             });
@@ -224,8 +235,9 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                 $("#cell_").multiselect('rebuild');
                 $("#cell_").multiselect({
                     includeSelectAllOption: true,
-                    buttonWidth: '300px',
-                    dropLeft: true
+                    buttonWidth: '400px',
+                    dropLeft: true,
+                    maxHeight: 200
                 });
 
             }); 
@@ -248,8 +260,9 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                 $("#village_").multiselect('rebuild');
                 $("#village_").multiselect({
                     includeSelectAllOption: true,
-                    buttonWidth: '300px',
-                    dropLeft: true
+                    buttonWidth: '400px',
+                    dropLeft: true,
+                    maxHeight: 200
                 });
 
             });
