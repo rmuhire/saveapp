@@ -1,7 +1,7 @@
 <div class="" ng-controller="AgentCtrl">
    <div class="agent-view">
       <!--TABLE DISPLAY-->
-      <table class="table mytable">
+      <table class="table mytable" ng-show="agent">
          <thead>
             <tr class="table-header">
                <th>Agent</th>
@@ -21,7 +21,7 @@
             </tr>
          </tbody>
       </table>
-      <h2 ng-show="pmessage"> No agent!! </h2>
+      <h1 ng-show="no_agent"> No agent. </h1>
       <!--Pagination-->
 <!--
       <div class="text-center">
