@@ -1,25 +1,30 @@
 <div class="" ng-controller="PartnerCtrl">
     <div class="partner-view" id="partner-view">
-        <table class="table mytable">
-            <thead>
-                <tr class="table-header">
-                    <th>Partner</th>
-                    <th>Intervention Area</th>
-                    <th>Donor</th>
-                    <th>Duration(Months)</th>
-                    <th>Budget (USD)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="table-raw-style" id="partner-details" ng-repeat="project in projects">
-                    <td>{{ project.partner }}</td>
-                    <td>{{ project.intervention }}</td>
-                    <td>{{ project.donor }}</th>
-                    <td>{{ project.duration }}</td>
-                    <td>{{ project.budget }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div ng-show="partner">
+            <table class="table mytable">
+                <thead>
+                    <tr class="table-header">
+                        <th>Partner</th>
+                        <th>Intervention Area</th>
+                        <th>Donor</th>
+                        <th>Duration(Months)</th>
+                        <th>Budget (USD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-raw-style" id="partner-details" ng-repeat="project in projects">
+                        <td>{{ project.partner }}</td>
+                        <td>{{ project.intervention }}</td>
+                        <td>{{ project.donor }}</th>
+                        <td>{{ project.duration }}</td>
+                        <td>{{ project.budget }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="no_partner">
+            <h1>No Partners</h1>
+        </div>
         <!--Pagination-->
         <!--
             <div class="text-center">
