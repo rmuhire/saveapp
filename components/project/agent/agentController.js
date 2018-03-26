@@ -243,48 +243,51 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
     
     $scope.$on('LoadPorjectAgent', function(event, opt){
         
-        $scope.pmessage = false;
+        $scope.no_agent = false;
+        $scope.agent = false;
         AgentService.getProjectAgent(opt.project.id)
             .then(function(response){
-                var agent = response.data.project_agents;
-                var data = Array();
-                
-                agent.forEach(function(element){
-                    var json = new Object();
-                    json['name'] = element.users['name'];
-                    json['project_name'] = opt.project.name;
-                    AgentService.getAgentSavingGroup(element.users['sg_url'])
-                        .then(function(response){
-                            console.log(response);
-                            
-                            json['sg_count'] = response.data.pages['total'];
-                            console.log(response.data.pages['total']);
-                            
-                            // count sg members
-                            var sg = response.data.saving_group;
-                            var members = [];
-                            sg.forEach(function(element){
-                                var url = element.members_url;
-                                AgentService.getSavingGroupMember(url)
-                                    .then(function(response){
-                                        members.push(response.data.pages.total)
-                                    }).catch(function(response){
-                                    
-                                    });
+                if (response.data.project_agents.length > 0){
+                    $scope.no_agent = false;
+                    $scope.agent = true;
+                    var agent = response.data.project_agents;
+                    var data = Array();
+
+                    agent.forEach(function(element){
+                        var json = new Object();
+                        json['name'] = element.users['name'];
+                        json['project_name'] = opt.project.name;
+                        AgentService.getAgentSavingGroup(element.users['sg_url'])
+                            .then(function(response){
+                                console.log(response);
+
+                                json['sg_count'] = response.data.pages['total'];
+                                console.log(response.data.pages['total']);
+
+                                // count sg members
+                                var sg = response.data.saving_group;
+                                var members = [];
+                                sg.forEach(function(element){
+                                    var url = element.members_url;
+                                    AgentService.getSavingGroupMember(url)
+                                        .then(function(response){
+                                            members.push(response.data.pages.total)
+                                        }).catch(function(response){
+
+                                        });
+                                })
+
+                                json['members'] = members;
+
+                            }).catch(function(response){
+                                console.log(response);
                             })
-                            
-                            json['members'] = members;
-                            
-                        }).catch(function(response){
-                            console.log(response);
-                        })
-                    data.push(json);
-                });
-                
-                if (data.length > 0 ){
-                    $scope.items = data;
+                        data.push(json);
+                        $scope.items = data;
+                    });
                 }else{
-                    $scope.pmessage = true;
+                    $scope.no_agent = true;
+                    $scope.agent = false;
                 }
                 
                 
