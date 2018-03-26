@@ -393,23 +393,32 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
     
     
     $scope.$on('LoadProjectPartner', function(event, opt){
+        $scope.no_partner = false;
+        $scope.partner = false;
         console.log(opt.project)
         PartnerService.getProjectPartner(opt.project.project_partners)
             .then(function(response){
-                var partners = response.data.partners
-                var data = new Array()
-                partners.forEach(function(element, index){
-                    var json = new Object()
-                    console.log(element)
-                    json['partner'] = element.partner.name
-                    json['intervention'] = '12'
-                    json['donor'] = opt.project.donor
-                    json['duration'] = '6'
-                    json['budget'] = opt.project.budget
-                    data.push(json)
-                    $scope.projects = data
-                })
-                
+                if(response.data.partners.length > 0){
+                    $scope.no_partner = false;
+                    $scope.partner = true;
+                    console.log(response.data.partners, "partner mazo")
+                    var partners = response.data.partners
+                    var data = new Array()
+                    partners.forEach(function(element, index){
+                        var json = new Object()
+                        console.log(element)
+                        json['partner'] = element.partner.name
+                        json['intervention'] = '12'
+                        json['donor'] = opt.project.donor
+                        json['duration'] = '6'
+                        json['budget'] = opt.project.budget
+                        data.push(json)
+                        $scope.projects = data
+                    })
+                }else{
+                    $scope.no_partner = true;
+                    $scope.partner = false;
+                }
             }).catch(function(response){
                 console.log(response)
             })
