@@ -36,31 +36,41 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
     $("#province__").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
-        dropLeft: true
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     $("#district__").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
-        dropLeft: true
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     $("#sector__").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
-        dropLeft: true
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     $("#cell__").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
-        dropLeft: true
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     $("#village__").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '300px',
-        dropLeft: true
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     
@@ -80,7 +90,9 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
                 $("#province__").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
-                    dropLeft: true
+                    dropLeft: true,
+                    maxHeight: 200,
+                    disableIfEmpty: true
                 });
 
             })
@@ -102,7 +114,9 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
                 $("#district__").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
-                    dropLeft: true
+                    dropLeft: true,
+                    maxHeight: 200,
+                    disableIfEmpty: true
                 });
 
             });
@@ -125,7 +139,9 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
                 $("#sector__").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
-                    dropLeft: true
+                    dropLeft: true,
+                    maxHeight: 200,
+                    disableIfEmpty: true
                 });
 
             });
@@ -147,7 +163,9 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
                 $("#cell__").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
-                    dropLeft: true
+                    dropLeft: true,
+                    maxHeight: 200,
+                    disableIfEmpty: true
                 });
 
             });
@@ -169,7 +187,9 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
                 $("#village__").multiselect({
                     includeSelectAllOption: true,
                     buttonWidth: '300px',
-                    dropLeft: true
+                    dropLeft: true,
+                    maxHeight: 200,
+                    disableIfEmpty: true
                 });
 
             });
@@ -182,7 +202,9 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
     $("#project_").multiselect({
         includeSelectAllOption: true,
         buttonWidth: '266px',
-        dropLeft: true
+        dropLeft: true,
+        maxHeight: 200,
+        disableIfEmpty: true
     });
 
     
@@ -211,6 +233,7 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
     }
     
     $scope.organizationProject();
+    $scope.agent_added = false;
     
     $scope.addAgent = function(){
         // $scope.user
@@ -229,7 +252,9 @@ save.controller('AgentCtrl', function($scope, $http, $location, ProjectService, 
                 user_id['user_id'] = response.data.id;
                 AgentService.postAgentProject(project_id, JSON.stringify(user_id))
                     .then(function(){
-                        console.log("added");
+                        $scope.user = {};
+                        alert("Agent added");
+                        $scope.agent_added = true;
                     }).catch(function(){
                         console.log("added");
                     })
