@@ -330,6 +330,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
                  // post organization partnership
                         PartnerService.postProjectPartner(project_id, response.data.id).then(function(response){
                             $scope.partnerResponse = true;
+                             alert("Partner added");
                             $scope.ngo = {};
                             $scope.user = {};
                             console.log(response);
@@ -378,6 +379,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
             PartnerService.postProjectInterventionArea(JSON.stringify(village), project_id)
             .then(function(response){
                 $scope.project = {};
+                alert("Project added");
                 $scope.projectResponse = true;
                 $(".btn-project").removeAttr('disabled');
                 
