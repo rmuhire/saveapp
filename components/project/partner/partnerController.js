@@ -379,7 +379,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
             PartnerService.postProjectInterventionArea(JSON.stringify(village), project_id)
             .then(function(response){
                 $scope.project = {};
-                alert("Project added");
+                alert("Project area added");
                 $scope.projectResponse = true;
                 $(".btn-project").removeAttr('disabled');
                 
@@ -388,6 +388,7 @@ save.controller('PartnerCtrl', function($scope, $http, $location, PartnerService
             })  
         }
         
+//        $scope.postProjectArea(26, village);
         
         
 

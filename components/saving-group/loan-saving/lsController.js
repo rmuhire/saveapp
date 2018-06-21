@@ -58,11 +58,13 @@ save.controller('lsViewCtrl', function($scope, $http, $location, AgentService, M
                 var loan = new Array()
                 var suggestions = new Array('First', 'Second', 'Third', 'Fourth', 'Fifth')
                 cycles.forEach(function(element, index) {
+                    console.log(element, 'elment loans');
                     labels.push(suggestions[index])
                     saving.push(element.saving)
                     loan.push(element.loan)
                     $scope.barChart(labels, loan, saving)
                     $scope.current_cycle = labels[labels.length-1]
+                    console.log(labels, loan, saving, 'lables', 'loan', 'saving');
                 })
             }).catch(function(response) {
                 console.log(response);
